@@ -22,6 +22,7 @@ from .buying import (
     drunken_quest
 )
 
+
 player_inventory = Inventory()
 player_wallet = Money(currency="Gold", worth=0)
 

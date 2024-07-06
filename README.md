@@ -1,5 +1,7 @@
 # PySeas - Open Source Pirate (Adventure) Board Game
 
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com) 
+
 ## Project Description
 
 Welcome to PySeas, an open-source project to create an exciting and engaging board game in Python, inspired by the popular game Sea of Thieves! This project is perfect for anyone interested in game development, Python programming, and creative collaboration.
@@ -39,15 +41,15 @@ PySeas aims to bring the thrilling pirate adventures to the tabletop. This Pytho
 ```
   git clone https://github.com/ultimateownsz/pyseasgame.git
 ```
-<!-- **2. See how to contribute:** https://github.com/ultimateownsz/PySeasGame/blob/main/CONTRIBUTE.md -->
+**2. See how to contribute:** https://github.com/ultimateownsz/PySeasGame/blob/main/CONTRIBUTE.md
 
-**2. Install dependencies:**
+**3. Install dependencies:**
 ```
 pip instal pygame-ce
 ```
-**3. Contribute:** Choose an issue or feature to work on, or suggest your own improvements.
-**4. Collaborate:** Join our community discussions, share your progress, and seek feedback.
-**5. Run this project:**
+**4. Contribute:** Choose an issue or feature to work on, or suggest your own improvements.
+**5. Collaborate:** Join our community discussions, share your progress, and seek feedback.
+**6. Run this project:**
 ```
 python3 main.py
 ```
