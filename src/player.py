@@ -2,7 +2,7 @@ from random import randint
 
 from src.money import Money
 from src.inventory import Inventory
-# from validate_inputs import *
+
 
 class Player:
 

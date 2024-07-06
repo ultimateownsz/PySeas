@@ -1,4 +1,9 @@
-from src.buying import *
+# from src.buying import (
+#     basic_quest,
+#     medium_quest,
+#     hard_quest,
+#     drunken_quest
+# )
 
 class Money:
     '''The money class should be called something else perhaps, we should '''
@@ -32,21 +37,3 @@ class Money:
 
     def show_money(self) -> None:
         print(f"You have now an impressive amount of {self.worth} {self.currency}")
-
-    # def extract_item(self, extract) -> None:
-    #     if self.sell_chest:
-    #         extract.inventory = Inventory.remove_item(chest)
-        #     print(f"You sold {item} for {selling_price} {self.currency}")
-        # else:
-        #     print("Nothing like that is in your inventory!")
-
-    # def minus(self, pocket: int) -> None:
-    #     self.pocket = pocket
-    #     self.buy_quest(pocket)
-
-    # def plus(self) -> None:
-        
-                # self.item = Inventory.remove_item(item)
-        # if self.item:
-            
-# self.worth <= chest.chest_worth and self.worth >= chest.chest_worth

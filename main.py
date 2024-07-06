@@ -6,6 +6,7 @@ from src.player import Player
 
 from src.validate_inputs import validate_inputs
 
+
 class Game:
 
     def __init__(self) -> None:
