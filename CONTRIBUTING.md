@@ -19,4 +19,4 @@ Please note we have a code of conduct, please follow it in all your interactions
 - Discuss: Perhaps a discussion of context nd/or alternatives that were considered.
 
 ## Code of conduct
-https://github.com/ultimateownsz/PySeasGame/blob/main/CODE_OF_CONDUCT.md
+
