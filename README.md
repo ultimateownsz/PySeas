@@ -8,7 +8,9 @@ Welcome to PySeas, an open-source project to create an exciting and engaging boa
 
 ## About the Project
 
-PySeas aims to bring the thrilling pirate adventures to the tabletop. This Python-based board game will feature:
+PySeas aims to bring the thrilling pirate adventures to the tabletop.
+
+## Upcoming Features (WORK IN PROGRESS)
 
 - **Multiplayer options locally:** Play with or against your friends. As a pirate, you have multiple ways to achieve victory, making each game unique and dynamic.
 - **Strategic gameplay:** Navigate the seas via a board, plunder treasure, and outsmart rival pirates.
