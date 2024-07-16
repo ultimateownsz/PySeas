@@ -365,6 +365,21 @@ class Board:
 
     # this is an higher order function that calls the other functions to print out the board
     def print(self):
+        # After the function gets called it prints out this format of the board
+        #                         ROW C
+        #     _________________________________________________
+        #     | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 |
+        #     | 17 |                                       | 28 |
+        # R   | 16 |                                       | 29 | R
+        # O   | 15 |                                       | 30 | O
+        # W   | 14 |                                       | 31 | W
+        #     | 13 |                                       | 32 | 
+        # B   | 12 |                                       | 33 | D
+        #     | 11 |                                       | 34 |
+        #     | 10 |_______________________________________| 35 | 
+        #     |  9 |  8 |  7 |  6 |  5 |  4 |  3 |  2 |  1 |  0 |
+
+        #                             ROW A
         self.print_header_board()
         self.print_left_right_board()
         self.print_footer_board()
