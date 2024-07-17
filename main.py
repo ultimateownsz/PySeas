@@ -1,21 +1,26 @@
 import os
+from dataclasses import dataclass, field
+from typing import List
 
-from src.board import Board
-from src.player import Player
-# from src.settings import settings
+from src.py_version.board import Board
+from src.py_version.player import Player
+# from src.py_version.settings import settings
 
-from src.validate_inputs import validate_inputs
+from src.py_version.validate_inputs import validate_inputs
 
 
+@dataclass
 class Game:
 
-    def __init__(self) -> None:
-        self.running = False
-        self.player_1 = Player(name_of_player=str, player_id=0)
-        self.player_2 = Player(name_of_player=str, player_id=1)
-        self.players = [self.player_1, self.player_2]
-        self.current_player_index = 0
+    players: List[Player] = field(init=False)
+    board: Board = field(init=False)
+    current_player_index: int = 0
+    running: bool = False
+
+    def __post_init__(self):
+        self.players = [Player(name_of_player=str, player_id=0), Player(name_of_player=str, player_id=1)]
         self.board = Board(self.players)
+
 
     # logic which players turn it is
     def toggle_player_index(self):
@@ -33,6 +38,7 @@ class Game:
                 self.clear_screen()
                 break
         self.board.print()
+        self.player_switch(game.players)
 
     def player_switch(self, players):
         '''This decides what the current player pos is and then switch to the other player, when the player gets asked to end the turn'''
@@ -93,4 +99,3 @@ class Game:
 if __name__ == "__main__":
     game = Game()
     game.run()
-    game.player_switch(game.players)

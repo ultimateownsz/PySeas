@@ -1,17 +1,12 @@
-# from src.buying import (
-#     basic_quest,
-#     medium_quest,
-#     hard_quest,
-#     drunken_quest
-# )
+from dataclasses import dataclass
 
+@dataclass
 class Money:
     '''The money class should be called something else perhaps, we should '''
-    def __init__(self, currency: str, worth: int, max_worth: int = 1500000) -> None:
-        self.currency = currency
-        self.worth = worth
-        self.max_worth = max_worth
-        # self.purchase = basic_quest
+    currency: str
+    worth: int
+    max_worth: int = 1500000
+    # self.purchase = basic_quest
 
    
     def buy(self, purchase_amount) -> None:

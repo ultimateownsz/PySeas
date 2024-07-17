@@ -1,4 +1,4 @@
-import random
+from random import randrange, choice
 
 from .validate_inputs import validate_inputs
 from .inventory import Inventory
@@ -6,7 +6,7 @@ from .money import Money
 from .selling import (
     chest_wealth,
     chest_ancient,
-    chest_ashen,
+    chest_volcanic,
     chest_captain,
     chest_cursed,
     chest_greg,
@@ -24,7 +24,7 @@ from .buying import (
 
 
 player_inventory = Inventory()
-player_wallet = Money(currency="Gold", worth=0)
+player_wallet = Money(currency=str, worth=int)
 
 class Board:
     def __init__(self, players):
@@ -36,7 +36,7 @@ class Board:
             "isle", "pirate_king", "isle", "wreckage_isle", "harbor", "ghost_brig", 
             "harbor", "event", "isle", "isle", "pirate_king", "harbor", "captain_blazeheart", 
             "harbor", "the_syndicate", "isle", "chance", "harbor", "harbor", "pirate_king", 
-            "wreckage_isle", "red_sea", "red_sea", "red_sea"
+            "wreckage_isle", "dangerous_sea", "dangerous_sea", "dangerous_sea"
         ]
 
         # created a list with an index and locations in a dict to handle the game logic of landing on a tile on the board to call a function     
@@ -61,7 +61,7 @@ class Board:
             "change": self.visit_change,  # purple
             "wreckage_isle": self.visit_wreckage_isle,  # brown
             "ghost_brig": self.visit_ghost_brig,  # black
-            "red_sea": self.visit_red_sea,  # white
+            "dangerous_sea": self.visit_dangerous_sea,  # white
         }
         self.players = {player.player_id: 0 for player in players}
 
@@ -112,15 +112,16 @@ class Board:
         loc_2 = "Green Tornado"
 
         sea_events = [loc_1, loc_2]
-        event = random.choice(sea_events)
+        event = choice(sea_events)
         print(f"\nYou sail with your crew and on the horizon you see", event)
 
         if event == loc_1:
             player_inventory.extension(chest_rage)
-            print("""You see a specific storming red tornado on a horizon and decide to sail and confront it! Uppon arrival you see the legendary Ashen Lord Red Ruth. 
+            print("""You see a specific storming red tornado on a horizon and decide to sail and confront it! Uppon arrival you see the legendary Ghost Casper. 
                      You emmidiatly engage in a battle with the Ashen Lord. Its a truely hellish battle. She summons her troops to help her fight you off. 
                      It rains fire balls out of the red sky! Everywhere it shoots fire! You barely survive that fight but in the end you kill the ruthless Lord and het your reward...""")
             print("\nYou get a dangerous Doom Chest!")
+            return 
         elif event == loc_2:
             player_inventory.extension(chest_cursed)
             print("""You see a specific storming green tornado on a horizon and decide to sail and confront it! 
@@ -143,7 +144,7 @@ class Board:
         mermaid = "Mermaid Twins"
 
         harbors = [aquila, north_star, great_har, steph_spoils, great_bear, phoenix_store, orion, mermaid]
-        rand_harbor = random.randrange(len(harbors))
+        rand_harbor = randrange(len(harbors))
         print(f"You arrived at {harbors[rand_harbor]}")
 
     # a randomizer of questions the pirate king could ask you if you landed on his tile
@@ -155,7 +156,7 @@ class Board:
                 C. Exploring ancient ruins """
         pirate_king = [q1]
 
-        question = random.choice(pirate_king)
+        question = choice(pirate_king)
         print(f"Let me ask ye a question, matey!", question)
         is_valid_choice = False
         while not is_valid_choice:
@@ -183,7 +184,7 @@ class Board:
 
         cap_blaze = [q1]
 
-        question = random.choice(cap_blaze)
+        question = choice(cap_blaze)
         print(f"Let me ask ye a question, matey!", question)
         is_valid_choice = False
         while not is_valid_choice:
@@ -260,20 +261,20 @@ class Board:
                 print("This is what you can sell: ")
                 player_inventory.show_eq()
                 print("""Chest's overwiev:
-                    1. Chest of Fortune - 9500 gold
+                    1. Chest of Wealth - 9500 gold
                     2. Legendary Chest - 8600 gold
                     3. Captain's Chest - 560 gold
-                    4. Chest of the Damned - 1160 gold
-                    5. Chest of a Thousand Grogs - 2500 gold
-                    6. Coral Marauder's Chest - 910 gold
-                    7. Ashen Seafarer's Chest - 520 gold
+                    4. Chest of the Cursed One - 1160 gold
+                    5. Chest of a the drunken Greg - 2500 gold
+                    6. Mermaid's Chest - 910 gold
+                    7. Volcanic Chest - 520 gold
                     8. Stronghold's Chest - 2000 gold
-                    9. Chest of Rage - 3500 gold
-                    10. Chest of Ancient Tributes - 3000 gold
+                    9. Chest of Doom - 3500 gold
+                    10. Chest of the Ancient - 3000 gold
                     """)
 
                 while True:
-                    chest_choice = input("What would you like to sell? (Press q to quit selling): ").lower().isnumeric()
+                    chest_choice = input("What would you like to sell? (Press q to quit selling): ").lower()
                     if chest_choice == "q":
                         break
                     if chest_choice == "1":
@@ -295,8 +296,8 @@ class Board:
                         player_wallet.sell_chest(chest_mermaid)
                         player_inventory.remove_item(chest_mermaid.name)                   
                     elif chest_choice == "7":
-                        player_wallet.sell_chest(chest_ashen)
-                        player_inventory.remove_item(chest_ashen.name)                     
+                        player_wallet.sell_chest(chest_volcanic)
+                        player_inventory.remove_item(chest_volcanic.name)                     
                     elif chest_choice == "8":
                         player_wallet.sell_chest(chest_strong)
                         player_inventory.remove_item(chest_strong.name)
@@ -332,7 +333,7 @@ class Board:
 
         wreck_land = [wreck_1, wreck_2, wreck_3, land]
         # rand_land = random.randrange(len(wreck_land))
-        random_item = random.choice(wreck_land)
+        random_item = choice(wreck_land)
         print("You dwell with your crew through the sea and find", random_item)
 
         if random_item == wreck_1:
@@ -358,7 +359,7 @@ class Board:
         # self.test()
 
     # in sea of thieves you have boundaries, we made some tiles the red sea, maybe redundant but in practice it is okay for what you do with it
-    def visit_red_sea(self):
+    def visit_dangerous_sea(self):
         '''We need another name for red sea.'''
         print("You are sailing in the dangerous sea.")
         # self.test()

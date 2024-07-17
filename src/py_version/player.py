@@ -1,19 +1,24 @@
 from random import randint
+from dataclasses import dataclass, field
+from typing import List
 
-from src.money import Money
-from src.inventory import Inventory
+from src.py_version.money import Money
+from src.py_version.inventory import Inventory
 
-
+@dataclass
 class Player:
 
-    def __init__(self, name_of_player, player_id):
-        self.name_of_player = name_of_player
-        self.player_id = player_id
-        self.inventory = Inventory().inventory
+    name_of_player: str
+    player_id: int
+    inventory: List[str] = field(default_factory=list)
+    wallet: int = 0
+    board_index: int = 0
+
+    def __post_init__(self):
+        self.inventory = Inventory().items
         self.wallet = Money(currency="gold", worth=0).worth
-        self.board_index = 0
-        # self.roll_history_p1 = []
-        # self.roll_history_p2 = []
+    # self.roll_history_p1 = []
+    # self.roll_history_p2 = []
     
     def print_info(self):
         print(f"Arrr.. Mateyy {self.name_of_player.capitalize()} Down below you can see your stats:\n") 

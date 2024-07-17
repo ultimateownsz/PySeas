@@ -18,7 +18,7 @@ chest_greg = Selling(name="Chest of the drunken Greg",
                      chest_worth=2500)
 chest_mermaid = Selling(name="Mermaid's Chest",
                       chest_worth=910)
-chest_ashen = Selling(name="Seafarer's Chest",
+chest_volcanic = Selling(name="Volcanic Chest",
                       chest_worth=520)
 chest_strong = Selling(name="Stronghold Chest",
                        chest_worth=2000)

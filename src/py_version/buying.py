@@ -1,9 +1,11 @@
+from dataclasses import dataclass
+
+@dataclass
 class Buying:
     '''There are some problems with how the game perceives buying items. it needs to be fixed or it needs to be reworked entirely.'''
-    def __init__(self, name: str, quest_type: str, quest_worth: int):
-        self.name = name
-        self.quest_type = quest_type
-        self.quest_worth = quest_worth
+    name: str
+    quest_type: str
+    quest_worth:int
 
 basic_quest = Buying(name="Quest for the burried treasure",
                       quest_type="Basic Quest",
