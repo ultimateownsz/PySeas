@@ -26,20 +26,21 @@ from .buying import (
 player_inventory = Inventory()
 player_wallet = Money(currency=str, worth=int)
 
+
 class Board:
     def __init__(self, players):
 
-        # all the sea of thieves inspired locations you can visit on the board        
+        # all the sea of thieves inspired locations you can visit on the board
         self.locations = [
-            "start", "isle", "event", "isle", "harbor", "pirate_king", "isle", 
-            "captain_blazeheart", "harbor", "the_syndicate", "harbor", "change", "isle", 
-            "isle", "pirate_king", "isle", "wreckage_isle", "harbor", "ghost_brig", 
-            "harbor", "event", "isle", "isle", "pirate_king", "harbor", "captain_blazeheart", 
-            "harbor", "the_syndicate", "isle", "chance", "harbor", "harbor", "pirate_king", 
+            "start", "isle", "event", "isle", "harbor", "pirate_king", "isle",
+            "captain_blazeheart", "harbor", "the_syndicate", "harbor", "change", "isle",
+            "isle", "pirate_king", "isle", "wreckage_isle", "harbor", "ghost_brig",
+            "harbor", "event", "isle", "isle", "pirate_king", "harbor", "captain_blazeheart",
+            "harbor", "the_syndicate", "isle", "chance", "harbor", "harbor", "pirate_king",
             "wreckage_isle", "dangerous_sea", "dangerous_sea", "dangerous_sea"
         ]
 
-        # created a list with an index and locations in a dict to handle the game logic of landing on a tile on the board to call a function     
+        # created a list with an index and locations in a dict to handle the game logic of landing on a tile on the board to call a function
         self.locations_with_index = []
         for i, c in enumerate(self.locations):
             self.locations_with_index.append({
@@ -117,16 +118,17 @@ class Board:
 
         if event == loc_1:
             player_inventory.extension(chest_rage)
-            print("""You see a specific storming red tornado on a horizon and decide to sail and confront it! Uppon arrival you see the legendary Ghost Casper. 
-                     You emmidiatly engage in a battle with the Ashen Lord. Its a truely hellish battle. She summons her troops to help her fight you off. 
-                     It rains fire balls out of the red sky! Everywhere it shoots fire! You barely survive that fight but in the end you kill the ruthless Lord and het your reward...""")
+            print("""You see a specific storming red tornado on a horizon and decide to sail and confront it! Uppon arrival you see the legendary Ghost Casper.
+                     You emmidiatly engage in a battle with the Ashen Lord. Its a truely hellish battle. She summons her troops to help her fight you off.
+                     It rains fire balls out of the red sky! Everywhere it shoots fire! You barely survive that fight but in the end you kill the ruthless Lord
+                     and het your reward...""")
             print("\nYou get a dangerous Doom Chest!")
-            return 
+            return
         elif event == loc_2:
             player_inventory.extension(chest_cursed)
-            print("""You see a specific storming green tornado on a horizon and decide to sail and confront it! 
-                  You arrive and what you see is a frightening sight. Ghost ships come out of portals appearing on the sea! 
-                  You fight them off. You fight them all off! Heaps and heaps of waves of ghos ships appear and you and your crew fight them until they're all sunk! 
+            print("""You see a specific storming green tornado on a horizon and decide to sail and confront it!
+                  You arrive and what you see is a frightening sight. Ghost ships come out of portals appearing on the sea!
+                  You fight them off. You fight them all off! Heaps and heaps of waves of ghos ships appear and you and your crew fight them until they're all sunk!
                   You see your price on the see!""")
             print("\nYou get a dangerous Cursed Chest!")
         return event

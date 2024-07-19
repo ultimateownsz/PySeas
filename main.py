@@ -21,7 +21,6 @@ class Game:
         self.players = [Player(name_of_player=str, player_id=0), Player(name_of_player=str, player_id=1)]
         self.board = Board(self.players)
 
-
     # logic which players turn it is
     def toggle_player_index(self):
         if self.current_player_index == 0:
@@ -64,14 +63,13 @@ class Game:
             stop_turn = validate_inputs("\nDo you want to end your turn? (yes/no) \n")
             if stop_turn.lower() in ["yes", "y"]:
                 self.toggle_player_index()
-                Board(players).print()  
+                Board(players).print()
             elif stop_turn.lower() in ["no", "n"]:
                 print("\nYou must continue your turn.")
                 self.toggle_player_index()
                 Board(players).print()
             else:
                 print("Input error. Please answer yes or no.")
-
 
     @staticmethod
     def clear_screen():
