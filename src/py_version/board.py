@@ -13,14 +13,9 @@ from .selling import (
     chest_legend,
     chest_mermaid,
     chest_rage,
-    chest_strong
+    chest_strong,
 )
-from .buying import (
-    basic_quest,
-    medium_quest,
-    hard_quest,
-    drunken_quest
-)
+from .buying import basic_quest, medium_quest, hard_quest, drunken_quest
 
 
 player_inventory = Inventory()
@@ -32,20 +27,49 @@ class Board:
 
         # all the sea of thieves inspired locations you can visit on the board
         self.locations = [
-            "start", "isle", "event", "isle", "harbor", "pirate_king", "isle",
-            "captain_blazeheart", "harbor", "the_syndicate", "harbor", "change", "isle",
-            "isle", "pirate_king", "isle", "wreckage_isle", "harbor", "ghost_brig",
-            "harbor", "event", "isle", "isle", "pirate_king", "harbor", "captain_blazeheart",
-            "harbor", "the_syndicate", "isle", "chance", "harbor", "harbor", "pirate_king",
-            "wreckage_isle", "dangerous_sea", "dangerous_sea", "dangerous_sea"
+            "start",
+            "isle",
+            "event",
+            "isle",
+            "harbor",
+            "pirate_king",
+            "isle",
+            "captain_blazeheart",
+            "harbor",
+            "the_syndicate",
+            "harbor",
+            "change",
+            "isle",
+            "isle",
+            "pirate_king",
+            "isle",
+            "wreckage_isle",
+            "harbor",
+            "ghost_brig",
+            "harbor",
+            "event",
+            "isle",
+            "isle",
+            "pirate_king",
+            "harbor",
+            "captain_blazeheart",
+            "harbor",
+            "the_syndicate",
+            "isle",
+            "chance",
+            "harbor",
+            "harbor",
+            "pirate_king",
+            "wreckage_isle",
+            "dangerous_sea",
+            "dangerous_sea",
+            "dangerous_sea",
         ]
 
         # created a list with an index and locations in a dict to handle the game logic of landing on a tile on the board to call a function
         self.locations_with_index = []
         for i, c in enumerate(self.locations):
-            self.locations_with_index.append({
-                "index": i, "location": c
-            })
+            self.locations_with_index.append({"index": i, "location": c})
         self.current_position: int = self.locations_with_index[0]["index"]
 
         # when a player rolls the dice he/she lands on one of these tiles and a function gets called
@@ -67,17 +91,17 @@ class Board:
         self.players = {player.player_id: 0 for player in players}
 
     def visit_locations_by_index(self, index: int):
-        '''
+        """
         This handles all the functions in self.locations_actions
         When a player lands on a tile the action variable gets called and via that logic a function gets called when it is in the self.locations list
-        '''
+        """
         location = self.locations[index]
         action = self.locations_actions.get(location)
         if action:
             action()
 
     def update_player_position(self, player, total_roll):
-        '''Logic of the game that updates the current player pos to a new player pos when the dices are throwed'''
+        """Logic of the game that updates the current player pos to a new player pos when the dices are throwed"""
         # current position of the player
         current_position = self.players[player.player_id]
         # new position after roll
@@ -87,10 +111,11 @@ class Board:
         return new_position
 
     def test(self):
-        '''
+        """
         This is an old function cause before I was still busy by implementing the logic when you throw the dice, land on a tile, a function gets called
-        '''
+        """
         pass
+
     #     print("Board is working!")
 
     def visit_start(self):
@@ -118,24 +143,28 @@ class Board:
 
         if event == loc_1:
             player_inventory.extension(chest_rage)
-            print("""You see a specific storming red tornado on a horizon and decide to sail and confront it! Uppon arrival you see the legendary Ghost Casper.
+            print(
+                """You see a specific storming red tornado on a horizon and decide to sail and confront it! Uppon arrival you see the legendary Ghost Casper.
                      You emmidiatly engage in a battle with the Ashen Lord. Its a truely hellish battle. She summons her troops to help her fight you off.
                      It rains fire balls out of the red sky! Everywhere it shoots fire! You barely survive that fight but in the end you kill the ruthless Lord
-                     and het your reward...""")
+                     and het your reward..."""
+            )
             print("\nYou get a dangerous Doom Chest!")
             return
         elif event == loc_2:
             player_inventory.extension(chest_cursed)
-            print("""You see a specific storming green tornado on a horizon and decide to sail and confront it!
+            print(
+                """You see a specific storming green tornado on a horizon and decide to sail and confront it!
                   You arrive and what you see is a frightening sight. Ghost ships come out of portals appearing on the sea!
                   You fight them off. You fight them all off! Heaps and heaps of waves of ghos ships appear and you and your crew fight them until they're all sunk!
-                  You see your price on the see!""")
+                  You see your price on the see!"""
+            )
             print("\nYou get a dangerous Cursed Chest!")
         return event
 
     # just as sea of thieves you could visit the different sea posts in the game.
     def visit_harbor(self):
-        '''I came up with some star constellation to name these harbors'''
+        """I came up with some star constellation to name these harbors"""
         aquila = "The Aquila"
         north_star = "The North Star Constellation"
         great_har = "The Great Trade Harbor"
@@ -145,7 +174,16 @@ class Board:
         orion = "Orion the Hunter"
         mermaid = "Mermaid Twins"
 
-        harbors = [aquila, north_star, great_har, steph_spoils, great_bear, phoenix_store, orion, mermaid]
+        harbors = [
+            aquila,
+            north_star,
+            great_har,
+            steph_spoils,
+            great_bear,
+            phoenix_store,
+            orion,
+            mermaid,
+        ]
         rand_harbor = randrange(len(harbors))
         print(f"You arrived at {harbors[rand_harbor]}")
 
@@ -204,55 +242,67 @@ class Board:
                 print("Well done, privateer! I'll reward you good for this one.")
 
     def visit_the_syndicate(self):
-        '''This is the shop where you could buy quests, sell chests you found or got via events etc'''
+        """This is the shop where you could buy quests, sell chests you found or got via events etc"""
 
         print("You visit the Syndicate.")
         while True:
-            print("""Welcome to the shop, privateer! There are a couple of actions you could do!:
+            print(
+                """Welcome to the shop, privateer! There are a couple of actions you could do!:
             1. Choose and buy a quest for a chest!
             2. Check your inventory to see if you have enough gold!
             3. If you have something you'd like to sell, sell it here!
             4. Check how much gold you have!
             5. If you don't mean no bussiness, I'll welcome you another round! Farewell!
-            """)
+            """
+            )
             choice = input("So, what are ya wating for? What is it?: ")
 
             if choice == "1":
-                print("""Available Quests:
+                print(
+                    """Available Quests:
                 1. Quest for the burried treasure - 200 gold
                 2. Quest for the Lost Chest - 1000 gold
                 3. Quest for the Drunken Sailor - 1250 gold
                 4. Quest for the The Vault - 1750 gold
-                """)
+                """
+                )
                 quest_choice = input("Wich one would you like to buy, privateer? ")
                 if quest_choice == "1":
                     player_wallet.buy_quest(basic_quest)
                     player_inventory.extension(chest_captain.name)
-                    print("""You've got a map that leads to the burried treasure.  
-                             You make your way all the way to Cutlass Cay and dig out a wonderfull Captain's Chest""")
+                    print(
+                        """You've got a map that leads to the burried treasure.  
+                             You make your way all the way to Cutlass Cay and dig out a wonderfull Captain's Chest"""
+                    )
                 elif quest_choice == "2":
                     player_wallet.buy_quest(medium_quest)
                     player_inventory.extension(chest_strong.name)
-                    print("""You got a misterious compass. Although your facing north, the compass doesnt point that way.  
+                    print(
+                        """You got a misterious compass. Although your facing north, the compass doesnt point that way.  
                              It seems that the misterious compass shows you the way to the Lost Treasure!  
                              You quickly gather your crew and sail to the location given by the misterious compass.  
                              You arrive at a vulcanic isle and you see the treasure but its guarded by skeletons.  
-                             You and your crew quickly fight them of and take whats yours! """)
+                             You and your crew quickly fight them of and take whats yours! """
+                    )
                 elif quest_choice == "3":
                     player_wallet.buy_quest(hard_quest)
                     player_inventory.extension(chest_ancient.name)
-                    print("""The Pirate gives you a location of the Drunken Sailor. The Hoarder adds that he is in a possession of a great price! 
+                    print(
+                        """The Pirate gives you a location of the Drunken Sailor. The Hoarder adds that he is in a possession of a great price! 
                              You sail forth to the location and you find a port. You ask the locals of they know about the Drunken Sailor and they tell you about the local tavern. There you find the drunken bastard sleeping with a barrel under his foot. 
                              You slowly but quietly take the barrel out of his possession and you take it onto your ship. You notice that when holding the treasure your view is distorted and you can’t walk straight. You’re drunk!
-                             It seems to be the effect of holding the barrel. You also hear in your head the famous sea shanty “Drunken Sailor”... Great! Now you have the chest of thousands Grogs and a shanty in your head...""")
+                             It seems to be the effect of holding the barrel. You also hear in your head the famous sea shanty “Drunken Sailor”... Great! Now you have the chest of thousands Grogs and a shanty in your head..."""
+                    )
                 elif quest_choice == "4":
                     player_wallet.buy_quest(drunken_quest)
                     player_inventory.extension(chest_greg.name)
-                    print("""You raise your sails and sail forth to the location.  
+                    print(
+                        """You raise your sails and sail forth to the location.  
                              Uppon arrival it seems that there is no treasure but only another map that leads to a new locations.  
                              You sail to a couple isles with your new maps you keep finding and you arrive at a fort where you find a burned compas.  
                              It leeds you to a isle and the vault on it. You open the vault and see all the treasure it contains.  
-                             You take the first chest and suddenly the vault starts to close. You panic and run away with only one chest. """)
+                             You take the first chest and suddenly the vault starts to close. You panic and run away with only one chest. """
+                    )
                 else:
                     print("I don't have that quest in me shop! Try again!")
 
@@ -262,7 +312,8 @@ class Board:
             elif choice == "3":
                 print("This is what you can sell: ")
                 player_inventory.show_eq()
-                print("""Chest's overwiev:
+                print(
+                    """Chest's overwiev:
                     1. Chest of Wealth - 9500 gold
                     2. Legendary Chest - 8600 gold
                     3. Captain's Chest - 560 gold
@@ -273,7 +324,8 @@ class Board:
                     8. Stronghold's Chest - 2000 gold
                     9. Chest of Doom - 3500 gold
                     10. Chest of the Ancient - 3000 gold
-                    """)
+                    """
+                )
 
                 while True:
                     chest_choice = input("What would you like to sell? (Press q to quit selling): ").lower()
@@ -284,22 +336,22 @@ class Board:
                         player_inventory.remove_item(chest_wealth.name)
                     elif chest_choice == "2":
                         player_wallet.sell_chest(chest_legend)
-                        player_inventory.remove_item(chest_legend.name)  
+                        player_inventory.remove_item(chest_legend.name)
                     elif chest_choice == "3":
                         player_wallet.sell_chest(chest_captain)
                         player_inventory.remove_item(chest_captain.name)
                     elif chest_choice == "4":
                         player_wallet.sell_chest(chest_cursed)
-                        player_inventory.remove_item(chest_cursed.name)                       
+                        player_inventory.remove_item(chest_cursed.name)
                     elif chest_choice == "5":
                         player_wallet.sell_chest(chest_greg)
-                        player_inventory.remove_item(chest_greg.name)                      
+                        player_inventory.remove_item(chest_greg.name)
                     elif chest_choice == "6":
                         player_wallet.sell_chest(chest_mermaid)
-                        player_inventory.remove_item(chest_mermaid.name)                   
+                        player_inventory.remove_item(chest_mermaid.name)
                     elif chest_choice == "7":
                         player_wallet.sell_chest(chest_volcanic)
-                        player_inventory.remove_item(chest_volcanic.name)                     
+                        player_inventory.remove_item(chest_volcanic.name)
                     elif chest_choice == "8":
                         player_wallet.sell_chest(chest_strong)
                         player_inventory.remove_item(chest_strong.name)
@@ -340,19 +392,25 @@ class Board:
 
         if random_item == wreck_1:
             player_inventory.extension(chest_mermaid)
-            print("""A great man'o'war galleon that once was feared on the seas... Now, its just a wreck. It seems a Pirate Legend has defeated the Legendary ship. 
-                     You dive into the water and swim into the shipwreck.!""")
+            print(
+                """A great man'o'war galleon that once was feared on the seas... Now, its just a wreck. It seems a Pirate Legend has defeated the Legendary ship. 
+                     You dive into the water and swim into the shipwreck.!"""
+            )
             print("\nYou find a Coral Marauder's Chest!")
         elif random_item == wreck_2:
             player_inventory.extension(chest_strong)
-            print("""Once the most powerfull ship that these seas have ever seen. Fast, a strong fire power and mighty ram attack. 
+            print(
+                """Once the most powerfull ship that these seas have ever seen. Fast, a strong fire power and mighty ram attack. 
                      Now it's just shipwreck with many others, but its legend goes on...
-                     You dive into the water and swim into the shipwreck.""")
+                     You dive into the water and swim into the shipwreck."""
+            )
             print("\nYou find a Stronghold chest!")
         elif random_item == wreck_3:
             player_inventory.extension(chest_legend)
-            print("""Every Pirate knows the legend of the Black Pearl! Once the fastest ship on the seas, a ghost ship, with black sails, a damned crew and a Captain so evil that hell itself spat him back out... 
-                     It has been told that people entering the black pearl never came back, but then, where are the stories comming from? You dive into the water and swim into the shipwreck.""")
+            print(
+                """Every Pirate knows the legend of the Black Pearl! Once the fastest ship on the seas, a ghost ship, with black sails, a damned crew and a Captain so evil that hell itself spat him back out... 
+                     It has been told that people entering the black pearl never came back, but then, where are the stories comming from? You dive into the water and swim into the shipwreck."""
+            )
             print("\n You find a Chest of the Damned!")
 
     # we wanted to have this as a jail, we could not get to this and hope we may get it later if we refactor the game to pygame for instance
@@ -362,7 +420,7 @@ class Board:
 
     # in sea of thieves you have boundaries, we made some tiles the red sea, maybe redundant but in practice it is okay for what you do with it
     def visit_dangerous_sea(self):
-        '''We need another name for red sea.'''
+        """We need another name for red sea."""
         print("You are sailing in the dangerous sea.")
         # self.test()
 
@@ -376,10 +434,10 @@ class Board:
         # R   | 16 |                                       | 29 | R
         # O   | 15 |                                       | 30 | O
         # W   | 14 |                                       | 31 | W
-        #     | 13 |                                       | 32 | 
+        #     | 13 |                                       | 32 |
         # B   | 12 |                                       | 33 | D
         #     | 11 |                                       | 34 |
-        #     | 10 |_______________________________________| 35 | 
+        #     | 10 |_______________________________________| 35 |
         #     |  9 |  8 |  7 |  6 |  5 |  4 |  3 |  2 |  1 |  0 |
 
         #                             ROW A
@@ -388,7 +446,7 @@ class Board:
         self.print_footer_board()
 
     def print_header_board(self) -> None:
-        '''Prints out the header of the board'''
+        """Prints out the header of the board"""
 
         row_c = self.locations_with_index[18:28]
         print(" ._________________________________________________. ")
@@ -402,11 +460,11 @@ class Board:
 
         # print the header with a '|' on both ends
         print(" | " + header + " | ")
-    
-    def print_left_right_board(self) -> None:
-        '''Prints the left/right border of the board'''
 
-         # haal de rijen met indexnummers op
+    def print_left_right_board(self) -> None:
+        """Prints the left/right border of the board"""
+
+        # haal de rijen met indexnummers op
         row_b = self.locations_with_index[10:18]
         row_d = self.locations_with_index[28:36]
 
@@ -421,9 +479,9 @@ class Board:
 
             board_row = f" | {cell_column_b} |                                       | {cell_column_d} |"
             print(board_row)
-    
+
     def print_footer_board(self) -> None:
-        '''Prints the footer of the board'''
+        """Prints the footer of the board"""
 
         # gets the first row of all index numbers
         row_a = self.locations_with_index[0:10]

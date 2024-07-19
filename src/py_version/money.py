@@ -1,14 +1,15 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class Money:
-    '''The money class should be called something else perhaps, we should '''
+    """The money class should be called something else perhaps, we should"""
+
     currency: str
     worth: int
     max_worth: int = 1500000
     # self.purchase = basic_quest
 
-   
     def buy(self, purchase_amount) -> None:
         self.worth -= purchase_amount
         self.worth = max(self.worth, 0)

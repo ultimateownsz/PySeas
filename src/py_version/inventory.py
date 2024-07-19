@@ -1,9 +1,11 @@
 from dataclasses import dataclass, field
 from typing import List
 
+
 @dataclass
 class Inventory:
-    '''The inventory has some problems with appending the right items, also because we use lists it can become a bit disorganised to store those items'''
+    """The inventory has some problems with appending the right items, also because we use lists it can become a bit disorganised to store those items"""
+
     items: List = field(default_factory=list)
 
     def extension(self, new_item: str) -> None:
