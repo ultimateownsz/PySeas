@@ -2,8 +2,8 @@ from random import randint
 from dataclasses import dataclass, field
 from typing import List
 
-from src.py_version.money import Money
-from src.py_version.inventory import Inventory
+from py_version.money import Money
+from py_version.inventory import Inventory
 
 @dataclass
 class Player:

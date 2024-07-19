@@ -3,4 +3,4 @@ tox==4.4.12
 pytest==7.3.2
 pytest-cov==4.0.0
 mypy==1.4.1
-requests>=2.32.3  # Including other dependencies as needed
+requests>=2.32.3
