@@ -25,10 +25,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install tox
 
-    - name: Run Flake8
-      run: |
-        tox -e flake8
-
     - name: Install Black
       run: |
         pip install black
@@ -36,6 +32,10 @@ jobs:
     - name: Run Black
       run: |
         black --check --line-length 160 src tests
+    
+    - name: Run Flake8
+      run: |
+        tox -e flake8
 
   test:
     runs-on: ${{ matrix.os }}
