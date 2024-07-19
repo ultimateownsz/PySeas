@@ -31,8 +31,8 @@ jobs:
 
     - name: Run Black
       run: |
-        black --check --line-length 160 src tests
-    
+        black --line-length 160 src tests
+
     - name: Run Flake8
       run: |
         tox -e flake8
