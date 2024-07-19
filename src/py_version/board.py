@@ -139,7 +139,7 @@ class Board:
 
         sea_events = [loc_1, loc_2]
         event = choice(sea_events)
-        print(f"\nYou sail with your crew and on the horizon you see", event)
+        print(f"\nYou sail with your crew and on the horizon you see {event}")
 
         if event == loc_1:
             player_inventory.extension(chest_rage)
@@ -156,7 +156,8 @@ class Board:
             print(
                 """You see a specific storming green tornado on a horizon and decide to sail and confront it!
                   You arrive and what you see is a frightening sight. Ghost ships come out of portals appearing on the sea!
-                  You fight them off. You fight them all off! Heaps and heaps of waves of ghos ships appear and you and your crew fight them until they're all sunk!
+                  You fight them off. You fight them all off! Heaps and heaps of waves of ghos ships appear and you and your
+                  crew fight them until they're all sunk!
                   You see your price on the see!"""
             )
             print("\nYou get a dangerous Cursed Chest!")
@@ -197,7 +198,7 @@ class Board:
         pirate_king = [q1]
 
         question = choice(pirate_king)
-        print(f"Let me ask ye a question, matey!", question)
+        print(f"Let me ask ye a question, matey! \n{question}")
         is_valid_choice = False
         while not is_valid_choice:
             inp_choice = validate_inputs("So what is it then? ", str).lower()
@@ -217,15 +218,15 @@ class Board:
     # just as the pirate lord tile, this logic was the same on here
     def visit_captain_blazeheart(self):
         print("You encountered Captain Blazeheart.")
-        q1 = """Which of the following is not a type of ship available in PySeas?  
-                A) Brigantine 
-                B) Galleon 
+        q1 = """Which of the following is not a type of ship available in PySeas?
+                A) Brigantine
+                B) Galleon
                 C) Sloop """
 
         cap_blaze = [q1]
 
         question = choice(cap_blaze)
-        print(f"Let me ask ye a question, matey!", question)
+        print(f"Let me ask ye a question, matey! \n{question}")
         is_valid_choice = False
         while not is_valid_choice:
             inp_choice = validate_inputs("So what is it then? ", str).lower()
@@ -271,37 +272,40 @@ class Board:
                     player_wallet.buy_quest(basic_quest)
                     player_inventory.extension(chest_captain.name)
                     print(
-                        """You've got a map that leads to the burried treasure.  
-                             You make your way all the way to Cutlass Cay and dig out a wonderfull Captain's Chest"""
-                    )
+                        """You've got a map that leads to the burried treasure.
+                        You make your way all the way to Cutlass Cay and dig out a wonderfull Captain's Chest
+                        """)
                 elif quest_choice == "2":
                     player_wallet.buy_quest(medium_quest)
                     player_inventory.extension(chest_strong.name)
                     print(
-                        """You got a misterious compass. Although your facing north, the compass doesnt point that way.  
-                             It seems that the misterious compass shows you the way to the Lost Treasure!  
-                             You quickly gather your crew and sail to the location given by the misterious compass.  
-                             You arrive at a vulcanic isle and you see the treasure but its guarded by skeletons.  
-                             You and your crew quickly fight them of and take whats yours! """
+                        """You got a misterious compass. Although your facing north, the compass doesnt point that way.
+                             It seems that the misterious compass shows you the way to the Lost Treasure!
+                             You quickly gather your crew and sail to the location given by the misterious compass.
+                             You arrive at a vulcanic isle and you see the treasure but its guarded by skeletons.
+                             You and your crew quickly fight them of and take whats yours!"""
                     )
                 elif quest_choice == "3":
                     player_wallet.buy_quest(hard_quest)
                     player_inventory.extension(chest_ancient.name)
                     print(
-                        """The Pirate gives you a location of the Drunken Sailor. The Hoarder adds that he is in a possession of a great price! 
-                             You sail forth to the location and you find a port. You ask the locals of they know about the Drunken Sailor and they tell you about the local tavern. There you find the drunken bastard sleeping with a barrel under his foot. 
-                             You slowly but quietly take the barrel out of his possession and you take it onto your ship. You notice that when holding the treasure your view is distorted and you can’t walk straight. You’re drunk!
-                             It seems to be the effect of holding the barrel. You also hear in your head the famous sea shanty “Drunken Sailor”... Great! Now you have the chest of thousands Grogs and a shanty in your head..."""
+                        """The Pirate gives you a location of the Drunken Sailor. The Hoarder adds that he is in a possession of a great price!
+                             You sail forth to the location and you find a port. You ask the locals of they know about the Drunken Sailor.
+                             They tell you about the local tavern. There you find the drunken bastard sleeping with a barrel under his foot.
+                             You slowly but quietly take the barrel out of his possession and you take it onto your ship. You notice that when
+                             holding the treasure your view is distorted and you can’t walk straight. You’re drunk!
+                             It seems to be the effect of holding the barrel. You also hear in your head the famous sea shanty “Drunken Sailor”...
+                             Great! Now you have the chest of thousands Grogs and a shanty in your head..."""
                     )
                 elif quest_choice == "4":
                     player_wallet.buy_quest(drunken_quest)
                     player_inventory.extension(chest_greg.name)
                     print(
-                        """You raise your sails and sail forth to the location.  
-                             Uppon arrival it seems that there is no treasure but only another map that leads to a new locations.  
-                             You sail to a couple isles with your new maps you keep finding and you arrive at a fort where you find a burned compas.  
-                             It leeds you to a isle and the vault on it. You open the vault and see all the treasure it contains.  
-                             You take the first chest and suddenly the vault starts to close. You panic and run away with only one chest. """
+                        """You raise your sails and sail forth to the location.
+                             Uppon arrival it seems that there is no treasure but only another map that leads to a new locations.
+                             You sail to a couple isles with your new maps you keep finding and you arrive at a fort where you find a burned compas.
+                             It leeds you to a isle and the vault on it. You open the vault and see all the treasure it contains.
+                             You take the first chest and suddenly the vault starts to close. You panic and run away with only one chest."""
                     )
                 else:
                     print("I don't have that quest in me shop! Try again!")
@@ -393,14 +397,15 @@ class Board:
         if random_item == wreck_1:
             player_inventory.extension(chest_mermaid)
             print(
-                """A great man'o'war galleon that once was feared on the seas... Now, its just a wreck. It seems a Pirate Legend has defeated the Legendary ship. 
-                     You dive into the water and swim into the shipwreck.!"""
+                """A great man'o'war galleon that once was feared on the seas...
+                Now, its just a wreck. It seems a Pirate King has defeated the Legendary ship.
+                You dive into the water and swim into the shipwreck.!"""
             )
             print("\nYou find a Coral Marauder's Chest!")
         elif random_item == wreck_2:
             player_inventory.extension(chest_strong)
             print(
-                """Once the most powerfull ship that these seas have ever seen. Fast, a strong fire power and mighty ram attack. 
+                """Once the most powerfull ship that these seas have ever seen. Fast, a strong fire power and mighty ram attack.
                      Now it's just shipwreck with many others, but its legend goes on...
                      You dive into the water and swim into the shipwreck."""
             )
@@ -408,8 +413,10 @@ class Board:
         elif random_item == wreck_3:
             player_inventory.extension(chest_legend)
             print(
-                """Every Pirate knows the legend of the Black Pearl! Once the fastest ship on the seas, a ghost ship, with black sails, a damned crew and a Captain so evil that hell itself spat him back out... 
-                     It has been told that people entering the black pearl never came back, but then, where are the stories comming from? You dive into the water and swim into the shipwreck."""
+                """Every Pirate knows the legend of the Black Pearl! Once the fastest ship on the seas, a ghost ship, with black sails,
+                a damned crew and a Captain so evil that hell itself spat him back out...
+                It has been told that people entering the black pearl never came back, but then, where are the stories comming from?
+                You dive into the water and swim into the shipwreck."""
             )
             print("\n You find a Chest of the Damned!")
 
