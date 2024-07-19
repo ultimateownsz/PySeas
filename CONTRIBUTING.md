@@ -1,15 +1,100 @@
 # Contributing to PySeasGame
+Thank you for taking the time to contribute! All types of contributions are encouraged and valued. This project started from a passion for Sea of Thieves, inspired by its seafearing spirit.
 
-When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
+> If you like the project, but just don't have time to contribute, that's fine. You could help us out to show support and appreciation of the project by:
+> - Star the project
+> - Share about it on your socials
+> - Refer this project in your project's readme
+> - Mention the project at local meetups and tell your friends/collagues
 
+## Table of Contents
+- [Code of Conduct]([#code-of-conduct](https://github.com/ultimateownsz/PySeasGame?tab=coc-ov-file#readme))
+- [I Want To Contribute](#i-want-to-contribute)
+- [Reporting Bugs](#reporting-bugs)
+- [Suggesting Enhancements](#suggesting-enhancements)
+- [Your First Code Contribution](#your-first-code-contribution)
+- [Improving The Documentation](#improving-the-documentation)
+- [Pull Request Process](#pull-request-process)
+- [Pull Request Template](#pull-request-template)
+
+## Code of Conduct
 Please note we have a code of conduct, please follow it in all your interactions with the project.
+[Go to code of conduct](https://github.com/ultimateownsz/PySeasGame/blob/main/CODE_OF_CONDUCT.md)
+
+## I Want To Contribute
+
+> ### Legal Notice 
+> When contributing to this project, you must agree that you have authored 100% of the content, that you have the necessary rights to the content and that the content you contribute may be provided under the project [license](https://github.com/ultimateownsz/PySeasGame?tab=AGPL-3.0-1-ov-file#readme).
+> Tip: If you use assets with a[Creative Commons license](https://creativecommons.org/licenses/by/4.0/deed.en) you can use it without any legal issues.
+
+### Reporting Bugs
+
+#### Before Submitting a Bug Report
+
+A good bug report shouldn't leave others needing to chase you up for more information. Therefore, we ask you to investigate carefully, collect information and describe the issue in detail in your report. Please complete the following steps in advance to help us fix any potential bug as fast as possible.
+
+- Make sure that you are using the latest version.
+<!-- - Determine if your bug is really a bug and not an error on your side e.g. using incompatible environment components/versions (Make sure that you have read the [documentation](). If you are looking for support, you might want to check [this section](#i-have-a-question)). -->
+<!-- - To see if other users have experienced (and potentially already solved) the same issue you are having, check if there is not already a bug report existing for your bug or error in the [bug tracker](issues?q=label%3Abug). -->
+- Also make sure to search the internet (including Stack Overflow) to see if users outside of the GitHub community have discussed the issue.
+- Collect information about the bug:
+- Stack trace (Traceback)
+- OS, Platform and Version (Windows, Linux, macOS, x86, ARM)
+- Version of the interpreter, compiler, SDK, runtime environment, package manager, depending on what seems relevant.
+- Possibly your input and the output
+- Can you reliably reproduce the issue? And can you also reproduce it with older versions?
+
+#### How Do I Submit a Good Bug Report?
+
+> You must never report security related issues, vulnerabilities or bugs including sensitive information to the issue tracker, or elsewhere in public. Instead sensitive bugs must be sent by email to <>.
+
+We use GitHub issues to track bugs and errors. If you run into an issue with the project:
+
+- Open an [Issue](https://github.com/ultimateownsz/PySeasGame/issues). (Since we can't be sure at this point whether it is a bug or not, we ask you not to talk about a bug yet and not to label the issue.)
+- Explain the behavior you would expect and the actual behavior.
+- Please provide as much context as possible and describe the *reproduction steps* that someone else can follow to recreate the issue on their own. This usually includes your code. For good bug reports you should isolate the problem and create a reduced test case.
+- Provide the information you collected in the previous section.
+
+Once it's filed:
+
+- The project team will label the issue accordingly.
+- A team member will try to reproduce the issue with your provided steps. If there are no reproduction steps or no obvious way to reproduce the issue, the team will ask you for those steps and mark the issue as `needs-repro`. Bugs with the `needs-repro` tag will not be addressed until they are reproduced.
+- If the team is able to reproduce the issue, it will be marked `needs-fix`, as well as possibly other tags (such as `critical`), and the issue will be left to be [implemented by someone](#your-first-code-contribution).
+
+### Suggesting Enhancements
+
+This section guides you through submitting an enhancement suggestion for CONTRIBUTING.md, **including completely new features and minor improvements to existing functionality**. Following these guidelines will help maintainers and the community to understand your suggestion and find related suggestions.
+
+#### Before Submitting an Enhancement
+
+- Make sure that you are using the latest version.
+- Read the [documentation](https://github.com/ultimateownsz/PySeasGame/tree/main/docs) carefully and find out if the functionality is already covered, maybe by an individual configuration.
+- Perform a [search](/issues) to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
+- Find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. Keep in mind that we want features that will be useful to the majority of our users and not just a small subset. If you're just targeting a minority of users, consider writing an add-on/plugin library.
+
+
+#### How Do I Submit a Good Enhancement Suggestion?
+
+Enhancement suggestions are tracked as [GitHub issues](https://github.com/ultimateownsz/PySeasGame/issues).
+
+- Use a **clear and descriptive title** for the issue to identify the suggestion.
+- Provide a **step-by-step description of the suggested enhancement** in as many details as possible.
+- **Describe the current behavior** and **explain which behavior you expected to see instead** and why. At this point you can also tell which alternatives do not work for you.
+- You may want to **include screenshots and animated GIFs** which help you demonstrate the steps or point out the part which the suggestion is related to. You can use [this tool](https://www.cockos.com/licecap/) to record GIFs on macOS and Windows, and [this tool](https://github.com/colinkeenan/silentcast) or [this tool](https://github.com/GNOME/byzanz) on Linux. 
+- **Explain why this enhancement would be useful** to most CONTRIBUTING.md users. You may also want to point out the other projects that solved it better and which could serve as inspiration.
+
+### Your First Code Contribution
+
+
+### Improving The Documentation
+We just started this project recently we need help with people who like to document how the game plays, what features there are and what else you can come up with.
 
 ### Pull Request Process
-**Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://www.freecodecamp.org/news/how-to-contribute-to-open-source-projects-beginners-guide/) 
+**Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://www.freecodecamp.org/news/how-to-contribute-to-open-source-projects-beginners-guide/)
 
 1. Ensure any install or build dependencies are removed before the end of the layer when doing a build.
 2. Update the README.md with details of changes to the interface, this includes new environment variables, exposed ports, useful file locations and container parameters.
-3. If you find issues in the code you can make a *New issue* on https://github.com/ultimateownsz/PySeasGame/issues
+3. If you find issues in the code you can make a *New issue* on [Issues](https://github.com/ultimateownsz/PySeasGame/issues)
 4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
 
 ### Pull Request Template
@@ -17,6 +102,3 @@ Please note we have a code of conduct, please follow it in all your interactions
 - Description: Write a longer description of what the change does (if the title isn't enough).
 - Explain: Give an explanation of why the change is being made.
 - Discuss: Perhaps a discussion of context nd/or alternatives that were considered.
-
-## Code of conduct
-[Go to code of conduct](https://github.com/ultimateownsz/PySeasGame/blob/main/CODE_OF_CONDUCT.md)
