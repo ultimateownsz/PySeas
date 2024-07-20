@@ -4,7 +4,7 @@ from typing import List
 
 from src.py_version.board import Board
 from src.py_version.player import Player
-# from src.py_version.settings import settings
+from src.settings import *
 
 
 @dataclass

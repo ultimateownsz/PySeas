@@ -1,12 +1,12 @@
 import sys
 import warnings
 
-# import pygame.freetype
-# if not getattr(pygame, "IS_CE", False):
-#     raise ImportError(
-#         "The game requires Pygame CE to function. "
-#         "(hint: type pip uninstall pygame and then pip install pygame-ce)"
-#     )
+import pygame.freetype
+if not getattr(pygame, "IS_CE", False):
+    raise ImportError(
+        "The game requires Pygame CE to function. "
+        "(hint: type pip uninstall pygame and then pip install pygame-ce)"
+    )
 
 if sys.version_info < (3, 12):
     warnings.warn(
