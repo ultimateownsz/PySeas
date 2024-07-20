@@ -1,6 +1,5 @@
 from random import randrange, choice
 
-from .validate_inputs import validate_inputs
 from .inventory import Inventory
 from .money import Money
 from .selling import (
@@ -19,7 +18,7 @@ from .buying import basic_quest, medium_quest, hard_quest, drunken_quest
 
 
 player_inventory = Inventory()
-player_wallet = Money(currency=str, worth=int)
+player_wallet = Money(currency='', worth=0)
 
 
 class Board:
@@ -201,7 +200,7 @@ class Board:
         print(f"Let me ask ye a question, matey! \n{question}")
         is_valid_choice = False
         while not is_valid_choice:
-            inp_choice = validate_inputs("So what is it then? ", str).lower()
+            inp_choice = input("So what is it then? ", str).lower()
             is_valid_choice = inp_choice
             if not is_valid_choice:
                 print("Didn't they learn you to read, fool? Try again! ")
@@ -229,7 +228,7 @@ class Board:
         print(f"Let me ask ye a question, matey! \n{question}")
         is_valid_choice = False
         while not is_valid_choice:
-            inp_choice = validate_inputs("So what is it then? ", str).lower()
+            inp_choice = input("So what is it then? ", str).lower()
             is_valid_choice = inp_choice
             if not is_valid_choice:
                 print("Didn't they learn you to read, sea dog? Try again! ")

@@ -6,8 +6,6 @@ from src.py_version.board import Board
 from src.py_version.player import Player
 # from src.py_version.settings import settings
 
-from src.py_version.validate_inputs import validate_inputs
-
 
 @dataclass
 class Game:
@@ -32,7 +30,7 @@ class Game:
         self.initialize_game()
         self.running = True
         while self.running:
-            start_the_game = validate_inputs("Would you like to start the game? Press enter to continue. ", str)
+            start_the_game = input("Would you like to start the game? Press enter to continue. ")
             if start_the_game == "":
                 self.clear_screen()
                 break
@@ -49,7 +47,7 @@ class Game:
             # end_turn = False
 
             while True:
-                roll_dice = validate_inputs("\nDo you want to roll the dice? (yes/y) \n")
+                roll_dice = input("\nDo you want to roll the dice? (yes/y) \n")
                 if roll_dice.lower() in ["yes", "y"]:
                     # current_player.dice_roll()
                     current_player.move_player(self.board)
@@ -60,7 +58,7 @@ class Game:
                     print("You made a mistake, you can only answer yes to roll the dice!")
                     continue
 
-            stop_turn = validate_inputs("\nDo you want to end your turn? (yes/no) \n")
+            stop_turn = input("\nDo you want to end your turn? (yes/no) \n")
             if stop_turn.lower() in ["yes", "y"]:
                 self.toggle_player_index()
                 Board(players).print()
@@ -80,7 +78,7 @@ class Game:
 
         for player in self.players:
             while True:
-                name = validate_inputs(f"Enter player {player.player_id+1} name: ", str).strip()
+                name = input(f"Enter player {player.player_id+1} name: ").strip()
                 if 2 <= len(name) <= 10 and name.isalpha():
                     player.name_of_player = name
                     break
