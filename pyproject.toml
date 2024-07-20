@@ -3,8 +3,8 @@ requires = ["setuptools>=42.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.pytest.ini_options]
-addopts = "--cov=Launcher, py-version, pygame_version"
-test_paths = [
+addopts = "--cov=src/launcher --cov=src/py_version --cov=src/pygame_version --cov-report=term-missing --cov-report=html"
+testpaths = [
     "tests",
 ]
 
