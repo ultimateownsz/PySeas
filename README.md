@@ -10,12 +10,8 @@ Welcome to PySeas, an open-source project to create an exciting and engaging boa
 
 PySeas aims to bring the thrilling pirate adventures to the tabletop.
 
-## Upcoming Features (WORK IN PROGRESS)
-
-- **Multiplayer options locally:** Play with or against your friends. As a pirate, you have multiple ways to achieve victory, making each game unique and dynamic.
-- **Strategic gameplay:** Navigate the seas via a board, plunder treasure, and outsmart rival pirates.
-- **Rich narrative:** Experience captivating stories and quests in a vibrant pirate world.
-- **Interactive elements:** Engage with various game mechanics, including ship battles, treasure hunts, and island exploration. (Pygame/Python)
+## Get notified about project updates
+For organising the project we mainly use [Codecks](https://open.codecks.io/pyseas). Codecks is a management tool made for indie game developers, it is based on a card game and has a lot of similarities like Trello. The main thing what we liked about this is, we can show you how we make the game via open decks. Decks make it possible to share contens of any projects we are working on publicly on the web. You can create a account to get notified for updates or you can vote on cards.
 
 ## Project Goals
 
@@ -43,7 +39,8 @@ PySeas aims to bring the thrilling pirate adventures to the tabletop.
 ```
   git clone https://github.com/ultimateownsz/pyseasgame.git
 ```
-**2. See how to contribute:** https://github.com/ultimateownsz/PySeasGame/blob/main/CONTRIBUTE.md
+**2. See how to contribute:** [contribute](https://github.com/ultimateownsz/PySeasGame/blob/main/CONTRIBUTING.md)
+
 
 **3. Install dependencies:**
 ```
