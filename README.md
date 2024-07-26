@@ -8,21 +8,20 @@ Welcome to PySeas, an open-source project to create an exciting and engaging boa
 
 ## About the Project
 
-PySeas aims to bring the thrilling pirate adventures to the tabletop.
+PySeas {working title} a tiled based adventure game Python/Pygame-CE project. It is based on a former school project, a board game made in Python.
 
 ## Get notified about project updates
 For organising the project we mainly use [Codecks](https://open.codecks.io/pyseas). Codecks is a management tool made for indie game developers, it is based on a card game and has a lot of similarities like Trello. The main thing what we liked about this is, we can show you how we make the game via open decks. Decks make it possible to share contens of any projects we are working on publicly on the web. You can create a account to get notified for updates or you can vote on cards.
 
 ## Project Goals
+- **Pygame version:** We aim to create a pygame version, everything we wanted to do in Python wasn't possible so we decided to remake the game in Pygame: bringing enhanced graphics and more dynamic interactions.
 
-- **Fix existing issues:** Our first goal is to identify and resolve any problems in the current codebase to ensure a stable and enjoyable gameplay experience.
-- **Remove Sea of Thieves references:** This project was originally an Sea of Thieves inspired school game project, the legal issues we could encounter by having this still in our game was not worth the risk.
-- **Refactor and improve:** Once the initial issues are fixed, we plan to refactor the code for better performance, readability, and maintainability.
-- **Assets:** We may need help from artists to create our own assets for the pygame version, for the Python version we want to create ASCII ART like an 80's styled game.
+For all new goals we refer to see [codecks](https://open.codecks.io/pyseas) to vote on cards with implementing features/goals.
 
 ### Goals for later
-- **Pygame version:** Ultimately, we aim to create a pygame version, bringing enhanced graphics and more dynamic interactions.
+- **Refactor the Python version:** The project started out as an Python boardgame inspired by Sea of Thieves and is now changed to a bigger project and scope. We intend to first remake the game in Pygame first and later on refactor the game to Python's version too but with an ASCII look.
 - **Unified Launcher:** Our final goal is to provide a Pygame-based launcher that offers players the option to choose between the Python version and the Pygame version of the game, making it easy to play either version from a single interface.
+<img src="https://img.itch.zone/aW1nLzE1MDEzOTMwLmdpZg==/347x500/A%2BBsU5.gif" style="width: 150px; height: 150px;" />
 
 ## Why Join PySeas?
 
