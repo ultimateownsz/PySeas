@@ -1,10 +1,30 @@
+'''Project Name: PySeas
+Description: PySeas is an open-source project to create an engaging board game in Python,
+inspired by Sea of Thieves. Ideal for game development enthusiasts and Python programmers
+Author: Danilo Saiu (https://www.github.com/ultimateownsz), Davit Alsemgeest
+Date: 2024-08-08
+Version: 0.0.1'''
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU Affero General Public License for more details.
+
+# You should have received a copy of the GNU Affero General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+
 import os
 from dataclasses import dataclass, field
 from typing import List
 
 from src.py_version.board import Board
 from src.py_version.player import Player
-from src.settings import *
+# from src.settings import *
 
 
 @dataclass
@@ -74,7 +94,7 @@ class Game:
         os.system('cls' if os.name == 'nt' else 'clear')
 
     def initialize_game(self):
-        print("Ahoy Mateyy To The Sea of Thieves!\n")
+        print("Ahoy Mateyy To PySeas!\n")
 
         for player in self.players:
             while True:
