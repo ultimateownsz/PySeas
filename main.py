@@ -1,9 +1,10 @@
 '''Project Name: PySeas
 Description: PySeas is an open-source project to create an engaging board game in Python,
 inspired by Sea of Thieves. Ideal for game development enthusiasts and Python programmers
-Author: Danilo Saiu (https://www.github.com/ultimateownsz), Davit Alsemgeest
-Date: 2024-08-08
-Version: 0.0.1'''
+Author(s): Danilo Saiu (https://www.github.com/ultimateownsz),
+Davit Alsemgeest (https://www.github.com/davidek523)
+Date: 2024-09-08
+Version: 1.0.0'''
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
