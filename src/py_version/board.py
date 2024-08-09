@@ -200,7 +200,8 @@ class Board:
         print(f"Let me ask ye a question, matey! \n{question}")
         is_valid_choice = False
         while not is_valid_choice:
-            inp_choice = input("So what is it then? ", str).lower()
+            inp_choice = input("So what is it then? ").lower()
+            inp_choice = str(inp_choice)
             is_valid_choice = inp_choice
             if not is_valid_choice:
                 print("Didn't they learn you to read, fool? Try again! ")
@@ -228,7 +229,8 @@ class Board:
         print(f"Let me ask ye a question, matey! \n{question}")
         is_valid_choice = False
         while not is_valid_choice:
-            inp_choice = input("So what is it then? ", str).lower()
+            inp_choice = input("So what is it then? ").lower()
+            inp_choice = str(inp_choice)
             is_valid_choice = inp_choice
             if not is_valid_choice:
                 print("Didn't they learn you to read, sea dog? Try again! ")
