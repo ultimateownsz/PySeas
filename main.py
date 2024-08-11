@@ -4,8 +4,7 @@ inspired by Sea of Thieves. Ideal for game development enthusiasts and Python pr
 Author(s): Danilo Saiu (https://www.github.com/ultimateownsz),
 Davit Alsemgeest (https://www.github.com/davidek523)
 Date: 2024-09-08
-Python Version: 1.0.0
-Pygame Version: 0.0.1"""
+Version: 0.0.1"""
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
