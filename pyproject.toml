@@ -69,6 +69,7 @@ setenv = VIRTUAL_ENV={envdir}
 deps = 
        -r{toxinidir}/requirements_test.txt
        -r{toxinidir}/requirements.txt
+       -r{toxindir}/requirements_dev.txt
 
 [testenv:format]
 deps = ruff
