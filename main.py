@@ -19,13 +19,15 @@ Version: 0.0.1"""
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-# import sys
+# import system related
 import os
 from os.path import join
 
+# import pygame related
 import pygame
 from pytmx.util_pygame import load_pygame
 
+# import dataclasses and typchecking
 from dataclasses import dataclass, field
 from typing import List
 
@@ -36,13 +38,6 @@ from src.py_version.player import Player
 # import Pygame specific objects, functions and functionality
 from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE
 from src.sprites import Sprite
-
-
-def clear_screen():
-    """A function made to clear the screen in the Python boardgame.
-    Could be used or altered in Pygame if needed."""
-
-    os.system("cls" if os.name == "nt" else "clear")
 
 
 @dataclass
@@ -68,6 +63,13 @@ class PyVersion:
         else:
             self.current_player_index = 0
 
+    @staticmethod
+    def clear_screen():
+        """A function made to clear the screen in the Python boardgame.
+        Could be used or altered in Pygame if needed."""
+
+        os.system("cls" if os.name == "nt" else "clear")
+
     def run(self):
         self.initialize_game()
         self.running = True
@@ -76,7 +78,7 @@ class PyVersion:
                 "Would you like to start the game? Press enter to continue. "
             )
             if start_the_game == "":
-                clear_screen()
+                self.clear_screen()
                 break
         self.board.print()
         self.player_switch(python_game.players)
@@ -206,6 +208,7 @@ class PygameVersion:
 
 
 if __name__ == "__main__":
+    python_game = PyVersion()
     print(
         """
           Welcome to Pyseas!
@@ -215,10 +218,9 @@ if __name__ == "__main__":
     )
     choice = input("Enter the number of your choice: ")
     choice.isdigit()
-    clear_screen()
+    python_game.clear_screen()
 
     if choice == "1":
-        python_game = PyVersion()
         python_game.run()
     elif choice == "2":
         pygame_game = PygameVersion()
