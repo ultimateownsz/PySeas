@@ -16,7 +16,9 @@ class Money:
 
     def buy_quest(self, quest) -> None:
         if self.worth >= quest.quest_worth:
-            print(f"You have purchesed {quest.name} for {quest.quest_worth} {self.currency}")
+            print(
+                f"You have purchesed {quest.name} for {quest.quest_worth} {self.currency}"
+            )
             self.buy(quest.quest_worth)
         else:
             print("You don't have enough gold to buy a quest!")

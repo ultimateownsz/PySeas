@@ -23,13 +23,19 @@ class Player:
     # self.roll_history_p2 = []
 
     def print_info(self):
-        print(f"Arrr.. Mateyy {self.name_of_player.capitalize()} Down below you can see your stats:\n")
-        print(f"Player: {self.name_of_player.capitalize()}\nInventory: {self.inventory}\nWallet: {self.wallet}\nBoard index: {self.board_index}\n")
+        print(
+            f"Arrr.. Mateyy {self.name_of_player.capitalize()} Down below you can see your stats:\n"
+        )
+        print(
+            f"Player: {self.name_of_player.capitalize()}\nInventory: {self.inventory}\nWallet: {self.wallet}\nBoard index: {self.board_index}\n"
+        )
 
     def dice_roll(self):
         roll_results = [randint(1, 6) for _ in range(2)]
         total_roll = sum(roll_results)
-        print(f"\n{self.name_of_player.capitalize()} throws the dices {roll_results[0]} and {roll_results[1]}. You rolled a total of {sum(roll_results)}\n")
+        print(
+            f"\n{self.name_of_player.capitalize()} throws the dices {roll_results[0]} and {roll_results[1]}. You rolled a total of {sum(roll_results)}\n"
+        )
         # if self.player_id == 1:
         #     self.roll_history_p1.append(roll_results)
         # elif self.player_id == 2:
@@ -42,8 +48,12 @@ class Player:
         This is the logic of the game, it moves the player when dices are throwed,
         and updates the player pos to the new pos
         """
-        new_position = board.update_player_position(player=self, total_roll=self.dice_roll())
-        print(f"{self.name_of_player.capitalize()} moves to {board.locations_with_index[new_position]}\n")
+        new_position = board.update_player_position(
+            player=self, total_roll=self.dice_roll()
+        )
+        print(
+            f"{self.name_of_player.capitalize()} moves to {board.locations_with_index[new_position]}\n"
+        )
         return new_position
 
     def perform_action(self, board, new_position):

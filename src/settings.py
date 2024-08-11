@@ -1,7 +1,12 @@
 import sys
 import warnings
-
+import pygame
 import pygame.freetype
+
+SCREEN_WIDTH, SCREEN_HEIGHT = 1280, 720
+TILE_SIZE = 16
+
+
 if not getattr(pygame, "IS_CE", False):
     raise ImportError(
         "The game requires Pygame CE to function. "
