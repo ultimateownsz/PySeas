@@ -1,4 +1,4 @@
-'''Project Name: PySeas
+"""Project Name: PySeas
 Description: PySeas is an open-source project to create an engaging board game in Python,
 inspired by Sea of Thieves. Ideal for game development enthusiasts and Python programmers
 Author(s): Danilo Saiu (https://www.github.com/ultimateownsz),
@@ -38,7 +38,7 @@ from src.py_version.player import Player
 
 # import Pygame specific objects, functions and functionality
 from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE
-from src.sprites import Sprite
+from src.sprites import Tile
 
 
 @dataclass
@@ -52,8 +52,8 @@ class PyVersion:
 
     def __post_init__(self):
         self.players = [
-            Player(name_of_player=str, player_id=0),
-            Player(name_of_player=str, player_id=1),
+            Player(name_of_player="player 1", player_id=0),
+            Player(name_of_player="player 2", player_id=1),
         ]
         self.board = Board(self.players)
 
@@ -147,13 +147,14 @@ class PyVersion:
 @dataclass
 class PygameVersion:
 
-    screen_size: tuple = (SCREEN_WIDTH, SCREEN_HEIGHT)
+    screen_size: tuple[int, int] = (SCREEN_WIDTH, SCREEN_HEIGHT)
     screen: pygame.Surface = field(init=False)
 
     # groups
-    all_sprites: pygame.sprite.Group = field(
-        init=False, default_factory=pygame.sprite.Group
-    )
+    # all_sprites: pygame.sprite.Group = field(
+    #     init=False, default_factory=pygame.sprite.Group
+    # )
+    all_sprites = pygame.sprite.Group()
 
     def __post_init__(self):
         pygame.init()
@@ -189,10 +190,10 @@ class PygameVersion:
         islands = tmx_maps.get_layer_by_name("Islands")
         for x, y, surface in islands.tiles():
             # print(x * TILE_SIZE, y * TILE_SIZE, surface)
-            Sprite(
+            Tile(
+                self.all_sprites,
                 pos=(x * TILE_SIZE, y * TILE_SIZE),
                 surf=surface,
-                groups=self.all_sprites,
             )
 
     def run(self):
@@ -202,7 +203,7 @@ class PygameVersion:
                 if event.type == pygame.QUIT:
                     exit()
 
-            self.all_sprites.draw(surface=self.screen_size)
+            self.all_sprites.draw(surface=self.screen)
             pygame.display.update()
 
         pygame.quit()

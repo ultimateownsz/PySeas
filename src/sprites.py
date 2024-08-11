@@ -1,20 +1,26 @@
-from src.settings import pygame
-from dataclasses import dataclass
+""" custom sprites classes """
+import pygame
 
 
-@dataclass
-class Sprite(pygame.sprite.Sprite):
-    pos: tuple[int | float, int | float]
-    surf: pygame.Surface
-    groups: tuple[pygame.sprite.Group, ...] | pygame.sprite.Group
-    # name: str | None = None
+class Tile(pygame.sprite.Sprite):
+    """ Handle tiles for the map """
+    def __init__(self,
+        *groups: pygame.sprite.Group,
+        pos: tuple[float, float],
+        surf: pygame.Surface,
+        name: str | None = None
+    ) -> None:
+        super().__init__(*groups)
 
-    def __post_init__(self):
-        super().__init__(self.groups)
+        self.pos = pos
+        self.surf = surf
+        self.name = name
+
         self.image: pygame.Surface = self.surf
         self.rect: pygame.FRect = self.image.get_frect(topleft=self.pos)
 
-    def draw(self, display_surface, offset=(0, 0)):
+
+    def draw(self, display_surface: pygame.Surface, offset: tuple[float, float]=(0, 0)) -> None:
         """Could be useful for a camera?"""
         offset_rect = self.rect.move(offset)
         display_surface.blit(self.image, offset_rect)
