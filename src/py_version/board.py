@@ -18,7 +18,7 @@ from .buying import basic_quest, medium_quest, hard_quest, drunken_quest
 
 
 player_inventory = Inventory()
-player_wallet = Money(currency='', worth=0)
+player_wallet = Money(currency="", worth=0)
 
 
 class Board:
@@ -123,6 +123,7 @@ class Board:
 
     # added a randomizer to call different isles you could visit as player
     def visit_isle(self):
+        """The idea was that you could get a random item on the islands you visit, because of time constraints we had no time to implement this."""
         print("You arrived at an isle.")
         # isle = "Island"
         # isles = [can_cove, cres_isle, lone_cove, m_hide, s_bounty, smug_bay, wand_ref]
@@ -132,6 +133,7 @@ class Board:
 
     # we had events you could encounter like sea of thieves does
     def visit_event(self):
+        """You get a little story event which gets you a random reward to your inventory."""
         # print("You encountered an event.\n")
         loc_1 = "Red Tornado"
         loc_2 = "Green Tornado"
@@ -164,7 +166,7 @@ class Board:
 
     # just as sea of thieves you could visit the different sea posts in the game.
     def visit_harbor(self):
-        """I came up with some star constellation to name these harbors"""
+        """I came up with some star constellations to name these harbors"""
         aquila = "The Aquila"
         north_star = "The North Star Constellation"
         great_har = "The Great Trade Harbor"
@@ -206,9 +208,13 @@ class Board:
                 print("Didn't they learn you to read, fool? Try again! ")
         if question == q1:
             if inp_choice == "c":
-                print("I've never heard that one in me life! Piss off! No gold for you...")
+                print(
+                    "I've never heard that one in me life! Piss off! No gold for you..."
+                )
             elif inp_choice == "b":
-                print("Mate, you'll walk the plank next time if ya give such a pathetic answer again!")
+                print(
+                    "Mate, you'll walk the plank next time if ya give such a pathetic answer again!"
+                )
             elif inp_choice == "a":
                 player_inventory.extension(chest_captain)
                 print("Well done, privateer! I'll reward you good for this one.")
@@ -228,21 +234,26 @@ class Board:
         print(f"Let me ask ye a question, matey! \n{question}")
         is_valid_choice = False
         while not is_valid_choice:
-            inp_choice = input("So what is it then? ", str).lower()
+            inp_choice = input("So what is it then? ").lower()
+            inp_choice = str(inp_choice)
             is_valid_choice = inp_choice
             if not is_valid_choice:
                 print("Didn't they learn you to read, sea dog? Try again! ")
         if question == q1:
             if inp_choice.lower() == "c":
-                print("I've never heard that one in me life! Piss off! No gold for you...")
+                print(
+                    "I've never heard that one in me life! Piss off! No gold for you..."
+                )
             elif inp_choice.lower() == "b":
-                print("Mate, you'll walk the plank next time if ya give such a pathetic answer again!")
+                print(
+                    "Mate, you'll walk the plank next time if ya give such a pathetic answer again!"
+                )
             elif inp_choice.lower() == "a":
                 player_inventory.extension(chest_captain)
                 print("Well done, privateer! I'll reward you good for this one.")
 
     def visit_the_syndicate(self):
-        """This is the shop where you could buy quests, sell chests you found or got via events etc"""
+        """This is the shop where you can buy quests, sell chests you found or got via events etc"""
 
         print("You visit the Syndicate.")
         while True:
@@ -273,7 +284,8 @@ class Board:
                     print(
                         """You've got a map that leads to the burried treasure.
                         You make your way all the way to Cutlass Cay and dig out a wonderfull Captain's Chest
-                        """)
+                        """
+                    )
                 elif quest_choice == "2":
                     player_wallet.buy_quest(medium_quest)
                     player_inventory.extension(chest_strong.name)
@@ -331,7 +343,9 @@ class Board:
                 )
 
                 while True:
-                    chest_choice = input("What would you like to sell? (Press q to quit selling): ").lower()
+                    chest_choice = input(
+                        "What would you like to sell? (Press q to quit selling): "
+                    ).lower()
                     if chest_choice == "q":
                         break
                     if chest_choice == "1":
@@ -364,7 +378,9 @@ class Board:
                     elif chest_choice == "10":
                         player_wallet.sell_chest(chest_ancient)
                         player_inventory.remove_item(chest_ancient.name)
-                    print("Something else you'd like to sell? (Press q to quit selling) ")
+                    print(
+                        "Something else you'd like to sell? (Press q to quit selling) "
+                    )
 
             elif choice == "4":
                 player_wallet.show_money()

@@ -36,9 +36,9 @@ For all new goals we refer to see [codecks](https://open.codecks.io/pyseas) to v
 
 **1. Clone the Repository:** Start by cloning the PySeas repository from GitHub.
 ```
-  git clone https://github.com/ultimateownsz/pyseasgame.git
+  git clone https://github.com/ultimateownsz/pyseas.git
 ```
-**2. See how to contribute:** [contribute](https://github.com/ultimateownsz/PySeasGame/blob/main/CONTRIBUTING.md)
+**2. See how to contribute:** [contribute](https://github.com/ultimateownsz/PySeas/blob/main/CONTRIBUTING.md)
 
 
 **3. Install dependencies:**

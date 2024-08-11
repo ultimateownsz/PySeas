@@ -32,7 +32,7 @@ jobs:
 
     - name: Run Black
       run: |
-        black --line-length 160 src tests
+        black --line-length 88 src tests
 
     - name: Run Flake8
       run: |
