@@ -209,15 +209,17 @@ class PygameVersion:
     def handle_events(self) -> None:
         """ get events like keypress or mouse clicks """
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
+            match event.type:
+                case pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
 
     def update(self) -> None:
         for player in self.players:
             player.update()
 
     def render(self) -> None:
+        self.screen.fill('#000000')
         """ draw sprites to the canvas """
         self.all_sprites.draw(surface=self.screen)
 
