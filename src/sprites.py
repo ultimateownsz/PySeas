@@ -1,5 +1,23 @@
 """ custom sprites classes """
 import pygame
+from src.settings import TILE_SIZE
+
+
+class Player:
+    """ move tile by tile """
+    def __init__(self):
+        # TODO: replace with actual images
+        self.image = pygame.Surface(size=(TILE_SIZE, TILE_SIZE))
+        self.image.fill('#ff0000')
+
+        self.rect: pygame.Rect = self.image.get_rect()
+
+    def update(self) -> None:
+        """ move the player """
+
+    def render(self, surface: pygame.Surface) -> None:
+        """ blit player image to a given surface """
+        surface.blit(source=self.image, dest=self.rect)
 
 
 class Tile(pygame.sprite.Sprite):

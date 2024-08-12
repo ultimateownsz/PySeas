@@ -23,14 +23,15 @@ Pygame Version: 0.0.1"""
 
 import os
 from os.path import join
-
-# import pygame related
-import pygame
-from pytmx.util_pygame import load_pygame
+import sys
 
 # import dataclasses and typchecking
 from dataclasses import dataclass, field
 from typing import List
+
+# import pygame related
+import pygame
+from pytmx.util_pygame import load_pygame
 
 # import Python specific objects, functions and functionality
 from src.py_version.board import Board
@@ -38,7 +39,7 @@ from src.py_version.player import Player
 
 # import Pygame specific objects, functions and functionality
 from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE
-from src.sprites import Tile
+import src.sprites
 
 
 @dataclass
@@ -82,7 +83,7 @@ class PyVersion:
                 self.clear_screen()
                 break
         self.board.print()
-        self.player_switch(python_game.players)
+        self.player_switch(self.players)
 
     def player_switch(self, players):
         """This decides what the current player pos is and then switch to the other player, when the player gets asked to end the turn"""
@@ -154,12 +155,14 @@ class PygameVersion:
     # all_sprites: pygame.sprite.Group = field(
     #     init=False, default_factory=pygame.sprite.Group
     # )
-    all_sprites = pygame.sprite.Group()
+    all_sprites: pygame.sprite.Group = pygame.sprite.Group()
 
     def __post_init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode(self.screen_size)
         pygame.display.set_caption("PySeas")
+
+        self.players: list[src.sprites.Player] = [src.sprites.Player()]
 
         self.running = True
         self.import_assets()
@@ -190,7 +193,7 @@ class PygameVersion:
         islands = tmx_maps.get_layer_by_name("Islands")
         for x, y, surface in islands.tiles():
             # print(x * TILE_SIZE, y * TILE_SIZE, surface)
-            Tile(
+            src.sprites.Tile(
                 self.all_sprites,
                 pos=(x * TILE_SIZE, y * TILE_SIZE),
                 surf=surface,
@@ -208,19 +211,25 @@ class PygameVersion:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                exit()
+                sys.exit()
 
     def update(self) -> None:
-        pass
+        for player in self.players:
+            player.update()
 
     def render(self) -> None:
         """ draw sprites to the canvas """
         self.all_sprites.draw(surface=self.screen)
+
+        # draw players on top of the other sprites
+        for player in self.players:
+            player.render(surface=self.screen)
+
         pygame.display.update()
 
 
 if __name__ == "__main__":
-    """ vretion choise is disabled for debugging reasons """
+    # vertion choise is disabled for debugging reasons
     game = PygameVersion()
     game.run()
 
