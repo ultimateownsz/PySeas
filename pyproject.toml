@@ -100,7 +100,9 @@ commands = ruff format --check
 
 [testenv:lint]
 deps = ruff
-commands = ruff check .
+commands = 
+    ruff check --fix
+
 
 [testenv:ruff]
 description = Run Ruff for linting and formatting
