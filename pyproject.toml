@@ -16,13 +16,14 @@ authors = [
 ]
 classifiers = [
     "Programming Language :: Python :: 3.12",
-    "License :: OSI Approved :: GNU Affero General Public License v3"
+    "License :: OSI Approved :: GNU Affero General Public License v3",
     "Intended Audience :: Developers",
     "Intended Audience :: Graphic Designers",
-    "Intended Audience :: Music Composers"
-    "Intended Audience :: Board Game Enthusiasts"
+    "Intended Audience :: Music Composers",
+    "Intended Audience :: Board Game Enthusiasts",
     "Topic :: Games/Entertainment :: Board Games",
-    ]
+]
+
 
 [tool.pytest.ini_options]
 addopts = "--cov=src/launcher --cov=src/py_version --cov=src/pygame_version --cov-report=term-missing --cov-report=html"
@@ -48,6 +49,9 @@ no_implicit_reexport = true
 line-length = 88
 select = ["E", "F", "W", "C90"]
 ignore = ["E501", "E203"]
+# Allow imports relative to the "src" and "test" directories.
+src = ["src", "test"]
+
 
 [tool.ruff.lint]
 select = [
@@ -64,6 +68,11 @@ ignore = [
   "C901", # too complex
 ]
 unfixable = ["B"]
+
+[tool.ruff.format]
+docstring-code-format = true
+docstring-code-line-length = 20
+
 
 # Ignore `E402` (import violations) in all `__init__.py` files, and in select subdirectories.
 [tool.ruff.lint.per-file-ignores]

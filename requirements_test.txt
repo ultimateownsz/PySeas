@@ -1,5 +1,4 @@
 tox==4.4.12
-# uncomment these only if you want to test out tests
 pytest==7.3.2
 pytest-cov==4.0.0
 mypy==1.4.1
