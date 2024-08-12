@@ -24,7 +24,6 @@ classifiers = [
     "Topic :: Games/Entertainment :: Board Games",
 ]
 
-
 [tool.pytest.ini_options]
 addopts = "--cov=src/launcher --cov=src/py_version --cov=src/pygame_version --cov-report=term-missing --cov-report=html"
 testpaths = [
