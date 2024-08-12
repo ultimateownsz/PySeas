@@ -52,6 +52,7 @@ class PyVersion:
     running: bool = False
 
     def __post_init__(self):
+        self.clear_screen()
         self.players = [
             Player(name_of_player="player 1", player_id=0),
             Player(name_of_player="player 2", player_id=1),
@@ -147,6 +148,7 @@ class PyVersion:
 
 @dataclass
 class PygameVersion:
+    """ GUI vertion of the game, using pygame-ce """
 
     screen_size: tuple[int, int] = (SCREEN_WIDTH, SCREEN_HEIGHT)
     screen: pygame.Surface = field(init=False)
@@ -171,6 +173,7 @@ class PygameVersion:
         )  # The start positions will be one of the 4 islands in the corners of the board
 
     def import_assets(self):
+        """ load the map """
         # The map was made as a basic start for the game, it can be changes or altered if it is better for the overall flow of the game
         self.tmx_map = {
             "map": load_pygame(join(".", "data", "maps", "100x100_map.tmx"))
@@ -190,6 +193,7 @@ class PygameVersion:
         # print(tmx_data.layers)
 
     def setup(self, tmx_maps, player_start_pos):
+        """ create tiles """
         islands = tmx_maps.get_layer_by_name("Islands")
         for x, y, surface in islands.tiles():
             # print(x * TILE_SIZE, y * TILE_SIZE, surface)
@@ -215,12 +219,13 @@ class PygameVersion:
                     sys.exit()
 
     def update(self) -> None:
+        """ update the player """
         for player in self.players:
             player.update()
 
     def render(self) -> None:
-        self.screen.fill('#000000')
         """ draw sprites to the canvas """
+        self.screen.fill('#000000')
         self.all_sprites.draw(surface=self.screen)
 
         # draw players on top of the other sprites
@@ -247,9 +252,6 @@ if __name__ == "__main__":
     #     choice = input("Enter the number of your choice: ")
 
     # if choice == "1":
-    #     game = PyVersion()
-        # game.clear_screen()
+    #     PyVersion().run()
     # elif choice == "2":
-    #     game = PygameVersion()
-
-    # game.run()
+    #     PygameVersion().run()
