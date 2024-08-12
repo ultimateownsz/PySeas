@@ -196,34 +196,49 @@ class PygameVersion:
                 surf=surface,
             )
 
-    def run(self):
-
+    def run(self) -> None:
+        """ main loop of the game """
         while self.running:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    exit()
+            self.handle_events()
+            self.update()
+            self.render()
 
-            self.all_sprites.draw(surface=self.screen)
-            pygame.display.update()
+    def handle_events(self) -> None:
+        """ get events like keypress or mouse clicks """
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                exit()
 
-        pygame.quit()
+    def update(self) -> None:
+        pass
+
+    def render(self) -> None:
+        """ draw sprites to the canvas """
+        self.all_sprites.draw(surface=self.screen)
+        pygame.display.update()
 
 
 if __name__ == "__main__":
-    python_game = PyVersion()
-    print(
-        """
-          Welcome to Pyseas!
-          Please select a version to play:
-          1. Python version
-          2. Pygame version"""
-    )
-    choice = input("Enter the number of your choice: ")
-    choice.isdigit()
-    python_game.clear_screen()
+    """ vretion choise is disabled for debugging reasons """
+    game = PygameVersion()
+    game.run()
 
-    if choice == "1":
-        python_game.run()
-    elif choice == "2":
-        pygame_game = PygameVersion()
-        pygame_game.run()
+    # print(
+    #     """
+    #       Welcome to Pyseas!
+    #       Please select a version to play:
+    #       1. Python version
+    #       2. Pygame version"""
+    # )
+    # choice: str = 'temp'
+    # while choice not in ['1', '2']:
+    #     choice = input("Enter the number of your choice: ")
+
+    # if choice == "1":
+    #     game = PyVersion()
+        # game.clear_screen()
+    # elif choice == "2":
+    #     game = PygameVersion()
+
+    # game.run()
