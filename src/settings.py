@@ -1,3 +1,4 @@
+""" define constants """
 import sys
 import warnings
 import pygame
