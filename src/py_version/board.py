@@ -1,3 +1,5 @@
+""" handle the board and the tile of the game.
+also handle the actions and events of each tile."""
 from random import randrange, choice
 
 from .inventory import Inventory
@@ -22,6 +24,8 @@ player_wallet = Money(currency="", worth=0)
 
 
 class Board:
+    """" contains the tiles
+    and handle the events """
     def __init__(self, players):
 
         # all the sea of thieves inspired locations you can visit on the board
@@ -65,7 +69,8 @@ class Board:
             "dangerous_sea",
         ]
 
-        # created a list with an index and locations in a dict to handle the game logic of landing on a tile on the board to call a function
+        # created a list with an index and locations in a dict
+        # to handle the game logic of landing on a tile on the board to call a function
         self.locations_with_index: list[dict[str, int | str]] = []
         for i, c in enumerate(self.locations):
             self.locations_with_index.append({"index": i, "location": c})
@@ -73,7 +78,8 @@ class Board:
 
         # when a player rolls the dice he/she lands on one of these tiles and a function gets called
 
-        # we had the idea to color all the tiles later on but due to time constrains we did not had the time to implement this
+        # we had the idea to color all the tiles later on
+        # but due to time constrains we did not had the time to implement this
         self.locations_actions = {
             "start": self.visit_start,  # yellow
             "isle": self.visit_isle,  # white
@@ -92,7 +98,8 @@ class Board:
     def visit_locations_by_index(self, index: int):
         """
         This handles all the functions in self.locations_actions
-        When a player lands on a tile the action variable gets called and via that logic a function gets called when it is in the self.locations list
+        When a player lands on a tile the action variable gets called
+        and via that logic a function gets called when it is in the self.locations list
         """
         location = self.locations[index]
         action = self.locations_actions.get(location)
@@ -100,7 +107,7 @@ class Board:
             action()
 
     def update_player_position(self, player, total_roll):
-        """Logic of the game that updates the current player pos to a new player pos when the dices are throwed"""
+        """updates the current player pos to a new player pos when the dices are throwed"""
         # current position of the player
         current_position = self.players[player.player_id]
         # new position after roll
@@ -111,19 +118,22 @@ class Board:
 
     def test(self):
         """
-        This is an old function cause before I was still busy by implementing the logic when you throw the dice, land on a tile, a function gets called
+        This is an old function
+        cause before I was still busy by implementing the logic when you throw the dice,
+        land on a tile, a function gets called
         """
-        pass
 
     #     print("Board is working!")
 
     def visit_start(self):
+        """ just print you are at the start """
         print("You are at the start.")
         # self.test()
 
     # added a randomizer to call different isles you could visit as player
     def visit_isle(self):
-        """The idea was that you could get a random item on the islands you visit, because of time constraints we had no time to implement this."""
+        """The idea was that you could get a random item on the islands you visit,
+        because of time constraints we had no time to implement this."""
         print("You arrived at an isle.")
         # isle = "Island"
         # isles = [can_cove, cres_isle, lone_cove, m_hide, s_bounty, smug_bay, wand_ref]
@@ -151,8 +161,8 @@ class Board:
                      and het your reward..."""
             )
             print("\nYou get a dangerous Doom Chest!")
-            return
-        elif event == loc_2:
+            return event
+        if event == loc_2:
             player_inventory.extension(chest_cursed.name)
             print(
                 """You see a specific storming green tornado on a horizon and decide to sail and confront it!
@@ -191,6 +201,7 @@ class Board:
 
     # a randomizer of questions the pirate king could ask you if you landed on his tile
     def visit_pirate_king(self):
+        """ quiz """
         print("You encountered the Pirate King.")
         q1 = """What is the main objective in PySeas?
                 A. Collecting treasure
@@ -222,6 +233,7 @@ class Board:
 
     # just as the pirate lord tile, this logic was the same on here
     def visit_captain_blazeheart(self):
+        """ quiz """
         print("You encountered Captain Blazeheart.")
         q1 = """Which of the following is not a type of ship available in PySeas?
                 A) Brigantine
@@ -265,9 +277,9 @@ class Board:
             5. If you don't mean no bussiness, I'll welcome you another round! Farewell!
             """
             )
-            choice = input("So, what are ya wating for? What is it?: ")
+            shop_choice = input("So, what are ya wating for? What is it?: ")
 
-            if choice == "1":
+            if shop_choice == "1":
                 print(
                     """Available Quests:
                 1. Quest for the burried treasure - 200 gold
@@ -320,10 +332,10 @@ class Board:
                 else:
                     print("I don't have that quest in me shop! Try again!")
 
-            elif choice == "2":
+            elif shop_choice == "2":
                 player_inventory.show_eq()
 
-            elif choice == "3":
+            elif shop_choice == "3":
                 print("This is what you can sell: ")
                 player_inventory.show_eq()
                 print(
@@ -381,22 +393,23 @@ class Board:
                         "Something else you'd like to sell? (Press q to quit selling) "
                     )
 
-            elif choice == "4":
+            elif shop_choice == "4":
                 player_wallet.show_money()
-            elif choice == "5":
+            elif shop_choice == "5":
                 print("Farewell, bloody Pirate!")
             else:
                 print("There is no choice like that, try again!")
             break
         # self.test()
 
-    # just like monopoly you could get a change card, because of time constraints couldn't we get this finished in time
     def visit_change(self):
+        """ just like monopoly you could get a change card,
+        because of time constraints couldn't we get this finished in time """
         print("You landed on change.")
         # self.test()
 
-    # on the board you can land on shipwreck isles, these are also randomized
     def visit_wreckage_isle(self):
+        """ on the board you can land on shipwreck isles, these are also randomized """
         # print(f"You found {wreck_land[rand_land]}")
         wreck_1 = "La Dama Negra"
         wreck_2 = "El Impulto"
@@ -419,7 +432,8 @@ class Board:
         elif random_item == wreck_2:
             player_inventory.extension(chest_strong.name)
             print(
-                """Once the most powerfull ship that these seas have ever seen. Fast, a strong fire power and mighty ram attack.
+                """Once the most powerfull ship that these seas have ever seen.
+                Fast, a strong fire power and mighty ram attack.
                      Now it's just shipwreck with many others, but its legend goes on...
                      You dive into the water and swim into the shipwreck."""
             )
@@ -427,26 +441,32 @@ class Board:
         elif random_item == wreck_3:
             player_inventory.extension(chest_legend.name)
             print(
-                """Every Pirate knows the legend of the Black Pearl! Once the fastest ship on the seas, a ghost ship, with black sails,
+                """Every Pirate knows the legend of the Black Pearl!
+                Once the fastest ship on the seas, a ghost ship, with black sails,
                 a damned crew and a Captain so evil that hell itself spat him back out...
-                It has been told that people entering the black pearl never came back, but then, where are the stories comming from?
+                It has been told that people entering the black pearl never came back,
+                but then, where are the stories comming from?
                 You dive into the water and swim into the shipwreck."""
             )
             print("\n You find a Chest of the Damned!")
 
-    # we wanted to have this as a jail, we could not get to this and hope we may get it later if we refactor the game to pygame for instance
     def visit_ghost_brig(self):
+        """we wanted to have this as a jail,
+        we could not get to this and hope we may get it later
+        if we refactor the game to pygame for instance"""
         print("You are visting the Ghost Brig.")
         # self.test()
 
-    # in sea of thieves you have boundaries, we made some tiles the red sea, maybe redundant but in practice it is okay for what you do with it
     def visit_dangerous_sea(self):
-        """We need another name for red sea."""
+        """in sea of thieves you have boundaries,
+        we made some tiles the red sea,
+        maybe redundant but in practice it is okay for what you do with it
+        We need another name for red sea."""
         print("You are sailing in the dangerous sea.")
         # self.test()
 
-    # this is an higher order function that calls the other functions to print out the board
     def print(self):
+        """ this is an higher order function that calls the other functions to print out the board"""
         # After the function gets called it prints out this format of the board
         #                         ROW C
         #     _________________________________________________
@@ -489,7 +509,9 @@ class Board:
         row_b = self.locations_with_index[10:18]
         row_d = self.locations_with_index[28:36]
 
-        # for row_b we had to make it reverse, because of in the assignment we had to make the board clockwise, otherwise it could not work.
+        # for row_b we had to make it reverse,
+        # because of in the assignment we had to make the board clockwise,
+        # otherwise it could not work.
         # reverse de list
         row_b.reverse()
 
