@@ -1,4 +1,8 @@
+""" define chests """
+
+
 class Selling:
+    """ hold chest name and worth """
     def __init__(self, name: str, chest_worth: str) -> None:
         self.name = name
         self.chest_worth = chest_worth
