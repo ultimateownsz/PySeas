@@ -1,9 +1,11 @@
+""" contain quests """
 from dataclasses import dataclass
 
 
 @dataclass
 class Buying:
-    """There are some problems with how the game perceives buying items. it needs to be fixed or it needs to be reworked entirely."""
+    """There are some problems with how the game perceives buying items.
+    it needs to be fixed or it needs to be reworked entirely."""
 
     name: str
     quest_type: str
