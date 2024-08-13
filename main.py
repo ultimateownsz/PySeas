@@ -23,14 +23,15 @@ Pygame Version: 0.0.1"""
 
 import os
 from os.path import join
-
-# import pygame related
-import pygame
-from pytmx.util_pygame import load_pygame
+import sys
 
 # import dataclasses and typchecking
 from dataclasses import dataclass, field
 from typing import List
+
+# import pygame related
+import pygame
+from pytmx.util_pygame import load_pygame
 
 # import Python specific objects, functions and functionality
 from src.py_version.board import Board
@@ -38,12 +39,12 @@ from src.py_version.player import Player
 
 # import Pygame specific objects, functions and functionality
 from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE
-from src.sprites import Tile
+import src.sprites
 
 
 @dataclass
-class PyVersion:
-    """This class runs the whole Python version"""
+class CLI:
+    """ Command Line Interface, only using print statements """
 
     players: List[Player] = field(init=False)
     board: Board = field(init=False)
@@ -51,6 +52,7 @@ class PyVersion:
     running: bool = False
 
     def __post_init__(self):
+        self.clear_screen()
         self.players = [
             Player(name_of_player="player 1", player_id=0),
             Player(name_of_player="player 2", player_id=1),
@@ -82,7 +84,7 @@ class PyVersion:
                 self.clear_screen()
                 break
         self.board.print()
-        self.player_switch(python_game.players)
+        self.player_switch(self.players)
 
     def player_switch(self, players):
         """This decides what the current player pos is and then switch to the other player, when the player gets asked to end the turn"""
@@ -145,7 +147,8 @@ class PyVersion:
 
 
 @dataclass
-class PygameVersion:
+class GUI:
+    """ Graphial User Interface vertion of the game, using pygame-ce """
 
     screen_size: tuple[int, int] = (SCREEN_WIDTH, SCREEN_HEIGHT)
     screen: pygame.Surface = field(init=False)
@@ -154,12 +157,14 @@ class PygameVersion:
     # all_sprites: pygame.sprite.Group = field(
     #     init=False, default_factory=pygame.sprite.Group
     # )
-    all_sprites = pygame.sprite.Group()
+    all_sprites: pygame.sprite.Group = pygame.sprite.Group()
 
     def __post_init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode(self.screen_size)
         pygame.display.set_caption("PySeas")
+
+        self.players: list[src.sprites.Player] = [src.sprites.Player()]
 
         self.running = True
         self.import_assets()
@@ -168,6 +173,7 @@ class PygameVersion:
         )  # The start positions will be one of the 4 islands in the corners of the board
 
     def import_assets(self):
+        """ load the map """
         # The map was made as a basic start for the game, it can be changes or altered if it is better for the overall flow of the game
         self.tmx_map = {
             "map": load_pygame(join(".", "data", "maps", "100x100_map.tmx"))
@@ -187,43 +193,65 @@ class PygameVersion:
         # print(tmx_data.layers)
 
     def setup(self, tmx_maps, player_start_pos):
+        """ create tiles """
         islands = tmx_maps.get_layer_by_name("Islands")
         for x, y, surface in islands.tiles():
             # print(x * TILE_SIZE, y * TILE_SIZE, surface)
-            Tile(
+            src.sprites.Tile(
                 self.all_sprites,
                 pos=(x * TILE_SIZE, y * TILE_SIZE),
                 surf=surface,
             )
 
-    def run(self):
-
+    def run(self) -> None:
+        """ main loop of the game """
         while self.running:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    exit()
+            self.handle_events()
+            self.update()
+            self.render()
 
-            self.all_sprites.draw(surface=self.screen)
-            pygame.display.update()
+    def handle_events(self) -> None:
+        """ get events like keypress or mouse clicks """
+        for event in pygame.event.get():
+            match event.type:
+                case pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
 
-        pygame.quit()
+    def update(self) -> None:
+        """ update the player """
+        for player in self.players:
+            player.update()
+
+    def render(self) -> None:
+        """ draw sprites to the canvas """
+        self.screen.fill('#000000')
+        self.all_sprites.draw(surface=self.screen)
+
+        # draw players on top of the other sprites
+        for player in self.players:
+            player.render(surface=self.screen)
+
+        pygame.display.update()
 
 
 if __name__ == "__main__":
-    python_game = PyVersion()
-    print(
-        """
-          Welcome to Pyseas!
-          Please select a version to play:
-          1. Python version
-          2. Pygame version"""
-    )
-    choice = input("Enter the number of your choice: ")
-    choice.isdigit()
-    python_game.clear_screen()
+    # vertion choise is disabled for debugging reasons
+    game = GUI()
+    game.run()
 
-    if choice == "1":
-        python_game.run()
-    elif choice == "2":
-        pygame_game = PygameVersion()
-        pygame_game.run()
+    # print(
+    #     """
+    #       Welcome to Pyseas!
+    #       Please select a version to play:
+    #       1. CLI version
+    #       2. GUI version"""
+    # )
+    # choice: str = input("Enter the number of your choice: ")
+    # while choice not in ['1', '2']:
+    #     choice = input("Enter the number of your choice: ")
+
+    # if choice == "1":
+    #     CLI().run()
+    # elif choice == "2":
+    #     GUI().run()
