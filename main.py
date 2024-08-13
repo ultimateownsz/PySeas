@@ -61,6 +61,8 @@ class CLI:
 
     # logic which players turn it is
     def toggle_player_index(self):
+        """ toogle the player index between 1 and 0 """
+        # self.current_player_index = not self.current_player_index
         if self.current_player_index == 0:
             self.current_player_index = 1
         else:
@@ -74,6 +76,7 @@ class CLI:
         os.system("cls" if os.name == "nt" else "clear")
 
     def run(self):
+        """ main loop """
         self.initialize_game()
         self.running = True
         while self.running:
@@ -87,12 +90,15 @@ class CLI:
         self.player_switch(self.players)
 
     def player_switch(self, players):
-        """This decides what the current player pos is and then switch to the other player, when the player gets asked to end the turn"""
+        """This decides what the current player pos is
+        and then switch to the other player, when the player gets asked to end the turn"""
 
         while True:
             current_player = players[self.current_player_index]
             print(
-                f"\nIt's {current_player.name_of_player.capitalize()}'s turn! Current position is {self.board.players[self.current_player_index]}"
+                f"""
+                It's {current_player.name_of_player.capitalize()}'s turn!
+                Current position is {self.board.players[self.current_player_index]}"""
             )
 
             # end_turn = False
@@ -108,11 +114,10 @@ class CLI:
                             new_position=self.board.players[self.current_player_index],
                         )
                     break
-                else:
-                    print(
-                        "You made a mistake, you can only answer yes to roll the dice!"
-                    )
-                    continue
+                print(
+                    "You made a mistake, you can only answer yes to roll the dice!"
+                )
+                continue
 
             stop_turn = input("\nDo you want to end your turn? (yes/no) \n")
             if stop_turn.lower() in ["yes", "y"]:
@@ -126,6 +131,7 @@ class CLI:
                 print("Input error. Please answer yes or no.")
 
     def initialize_game(self):
+        """ get players name """
         print("Ahoy Mateyy To PySeas!\n")
 
         for player in self.players:
@@ -134,13 +140,13 @@ class CLI:
                 if 2 <= len(name) <= 10 and name.isalpha():
                     player.name_of_player = name
                     break
-                else:
-                    print(
-                        "Input error. Player name should be between two characters and maximum ten characters containing only alphabets."
-                    )
-                    continue
+                print(
+                    "Input error. Player name should be",
+                    "between two characters and maximum ten characters",
+                    "containing only alphabets."
+                )
+                continue
 
-        # print(f"\nAhoy {self.players[0].name_of_player.capitalize()} & {self.players[1].name_of_player.capitalize()} to the start of the game!\n")
         for player in self.players:
             player.print_info()
         return self.players
@@ -174,7 +180,8 @@ class GUI:
 
     def import_assets(self):
         """ load the map """
-        # The map was made as a basic start for the game, it can be changes or altered if it is better for the overall flow of the game
+        # The map was made as a basic start for the game
+        # it can be changes or altered if it is better for the overall flow of the game
         self.tmx_map = {
             "map": load_pygame(join(".", "data", "maps", "100x100_map.tmx"))
         }
