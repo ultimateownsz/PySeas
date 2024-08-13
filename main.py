@@ -43,8 +43,8 @@ import src.sprites
 
 
 @dataclass
-class PyVersion:
-    """This class runs the whole Python version"""
+class CLI:
+    """ Command Line Interface, only using print statements """
 
     players: List[Player] = field(init=False)
     board: Board = field(init=False)
@@ -147,8 +147,8 @@ class PyVersion:
 
 
 @dataclass
-class PygameVersion:
-    """ GUI vertion of the game, using pygame-ce """
+class GUI:
+    """ Graphial User Interface vertion of the game, using pygame-ce """
 
     screen_size: tuple[int, int] = (SCREEN_WIDTH, SCREEN_HEIGHT)
     screen: pygame.Surface = field(init=False)
@@ -237,21 +237,21 @@ class PygameVersion:
 
 if __name__ == "__main__":
     # vertion choise is disabled for debugging reasons
-    game = PygameVersion()
+    game = GUI()
     game.run()
 
     # print(
     #     """
     #       Welcome to Pyseas!
     #       Please select a version to play:
-    #       1. Python version
-    #       2. Pygame version"""
+    #       1. CLI version
+    #       2. GUI version"""
     # )
-    # choice: str = 'temp'
+    # choice: str = input("Enter the number of your choice: ")
     # while choice not in ['1', '2']:
     #     choice = input("Enter the number of your choice: ")
 
     # if choice == "1":
-    #     PyVersion().run()
+    #     CLI().run()
     # elif choice == "2":
-    #     PygameVersion().run()
+    #     GUI().run()
