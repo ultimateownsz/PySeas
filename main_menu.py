@@ -7,19 +7,19 @@ pygame.init()
 screen = pygame.display.set_mode((800, 600), pygame.RESIZABLE)
 pygame.display.set_caption('Menu Test Resizable')
 
-BACKGROUND = pygame.image.load('sunset_test.jpg')
-screen_size = screen.get_size()
-BACKGROUND_SCALED = pygame.transform.scale(BACKGROUND, screen_size)
+# BACKGROUND = pygame.image.load('sunset_test.jpg')
+# screen_size = screen.get_size()
+# BACKGROUND_SCALED = pygame.transform.scale(BACKGROUND, screen_size)
 
-sprite_sheet = pygame.image.load('assets/11.png').convert_alpha()
-sprite_rect = pygame.Rect(79, 143, 81, 32)
+# sprite_sheet = pygame.image.load('assets/11.png').convert_alpha()
+# sprite_rect = pygame.Rect(79, 143, 81, 32)
 
-sprite_image = pygame.Surface((81, 32), pygame.SRCALPHA)
+# sprite_image = pygame.Surface((81, 32), pygame.SRCALPHA)
 
-sprite_image.blit(sprite_sheet, (0, 0), sprite_rect)
+# sprite_image.blit(sprite_sheet, (0, 0), sprite_rect)
 
-scale_factor = 4
-scaled_image = pygame.transform.scale(sprite_image, (81 * scale_factor, 32 * scale_factor))
+# scale_factor = 4
+# scaled_image = pygame.transform.scale(sprite_image, (81 * scale_factor, 32 * scale_factor))
 
 
 def get_font(size):
