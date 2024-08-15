@@ -4,12 +4,11 @@ on:
   push:
     branches:
       - main
-      - workflow_update
   pull_request:
     types: [opened, synchronize, reopened]
 
 jobs:
- linux:
+  lint and typehints:
     runs-on: ubuntu-latest
 
     steps:
