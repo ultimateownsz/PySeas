@@ -16,7 +16,7 @@ setup_path()
 
 @patch("random.randint")
 def test_dice_roll(mock_randint):
-    from py_version.player import Player  # Import after updating sys.path
+    from CLI.player import Player  # Import after updating sys.path
 
     """
     Test that the dice_roll method of the Player class only uses the numbers 3 and 4 to achieve a total roll of 7.
