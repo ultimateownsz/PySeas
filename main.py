@@ -31,7 +31,7 @@ from typing import List
 
 # import pygame related
 import pygame
-from pytmx.util_pygame import load_pygame
+from pytmx.util_pygame import load_pygame  # type: ignore
 
 # import Python specific objects, functions and functionality
 from src.CLI.board import Board
