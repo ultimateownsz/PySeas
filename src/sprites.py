@@ -1,6 +1,7 @@
 """ custom sprites classes """
 import pygame
 from src.settings import TILE_SIZE
+from src.GUI.inventory import Inventory
 
 
 class Player:
@@ -12,10 +13,11 @@ class Player:
         self.gost_image = self.image.copy()
         self.gost_image.set_alpha(128)
 
+        self.inventory = Inventory()
+
         self.rect: pygame.Rect = self.image.get_rect()
         # keep track of the transparent preview of the next move
         self.gost_rect = self.rect.copy()
-
         # this is used to only move once when the mouse is pressed
         self.mouse_have_been_pressed: bool = False
 
