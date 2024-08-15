@@ -28,7 +28,7 @@ jobs:
 
     - name: Run Ruff
       run: |
-        ruff check src/ tests/
+        ruff check $(git ls-files '*.py')
 
   test:
     runs-on: ${{ matrix.os }}

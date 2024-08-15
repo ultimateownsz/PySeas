@@ -34,8 +34,8 @@ import pygame
 from pytmx.util_pygame import load_pygame
 
 # import Python specific objects, functions and functionality
-from src.py_version.board import Board
-from src.py_version.player import Player
+from src.CLI.board import Board
+from src.CLI.player import Player
 
 # import Pygame specific objects, functions and functionality
 from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE
