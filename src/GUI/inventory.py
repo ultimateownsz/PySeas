@@ -31,7 +31,7 @@ class Inventory:
         self.chests.append(chest)
 
     def get_chests(self) -> list[Chest]:
-        """ Return a swallow copy of the chests list """
+        """ Return a copy of the chests list """
         return self.chests.copy()
 
     def add_quest(self, quest: Quest) -> None:
@@ -39,5 +39,5 @@ class Inventory:
         self.quests.append(quest)
 
     def get_quests(self) -> list[Quest]:
-        """ Return a swallow copy of the quests list """
+        """ Return a copy of the quests list """
         return self.quests.copy()
