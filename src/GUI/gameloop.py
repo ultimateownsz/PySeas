@@ -39,8 +39,8 @@ class GUI:
         self.screen = pygame.display.set_mode(self.screen_size)
         pygame.display.set_caption("PySeas")
 
-        self.players: list[Player] = [Player()]
-        
+        self.players: list[Player] = [Player()]  # made this easier to read, direct import Player from sprites instead of src.sprites.Player
+
         SpriteGroup: TypeAlias = Group
         self.all_sprites: SpriteGroup = Group()
 
@@ -72,8 +72,6 @@ class GUI:
 
     def setup(self, tmx_maps, player_start_pos):
         """ create tiles """
-        sea = tmx_maps.get_layer_by_name("Sea")
-        shallow = tmx_maps.get_layer_by_name("Shallow Sea")
         islands = tmx_maps.get_layer_by_name("Islands")
         for x, y, surface in islands.tiles():
             # print(x * TILE_SIZE, y * TILE_SIZE, surface)
