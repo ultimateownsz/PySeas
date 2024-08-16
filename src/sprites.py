@@ -107,14 +107,9 @@ class Tile(pygame.sprite.Sprite):
         surf: pygame.Surface,
         name: str | None = None
     ) -> None:
-        r"""
-        Note:
-            There is a known typing error related to missing type parameters for the generic type 'Group' in pygame.
-            You may see warnings like:
-            - sprites.py:107: error: Missing type parameters for generic type "Group"  [type-arg]
-            - GUI\gameloop.py:45: error: Missing type parameters for generic type "SpriteGroup"  [type-arg]
-
-            These errors can be ignored for now, as they are related to type annotations in pygame's codebase.
+        """  There is an error of typing in the Group class from pygame, ignore this error for now.
+        src\sprites.py:107: error: Missing type parameters for generic type "Group"  [type-arg]
+        src\GUI\gameloop.py:45: error: Missing type parameters for generic type "SpriteGroup"  [type-arg]
         """
         super().__init__(*groups)
 
