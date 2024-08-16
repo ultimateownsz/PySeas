@@ -2,8 +2,8 @@ from random import randint
 from dataclasses import dataclass, field
 from typing import List
 
-from .money import Money
-from .inventory import Inventory
+from src.CLI.money import Money
+from src.CLI.inventory import Inventory
 
 
 @dataclass
