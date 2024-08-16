@@ -36,6 +36,7 @@ from pytmx.util_pygame import load_pygame
 # import Python specific objects, functions and functionality
 from src.py_version.board import Board
 from src.py_version.player import Player
+from button import Button
 
 # import Pygame specific objects, functions and functionality
 from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE
@@ -210,6 +211,169 @@ class GUI:
             self.update()
             self.render()
 
+    def get_font(size):
+        return pygame.font.Font("fonts/Grand9K Pixel.ttf", size)
+    # font_name: Grand9k Pixel/grand9k_pixel
+
+    def play(self):
+        self.screen.fill('white')
+        PLAYER_MOUSE_POS = pygame.mouse.get_pos()
+
+        PLAYER_SCREEN_TEXT = self.get_font(35).render('''Welcome to PYSEAS! 
+                A great adventure lies ahead!''', True, 'black')
+        PS_RECT = PLAYER_SCREEN_TEXT.get_rect(center=(420, 300))
+
+        back_button_surface = pygame.Surface((100, 100))
+        back_button_surface.fill('white')
+
+        BACK_BUTTON = Button(image=back_button_surface, pos=(100, 550), text_input="< Back", 
+                                font=self.get_font(40), base_color='grey', hovering_color='black')
+        
+        for button in [BACK_BUTTON]:
+            button.changeColor(PLAYER_MOUSE_POS)
+            button.update(self.screen)
+
+        self.screen.blit(PLAYER_SCREEN_TEXT, PS_RECT)
+
+        return BACK_BUTTON
+
+    def options(self):
+        self.screen.fill('white')
+        OPTIONS_MOUSE_POS = pygame.mouse.get_pos()
+
+        OPT_SCREEN_TXT = self.get_font(35).render('''Here you can find OPTIONS''', True, 'black')
+        OPT_RECT = OPT_SCREEN_TXT.get_rect(center=(520, 550))
+
+        # TO DO: Adjust the button surface so it doesnt overlap with the other surfaces (DONE)
+
+        back_button_surface = pygame.Surface((100, 100))
+        back_button_surface.fill('white')
+
+        res_button_surface = pygame.Surface((150, 100))
+        res_button_surface.fill('white')
+
+        sfx_button_surface = pygame.Surface((150, 100))
+        sfx_button_surface.fill('white')
+
+        diff_button_surface = pygame.Surface((150, 100))
+        diff_button_surface.fill('white')
+
+        BACK_BUTTON = Button(image=back_button_surface, pos=(100, 550), text_input="< Back", 
+                                font=self.get_font(40), base_color='grey', hovering_color='black')
+        
+        RES_BUTTON = Button(image=res_button_surface, pos=(150, 50), text_input='Resolution',
+                            font=self.get_font(40), base_color='grey', hovering_color='black')
+        
+        SFX_BUTTON = Button(image=res_button_surface, pos=(100, 200), text_input='Sound',
+                            font=self.get_font(40), base_color='grey', hovering_color='black')
+        
+        DIFF_BUTTON = Button(image=res_button_surface, pos=(135, 350), text_input='Difficulty',
+                            font=self.get_font(40), base_color='grey', hovering_color='black')
+        
+        for button in [BACK_BUTTON, RES_BUTTON, SFX_BUTTON, DIFF_BUTTON]:
+            button.changeColor(OPTIONS_MOUSE_POS)
+            button.update(self.screen)
+
+        self.screen.blit(OPT_SCREEN_TXT, OPT_RECT)
+
+        return BACK_BUTTON, RES_BUTTON, SFX_BUTTON, DIFF_BUTTON
+
+    def res(self):
+        self.screen.fill('white')
+
+        RES_MOUSE_POS = pygame.mouse.get_pos()
+
+        RES_TEXT = self.get_font(50).render('RESOLUTION', True, 'black')
+        RES_RECT = RES_TEXT.get_rect(center=(420, 100))
+
+        fhd_button_surface = pygame.Surface((200, 100))
+        fhd_button_surface.fill('white')
+        hd_button_surface = pygame.Surface((200, 100))
+        hd_button_surface.fill('white')
+        third_button_surface = pygame.Surface((200, 100))
+        third_button_surface.fill('white')
+        back_button_surface = pygame.Surface((100, 100))
+        back_button_surface.fill('white')
+
+        FHD_BUTTON = Button(image=fhd_button_surface, pos=(200, 200), text_input="1920x1080", font=self.get_font(35), base_color='grey', hovering_color='black')
+        HD_BUTTON = Button(image=hd_button_surface, pos=(200, 300), text_input="1280x720", font=self.get_font(35), base_color='grey', hovering_color='black')
+        THIRD_BUTTON = Button(image=third_button_surface, pos=(200, 400), text_input="800x600", font=self.get_font(35), base_color='grey', hovering_color='black')
+        BACK_BUTTON = Button(image=back_button_surface, pos=(100, 550), text_input="< Back", 
+                                font=self.get_font(40), base_color='grey', hovering_color='black')
+
+        for button in [FHD_BUTTON, HD_BUTTON, THIRD_BUTTON, BACK_BUTTON]:
+            button.changeColor(RES_MOUSE_POS)
+            button.update(self.screen)
+
+        self.screen.blit(RES_TEXT, RES_RECT)
+
+        return BACK_BUTTON
+
+    def diff(self):
+        self.screen.fill('white')
+
+        DIFF_MOUSE_POS = pygame.mouse.get_pos()
+
+        DIFF_TEXT = self.get_font(50).render('DIFFICULTY', True, 'black')
+        DIFF_RECT = DIFF_TEXT.get_rect(center=(380, 100))
+
+        easy_button_surface = pygame.Surface((200, 100))
+        easy_button_surface.fill('white')
+        medium_button_surface = pygame.Surface((200, 100))
+        medium_button_surface.fill('white')
+        hard_button_surface = pygame.Surface((200, 100))
+        hard_button_surface.fill('white')
+        back_button_surface = pygame.Surface((100, 100))
+        back_button_surface.fill('white')
+
+        EASY_BUTTON = Button(image=easy_button_surface, pos=(380, 200), text_input="Easy", font=self.get_font(35), base_color='grey', hovering_color='black')
+        MEDIUM_BUTTON = Button(image=medium_button_surface, pos=(380, 300), text_input="Medium", font=self.get_font(35), base_color='grey', hovering_color='black')
+        HARD_BUTTON = Button(image=hard_button_surface, pos=(380, 400), text_input="Hard", font=self.get_font(35), base_color='grey', hovering_color='black')
+        BACK_BUTTON = Button(image=back_button_surface, pos=(100, 550), text_input="< Back", font=self.get_font(40), base_color='grey', hovering_color='black')
+
+        for button in [EASY_BUTTON, MEDIUM_BUTTON, HARD_BUTTON, BACK_BUTTON]:
+            button.changeColor(DIFF_MOUSE_POS)
+            button.update(self.screen)
+
+        self.screen.blit(DIFF_TEXT, DIFF_RECT)
+
+        return BACK_BUTTON
+
+    def main_menu(self):
+        self.screen.fill('black')
+
+        MENU_MOUSE_POS = pygame.mouse.get_pos()
+
+        MENU_TEXT = self.get_font(100).render('MAIN MENU', True, 'white')
+        MENU_RECT = MENU_TEXT.get_rect(center=(420, 100))
+
+        # play_button_surface = pygame.Surface((300, 100))
+        # play_button_surface.fill("brown")
+
+        play_button_surface = pygame.Surface((370, 100))
+        # play_button_surface.fill("brown")
+        opt_button_surface = pygame.Surface((370, 100))
+        # opt_button_surface.fill("brown")
+        quit_button_surface = pygame.Surface((220, 100))
+        # quit_button_surface.fill("brown")
+
+        PLAY_BUTTON = Button(image=play_button_surface, 
+                                pos=(200, 250), text_input='PLAY', font=self.get_font(45), base_color='white', hovering_color='grey')
+        
+        OPT_BUTTON = Button(image=opt_button_surface, 
+                            pos=(240, 360), text_input='OPTIONS', font=self.get_font(45), base_color='white', hovering_color='grey')
+        
+        QUIT_BUTTON = Button(image=quit_button_surface, 
+                            pos=(190, 470), text_input='QUIT', font=self.get_font(45), base_color='white', hovering_color='grey')
+        
+        self.screen.blit(MENU_TEXT, MENU_RECT)
+
+        for button in [PLAY_BUTTON, OPT_BUTTON, QUIT_BUTTON]:
+            button.changeColor(MENU_MOUSE_POS)
+            button.update(self.screen)
+
+        return PLAY_BUTTON, OPT_BUTTON, QUIT_BUTTON
+
     def handle_events(self) -> None:
         """ get events like keypress or mouse clicks """
         for event in pygame.event.get():
@@ -217,6 +381,55 @@ class GUI:
                 case pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+            
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if state == 'main_menu':
+                    PLAY_BUTTON, OPT_BUTTON, QUIT_BUTTON = self.main_menu()
+                    if PLAY_BUTTON.checkForInput(pygame.mouse.get_pos()):
+                        state = 'play'
+                    elif OPT_BUTTON.checkForInput(pygame.mouse.get_pos()):
+                        state = 'options'
+                    elif QUIT_BUTTON.checkForInput(pygame.mouse.get_pos()):
+                        pygame.quit()
+                        sys.exit()
+
+                elif state == 'play':
+                    BACK_BUTTON = self.play()
+                    if BACK_BUTTON.checkForInput(pygame.mouse.get_pos()):
+                        state = 'main_menu'
+
+                elif state == 'options':
+                    BACK_BUTTON, RES_BUTTON, SFX_BUTTON, DIFF_BUTTON = self.options() #SFX_BUTTON is going to be implemented later
+                    if BACK_BUTTON.checkForInput(pygame.mouse.get_pos()):
+                        state = 'main_menu'
+                    elif RES_BUTTON.checkForInput(pygame.mouse.get_pos()):
+                        state = 'res'
+                    elif DIFF_BUTTON.checkForInput(pygame.mouse.get_pos()):
+                        state = 'diff'
+
+                elif state == 'diff':
+                    BACK_BUTTON = self.diff()
+                    if BACK_BUTTON.checkForInput(pygame.mouse.get_pos()):
+                        state = 'options'
+
+                elif state == 'res':
+                    BACK_BUTTON = self.res()
+                    if BACK_BUTTON.checkForInput(pygame.mouse.get_pos()):
+                        state = 'options'
+
+        if state == 'main_menu':
+            self.main_menu()
+        elif state == 'play':
+            self.play()
+        elif state == 'options':
+            self.options()
+        elif state == 'res':
+            self.res()
+        elif state == 'diff':
+            self.diff()
+
+        pygame.display.flip()
+    pygame.quit()
 
     def update(self) -> None:
         """ update the player """
@@ -232,7 +445,7 @@ class GUI:
         for player in self.players:
             player.render(surface=self.screen)
 
-        pygame.display.update()
+    # pygame.display.update()
 
 
 if __name__ == "__main__":
