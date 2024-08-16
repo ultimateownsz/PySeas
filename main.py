@@ -29,7 +29,8 @@ Pygame Version: 0.0.1"""
 from src.GUI.gameloop import GUI
 
 
-# I moved the two classes CLI and GUi to their own folders. I called them gameloop.py in both of these folders, for naming conventions I think It's better to name them differently.
+# I moved the two classes CLI and GUi to their own folders.
+# I called them gameloop.py in both of these folders, for naming conventions I think It's better to name them differently.
 class Launcher:
     """ You can directly run the GUI game from here, CLI is now just comments to work on pygame, don't remove import """
     def __init__(self) -> None:
