@@ -1,21 +1,14 @@
-from os.path import join
 import sys
-
-# import dataclasses, typechecking
+from os.path import join
 from dataclasses import dataclass, field
 from typing import TypeAlias  # added this to try to fix typechecking at line 42
 """
 Typealias is used making it clear that SpriteGroup is just an alias for Group.
 """
-
-# import pygame related
 import pygame
 from pytmx.util_pygame import load_pygame
+from pygame.sprite import Group  # added this for typechecking on all_sprites
 
-# added this for typechecking on all_sprites
-from pygame.sprite import Group
-
-# import Pygame specific objects, functions and functionality
 from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE
 from src.sprites import Player, Tile
 

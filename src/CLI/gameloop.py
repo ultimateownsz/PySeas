@@ -1,10 +1,6 @@
 import os
-
-# import dataclasses and typchecking
 from dataclasses import dataclass, field
 from typing import List
-
-# import Python specific objects, functions and functionality
 from src.CLI.board import Board
 from src.CLI.player import Player
 
