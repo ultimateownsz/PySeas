@@ -23,7 +23,7 @@ Pygame Version: 0.0.1"""
 
 
 # import Python specific objects, functions and functionality
-from src.CLI.gameloop import CLI
+# from src.CLI.gameloop import CLI
 
 # import Pygame specific objects, functions and functionality
 from src.GUI.gameloop import GUI
@@ -31,23 +31,26 @@ from src.GUI.gameloop import GUI
 
 # I moved the two classes CLI and GUi to their own folders. I called them gameloop.py in both of these folders, for naming conventions I think It's better to name them differently.
 class Launcher:
-    """ I have now created the launcher from the terminal. This is a basic version of the launcher, we could add options """
-    print(
-        """
-          Welcome to Pyseas!
-          Please select a version to play:
-          1. CLI version
-          2. GUI version"""
-    )
-    choice: str = input("Enter the number of your choice: ")
-    while choice not in ['1', '2']:
-        choice = input("Enter the number of your choice: ")
+    """ You can directly run the GUI game from here, CLI is now just comments to work on pygame, don't remove import """
+    def __init__(self) -> None:
+        pass
+    # print(
+    #     """
+    #       Welcome to Pyseas!
+    #       Please select a version to play:
+    #       1. CLI version
+    #       2. GUI version"""
+    # )
+    # choice: str = input("Enter the number of your choice: ")
+    # while choice not in ['1', '2']:
+    #     choice = input("Enter the number of your choice: ")
 
-    if choice == "1":
-        CLI().run()
-    elif choice == "2":
-        GUI().run()
+    # if choice == "1":
+    #     CLI().run()
+    # elif choice == "2":
+    #     GUI().run()
 
 
 if __name__ == "__main__":
-    start_game = Launcher()
+    game = GUI()
+    game.run()
