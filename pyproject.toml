@@ -25,7 +25,7 @@ classifiers = [
 ]
 
 [tool.pytest.ini_options]
-addopts = "--cov=src/launcher --cov=src/py_version --cov=src/pygame_version --cov-report=term-missing --cov-report=html"
+addopts = "--cov=src/CLI --cov=src/GUI --cov-report=term-missing --cov-report=html"
 testpaths = [
     "tests",
 ]

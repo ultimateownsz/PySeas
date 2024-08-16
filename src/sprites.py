@@ -1,8 +1,6 @@
 """ custom sprites classes """
 import pygame
 
-# typechecking
-from typing import Tuple
 from src.settings import TILE_SIZE
 from src.GUI.inventory import Inventory
 
@@ -105,7 +103,7 @@ class Tile(pygame.sprite.Sprite):
     """ Handle tiles for the map """
     def __init__(self,
         *groups: pygame.sprite.Group,
-        pos: Tuple[float, float],
+        pos: tuple[float, float],
         surf: pygame.Surface,
         name: str | None = None
     ) -> None:
