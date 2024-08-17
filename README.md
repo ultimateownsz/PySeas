@@ -1,6 +1,8 @@
 # PySeas - Open Source Pirate (Adventure) Board Game
 
+[![Discord](https://discord.com/api/guilds/1272287320934056066/widget.png)]()
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://www.freecodecamp.org/news/how-to-make-your-first-pull-request-on-github-3/)
+[![License](https://img.shields.io/github/license/ultimateownsz/pyseas)](https://github.com/ultimateownsz/PySeas/blob/main/LICENSE)
 
 ## Project Description
 
@@ -62,7 +64,6 @@ This project requires Python 3.12 or above. Luckily you can set up a virtual mac
 ```
 pip install -r requirements.txt # For running the game (runtime dependencies)
 pip install -r requirements_dev.txt # For local development
-pip install -r requirements_test.txt # For running tests
 ```
 4. **Run this project:**
 ```
@@ -73,12 +74,23 @@ python main.py
 **See how to contribute:** [contribute](./CONTRIBUTING.md)
 
 ### Linting and Formatting
-We chose to use [Ruff](https://docs.astral.sh/ruff/) to automatically lint and format the code. Gone are the days where you have to do this all manually. Before we used Black but, Ruff is faster and already uses Flake8 in it's build. `Run pip install -r requirements_dev.txt` to install Ruff and other relevant dependencies.
+We chose to use [Ruff](https://docs.astral.sh/ruff/) to automatically lint and format the code. `Run pip install -r requirements_dev.txt` to install Ruff and other relevant dependencies.
 
 > [!IMPORTANT]
-> **Before you open a Pull Request, please run this command to format your code properly and doesn't upset our linter:**
+> **Before you open a Pull Request, please run this bash commands to format your code properly and doesn't upset our linter:**
+>
 > 
 > ```sh
 > ruff format . && ruff check --include I --fix . # this formats code and sort imports
 > ruff check . # run linting and perform fixes
+> mypy main.py
+> ```
+>
+> **If you use powershell, run these commands:**
+>
+> ```powershell
+> ruff format .;
+> ruff check --include I --fix .;
+> ruff check .;
+> mypy main.py
 > ```
