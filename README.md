@@ -1,6 +1,6 @@
 # PySeas - Open Source Pirate (Adventure) Board Game
 
-[![Discord](https://discord.com/api/guilds/1272287320934056066/widget.png)]()
+[![Discord](https://discord.com/api/guilds/1272287320934056066/widget.png)](https://discord.gg/s2P9fZbeZs)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://www.freecodecamp.org/news/how-to-make-your-first-pull-request-on-github-3/)
 [![License](https://img.shields.io/github/license/ultimateownsz/pyseas)](https://github.com/ultimateownsz/PySeas/blob/main/LICENSE)
 
