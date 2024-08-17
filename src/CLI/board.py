@@ -25,7 +25,7 @@ class Board:
     def __init__(self, players):
 
         # all the sea of thieves inspired locations you can visit on the board
-        self.locations = [
+        self.locations: list[str] = [
             "start",
             "isle",
             "event",
@@ -66,10 +66,10 @@ class Board:
         ]
 
         # created a list with an index and locations in a dict to handle the game logic of landing on a tile on the board to call a function
-        self.locations_with_index = []
+        self.locations_with_index: list[dict[str, int | str]] = []
         for i, c in enumerate(self.locations):
             self.locations_with_index.append({"index": i, "location": c})
-        self.current_position: int = self.locations_with_index[0]["index"]
+        self.current_position = self.locations_with_index[0]["index"]
 
         # when a player rolls the dice he/she lands on one of these tiles and a function gets called
 
@@ -143,7 +143,7 @@ class Board:
         print(f"\nYou sail with your crew and on the horizon you see {event}")
 
         if event == loc_1:
-            player_inventory.extension(chest_rage)
+            player_inventory.extension(chest_rage.name)
             print(
                 """You see a specific storming red tornado on a horizon and decide to sail and confront it! Uppon arrival you see the legendary Ghost Casper.
                      You emmidiatly engage in a battle with the Ashen Lord. Its a truely hellish battle. She summons her troops to help her fight you off.
@@ -153,7 +153,7 @@ class Board:
             print("\nYou get a dangerous Doom Chest!")
             return
         elif event == loc_2:
-            player_inventory.extension(chest_cursed)
+            player_inventory.extension(chest_cursed.name)
             print(
                 """You see a specific storming green tornado on a horizon and decide to sail and confront it!
                   You arrive and what you see is a frightening sight. Ghost ships come out of portals appearing on the sea!
@@ -202,9 +202,8 @@ class Board:
         print(f"Let me ask ye a question, matey! \n{question}")
         is_valid_choice = False
         while not is_valid_choice:
-            inp_choice = input("So what is it then? ").lower()
-            inp_choice = str(inp_choice)
-            is_valid_choice = inp_choice
+            inp_choice: str = input("So what is it then? ").lower()
+            is_valid_choice = inp_choice in ['a', 'b', 'c']
             if not is_valid_choice:
                 print("Didn't they learn you to read, fool? Try again! ")
         if question == q1:
@@ -217,7 +216,7 @@ class Board:
                     "Mate, you'll walk the plank next time if ya give such a pathetic answer again!"
                 )
             elif inp_choice == "a":
-                player_inventory.extension(chest_captain)
+                player_inventory.extension(chest_captain.name)
                 print("Well done, privateer! I'll reward you good for this one.")
         # self.test()
 
@@ -236,8 +235,7 @@ class Board:
         is_valid_choice = False
         while not is_valid_choice:
             inp_choice = input("So what is it then? ").lower()
-            inp_choice = str(inp_choice)
-            is_valid_choice = inp_choice
+            is_valid_choice = inp_choice in ['a', 'b', 'c']
             if not is_valid_choice:
                 print("Didn't they learn you to read, sea dog? Try again! ")
         if question == q1:
@@ -250,7 +248,7 @@ class Board:
                     "Mate, you'll walk the plank next time if ya give such a pathetic answer again!"
                 )
             elif inp_choice.lower() == "a":
-                player_inventory.extension(chest_captain)
+                player_inventory.extension(chest_captain.name)
                 print("Well done, privateer! I'll reward you good for this one.")
 
     def visit_the_syndicate(self):
@@ -411,7 +409,7 @@ class Board:
         print("You dwell with your crew through the sea and find", random_item)
 
         if random_item == wreck_1:
-            player_inventory.extension(chest_mermaid)
+            player_inventory.extension(chest_mermaid.name)
             print(
                 """A great man'o'war galleon that once was feared on the seas...
                 Now, its just a wreck. It seems a Pirate King has defeated the Legendary ship.
@@ -419,7 +417,7 @@ class Board:
             )
             print("\nYou find a Coral Marauder's Chest!")
         elif random_item == wreck_2:
-            player_inventory.extension(chest_strong)
+            player_inventory.extension(chest_strong.name)
             print(
                 """Once the most powerfull ship that these seas have ever seen. Fast, a strong fire power and mighty ram attack.
                      Now it's just shipwreck with many others, but its legend goes on...
@@ -427,7 +425,7 @@ class Board:
             )
             print("\nYou find a Stronghold chest!")
         elif random_item == wreck_3:
-            player_inventory.extension(chest_legend)
+            player_inventory.extension(chest_legend.name)
             print(
                 """Every Pirate knows the legend of the Black Pearl! Once the fastest ship on the seas, a ghost ship, with black sails,
                 a damned crew and a Captain so evil that hell itself spat him back out...
@@ -516,7 +514,7 @@ class Board:
 
         # format the index numbers and append them to the list
         for cell in row_a:
-            new_row_a.append("{i:>02}".format(i=cell["index"]))
+            new_row_a.append(f"{cell['index']:>02}")
 
         # create a formatted str from the formatted index numbers
         formatted_row = " | ".join(new_row_a)
