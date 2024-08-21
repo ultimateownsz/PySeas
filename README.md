@@ -4,6 +4,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://www.freecodecamp.org/news/how-to-make-your-first-pull-request-on-github-3/)
 [![License](https://img.shields.io/github/license/ultimateownsz/pyseas)](https://github.com/ultimateownsz/PySeas/blob/main/LICENSE)
 
+<img src="https://i.postimg.cc/NM5R3tzW/100x100-map.png" />
 
 
 ## Project Description
@@ -89,6 +90,7 @@ deactivate
 ```
 
 ## Reporting bugs & requesting features
+If you find something that's not working right or have an idea to make our project better, you can let us know by opening an `Issue` here on [Github](https://github.com/ultimateownsz/PySeas/issues). An issue is just a way to tell us about a problem or suggest a new feature.
 
 We use [Github_Projects](https://github.com/users/ultimateownsz/projects/5) to organize and keep track of these issues, so we can make sure everything gets the attention it needs.
 
