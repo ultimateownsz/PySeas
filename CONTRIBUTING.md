@@ -26,6 +26,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 > ### Legal Notice 
 > When contributing to this project, you must agree that you have authored 100% of the content, that you have the necessary rights to the content and that the content you contribute may be provided under the project [license](https://github.com/ultimateownsz/PySeas?tab=AGPL-3.0-1-ov-file#readme).
 > Tip: If you use assets with a [creative commons license](https://creativecommons.org/licenses/by/4.0/deed.en) you can use it without any legal issues.
+> We keep a list of all the assets, software etc in this [file](./CREDITS.md).
 
 ### Reporting Bugs
 
