@@ -9,7 +9,7 @@
 
 ## Project Description
 
-PySeas is a community-driven project to create an exciting and engaging pirate themed adventure board game inspired by the game Sea of Thieves. This game is designed to be engaging and using interactive elements using tools called Python and Pygame, but you don't need to be a programmer to get involved or enjoy it!
+PySeas is a community-driven project to create an exciting and engaging pirate themed adventure board game inspired by the game Sea of Thieves. This game is designed to be engaging and using interactive elements using tools called Python and Pygame-CE, but you don't need to be a programmer to get involved or enjoy it!
 
 
 ## Why Join PySeas?
