@@ -88,7 +88,9 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/ultima
 
 
 ### Improving The Documentation
-We just started this project recently we need help with people who like to document how the game plays, what features there are and what else you can come up with.
+You can find our Game Design Document (GGD) [here](./docs/Pyseas%20Game%20Design%20Document.pdf).
+
+For improvements you can create a *New issue* on [Issues](https://github.com/ultimateownsz/PySeas/issues) or via our [Discord](https://discord.gg/MZ5MHqDnGW), if you have ideas to improve our documentation!
 
 ### Pull Request Process
 **Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://www.freecodecamp.org/news/how-to-contribute-to-open-source-projects-beginners-guide/)
