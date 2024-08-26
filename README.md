@@ -7,10 +7,12 @@
 <img src="https://i.postimg.cc/NM5R3tzW/100x100-map.png" />
 
 
-## Project Description
+## Project description
 
-PySeas is a community-driven project to create an exciting and engaging pirate themed adventure board game inspired by the game Sea of Thieves. This game is designed to be engaging and using interactive elements using tools called Python and Pygame-CE, but you don't need to be a programmer to get involved or enjoy it!
+Pyseas is an opensource project that aims to create a 2D, top down, turn based board game in Pygame. Where players become pirates and control their own ship. Using a card-based dice system, players explore a dynamic map, complete quests, and battle rival pirates. This game is designed to be engaging and using interactive elements using tools called Python and Pygame-CE, but you don't need to be a programmer to get involved or enjoy it!
 
+## Game design document
+Every game needs thorough documentation, and you can find our Game Design Document (GGD) [here](./docs/Pyseas%20Game%20Design%20Document.pdf).
 
 ## Why Join PySeas?
 
@@ -34,42 +36,42 @@ First you'll need to copy the Pyseas project to your computer through a process 
 2. **Set up a virtual environment:** 
 A virtual environment is like a seperate space on your computer where you can install the software needed for this project without affecting other programs.
 - **For Mac or Linux Users:**
-  1. In your terminal, navigate to the folder where you downloaded the project (usually the 'pyseas' folder) using the 'cd' command:
+  - In your terminal, navigate to the folder where you downloaded the project (usually the 'pyseas' folder) using the 'cd' command:
     ```bash
     cd pyseas
     ```
-  2. Set up the virtual environment by typing: 
+  - Set up the virtual environment by typing: 
     ```bash
     python3 -m venv venv
     ```
-  3. Activate the virtual environment:
+  - Activate the virtual environment:
      ```bash
      source venv/bin/activate
      ```
 
 - **For Windows Users**:
-    1. Open Command Prompt and navigate to the 'pyseas' folder (where you downloaded the project) using the 'cd' command:
+    - Open Command Prompt and navigate to the 'pyseas' folder (where you downloaded the project) using the 'cd' command:
     ```bash
     cd pyseas
     ```
-    2. Set up the virtual environment by typing:
+    - Set up the virtual environment by typing:
     ```bash
-    python3 -m venv venv
+    python -m venv venv
     ```
-    3. Activate the virtual environment:
+    - Activate the virtual environment:
     ```bash
     venv\Scripts\activate
     ```
   
 3. **Install Required Software**:
 Now, you'll need to install the necessary software that the project depends on.
-  1. Make sure you're still in the 'pyseas' directory/folder and that the virtual environment is active.
-  2. Install the software by typing the following command:
+  - Make sure you're still in the 'pyseas' directory/folder and that the virtual environment is active.
+  - Install the software by typing the following command:
   ```
   pip install -r requirements.txt # For running the game (runtime dependencies)
   ```
 This installs everything you need to run the project.
-  3. If you plan to do any local development or modifications, also run:
+  - If you plan to do any local development or modifications, also run:
   ```
   pip install -r requirements_dev.txt # For local development
   ```
@@ -77,11 +79,11 @@ This installs everything you need to run the project.
 This step is optional and only needed if you want to make changes to the project.
 4. **Run the project**
 Now you are ready to start the project!
-  1. Simply type:
+  - Simply type:
   ```
   python main.py
   ```
-  2. The project should start running, and you'll see it in action!
+  - The project should start running, and you'll see it in action!
 
 **Deactivate the Virtual Environment**:
 When you’re done working, you can deactivate the virtual environment using:
@@ -121,3 +123,8 @@ We chose to use [Ruff](https://docs.astral.sh/ruff/) to automatically lint and f
 > ruff check .;
 > mypy main.py
 > ```
+
+## Relevant links
+- [Project Task List](https://github.com/users/ultimateownsz/projects/5)
+- [Pyseas's Discord Server](https://discord.gg/MZ5MHqDnGW)
+- [Pygame's Community Discord](https://discord.gg/pygame)
