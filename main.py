@@ -149,10 +149,12 @@ class CLI:
 
 @dataclass
 class GUI:
-    """ Graphial User Interface vertion of the game, using pygame-ce """
+    """ Graphial User Interface version of the game, using pygame-ce """
 
     screen_size: tuple[int, int] = (SCREEN_WIDTH, SCREEN_HEIGHT)
     screen: pygame.Surface = field(init=False)
+
+    state: str = "main_menu" 
 
     # groups
     # all_sprites: pygame.sprite.Group = field(
@@ -169,7 +171,7 @@ class GUI:
 
         self.running = True
         self.import_assets()
-        self.setup(
+        self.play(
             tmx_maps=self.tmx_map["map"], player_start_pos="Fort"
         )  # The start positions will be one of the 4 islands in the corners of the board
 
@@ -193,7 +195,32 @@ class GUI:
         # tmx_data = load_pygame(tmx_path)
         # print(tmx_data.layers)
 
-    def setup(self, tmx_maps, player_start_pos):
+    # def setup(self, tmx_maps, player_start_pos):
+    #     """ create tiles """
+    #     islands = tmx_maps.get_layer_by_name("Islands")
+    #     for x, y, surface in islands.tiles():
+    #         # print(x * TILE_SIZE, y * TILE_SIZE, surface)
+    #         src.sprites.Tile(
+    #             self.all_sprites,
+    #             pos=(x * TILE_SIZE, y * TILE_SIZE),
+    #             surf=surface,
+    #         )
+
+    def run(self) -> None:
+        """ main loop of the game """
+        while self.running:
+            self.handle_events()
+            self.update()
+            self.render()
+
+    def get_font(self, size):
+        return pygame.font.Font("fonts/Grand9K Pixel.ttf", size)
+    # font_name: Grand9k Pixel/grand9k_pixel
+
+    def play(self, tmx_maps, player_start_pos):
+        # self.screen.fill('white')
+        PLAYER_MOUSE_POS = pygame.mouse.get_pos()
+
         """ create tiles """
         islands = tmx_maps.get_layer_by_name("Islands")
         for x, y, surface in islands.tiles():
@@ -204,36 +231,17 @@ class GUI:
                 surf=surface,
             )
 
-    def run(self) -> None:
-        """ main loop of the game """
-        while self.running:
-            self.handle_events()
-            self.update()
-            self.render()
-
-    def get_font(size):
-        return pygame.font.Font("fonts/Grand9K Pixel.ttf", size)
-    # font_name: Grand9k Pixel/grand9k_pixel
-
-    def play(self):
-        self.screen.fill('white')
-        PLAYER_MOUSE_POS = pygame.mouse.get_pos()
-
-        PLAYER_SCREEN_TEXT = self.get_font(35).render('''Welcome to PYSEAS! 
-                A great adventure lies ahead!''', True, 'black')
-        PS_RECT = PLAYER_SCREEN_TEXT.get_rect(center=(420, 300))
-
         back_button_surface = pygame.Surface((100, 100))
-        back_button_surface.fill('white')
+        back_button_surface.fill('black')
 
         BACK_BUTTON = Button(image=back_button_surface, pos=(100, 550), text_input="< Back", 
-                                font=self.get_font(40), base_color='grey', hovering_color='black')
+                                font=self.get_font(40), base_color='white', hovering_color='grey')
         
         for button in [BACK_BUTTON]:
             button.changeColor(PLAYER_MOUSE_POS)
             button.update(self.screen)
 
-        self.screen.blit(PLAYER_SCREEN_TEXT, PS_RECT)
+        # self.screen.blit(PLAYER_SCREEN_TEXT, PS_RECT)
 
         return BACK_BUTTON
 
@@ -383,49 +391,49 @@ class GUI:
                     sys.exit()
             
             if event.type == pygame.MOUSEBUTTONDOWN:
-                if state == 'main_menu':
+                if self.state == 'main_menu':
                     PLAY_BUTTON, OPT_BUTTON, QUIT_BUTTON = self.main_menu()
                     if PLAY_BUTTON.checkForInput(pygame.mouse.get_pos()):
-                        state = 'play'
+                        self.state = 'play'
                     elif OPT_BUTTON.checkForInput(pygame.mouse.get_pos()):
-                        state = 'options'
+                        self.state = 'options'
                     elif QUIT_BUTTON.checkForInput(pygame.mouse.get_pos()):
                         pygame.quit()
                         sys.exit()
 
-                elif state == 'play':
-                    BACK_BUTTON = self.play()
+                elif self.state == 'play':
+                    BACK_BUTTON = self.play(tmx_maps=self.tmx_map["map"], player_start_pos="Fort")
                     if BACK_BUTTON.checkForInput(pygame.mouse.get_pos()):
-                        state = 'main_menu'
+                        self.state = 'main_menu'
 
-                elif state == 'options':
+                elif self.state == 'options':
                     BACK_BUTTON, RES_BUTTON, SFX_BUTTON, DIFF_BUTTON = self.options() #SFX_BUTTON is going to be implemented later
                     if BACK_BUTTON.checkForInput(pygame.mouse.get_pos()):
-                        state = 'main_menu'
+                        self.state = 'main_menu'
                     elif RES_BUTTON.checkForInput(pygame.mouse.get_pos()):
-                        state = 'res'
+                        self.state = 'res'
                     elif DIFF_BUTTON.checkForInput(pygame.mouse.get_pos()):
-                        state = 'diff'
+                        self.state = 'diff'
 
-                elif state == 'diff':
+                elif self.state == 'diff':
                     BACK_BUTTON = self.diff()
                     if BACK_BUTTON.checkForInput(pygame.mouse.get_pos()):
-                        state = 'options'
+                        self.state = 'options'
 
-                elif state == 'res':
+                elif self.state == 'res':
                     BACK_BUTTON = self.res()
                     if BACK_BUTTON.checkForInput(pygame.mouse.get_pos()):
-                        state = 'options'
+                        self.state = 'options'
 
-        if state == 'main_menu':
+        if self.state == 'main_menu':
             self.main_menu()
-        elif state == 'play':
-            self.play()
-        elif state == 'options':
+        elif self.state == 'play':
+            self.play(tmx_maps=self.tmx_map["map"], player_start_pos="Fort")
+        elif self.state == 'options':
             self.options()
-        elif state == 'res':
+        elif self.state == 'res':
             self.res()
-        elif state == 'diff':
+        elif self.state == 'diff':
             self.diff()
 
         pygame.display.flip()
