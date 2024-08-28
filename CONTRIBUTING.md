@@ -95,10 +95,33 @@ For improvements you can create a *New issue* on [Issues](https://github.com/ult
 ### Pull Request Process
 **Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://www.freecodecamp.org/news/how-to-contribute-to-open-source-projects-beginners-guide/)
 
+
+### Linting and Formatting
+We chose to use [Ruff](https://docs.astral.sh/ruff/) to automatically lint and format the code. `Run pip install -r requirements_dev.txt` to install Ruff and other relevant dependencies.
+
+> [!IMPORTANT]
+> **Before you open a Pull Request, please run this bash commands to format your code properly and doesn't upset our linter:**
+>
+> 
+> ```sh
+> ruff format . && ruff check --include I --fix . # this formats code and sort imports
+> ruff check . # run linting and perform fixes
+> mypy main.py
+> ```
+>
+> **If you use powershell, run these commands:**
+>
+> ```powershell
+> ruff format .;
+> ruff check --include I --fix .;
+> ruff check .;
+> mypy main.py
+> ```
+
+
 1. Ensure any install or build dependencies are removed before the end of the layer when doing a build.
-2. Update the README.md with details of changes to the interface, this includes new environment variables, exposed ports, useful file locations and container parameters.
-3. If you find issues in the code you can make a *New issue* on [Issues](https://github.com/ultimateownsz/PySeas/issues)
-4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
+2. If you find issues in the code you can make a *New issue* on [Issues](https://github.com/ultimateownsz/PySeas/issues)
+3. When making a Pull Request you may have to wait for the sign-off of a reviewer that approves your changes.
 
 ### Pull Request Template
 - Title: Short one line title describing your idea/bug/feature.
