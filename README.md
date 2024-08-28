@@ -56,7 +56,7 @@ A virtual environment is like a seperate space on your computer where you can in
     ```
     - Set up the virtual environment by typing:
     ```bash
-    python -m venv venv
+    python3 -m venv venv
     ```
     - Activate the virtual environment:
     ```bash
