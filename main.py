@@ -294,7 +294,7 @@ class GUI:
 
         return BACK_BUTTON, RES_BUTTON, SFX_BUTTON, DIFF_BUTTON
 
-    def res(self):
+    def resolution(self):
         self.screen.fill('white')
 
         RES_MOUSE_POS = pygame.mouse.get_pos()
@@ -325,7 +325,8 @@ class GUI:
 
         return BACK_BUTTON, FHD_BUTTON, HD_BUTTON, THIRD_BUTTON
 
-    def diff(self):
+    def difficulty(self):
+        '''I made this option for now as a idea. Maybe we could implement a sort of difficulty system in the game?'''
         self.screen.fill('white')
 
         DIFF_MOUSE_POS = pygame.mouse.get_pos()
@@ -449,6 +450,7 @@ class GUI:
                     if BACK_BUTTON.checkForInput(pygame.mouse.get_pos()):
                         self.state = 'options'
 
+                # TODO: I had no time to correctly set up the resolution change, I will fix it later
                 elif self.state == 'res':
                     BACK_BUTTON, FHD_BUTTON, HD_BUTTON, THIRD_BUTTON = self.res()
                     if BACK_BUTTON.checkForInput(pygame.mouse.get_pos()):
