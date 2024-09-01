@@ -34,117 +34,123 @@ import pygame
 from pytmx.util_pygame import load_pygame
 
 # import Python specific objects, functions and functionality
-from src.py_version.board import Board
-from src.py_version.player import Player
+# from src.py_version.board import Board
+# from src.py_version.player import Player
 from button import Button
 
 # import Pygame specific objects, functions and functionality
+from src.GUI.gameloop import GUI
+
+
+class Launcher:
+    def __init__(self) -> None:
+        pass
 from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE
 import src.sprites
 
 
-@dataclass
-class CLI:
-    """ Command Line Interface, only using print statements """
+# @dataclass
+# class CLI:
+#     """ Command Line Interface, only using print statements """
 
-    players: List[Player] = field(init=False)
-    board: Board = field(init=False)
-    current_player_index: int = 0
-    running: bool = False
+#     players: List[Player] = field(init=False)
+#     board: Board = field(init=False)
+#     current_player_index: int = 0
+#     running: bool = False
 
-    def __post_init__(self):
-        self.clear_screen()
-        self.players = [
-            Player(name_of_player="player 1", player_id=0),
-            Player(name_of_player="player 2", player_id=1),
-        ]
-        self.board = Board(self.players)
+#     def __post_init__(self):
+#         self.clear_screen()
+#         self.players = [
+#             Player(name_of_player="player 1", player_id=0),
+#             Player(name_of_player="player 2", player_id=1),
+#         ]
+#         self.board = Board(self.players)
 
-    # logic which players turn it is
-    def toggle_player_index(self):
-        if self.current_player_index == 0:
-            self.current_player_index = 1
-        else:
-            self.current_player_index = 0
+#     # logic which players turn it is
+#     def toggle_player_index(self):
+#         if self.current_player_index == 0:
+#             self.current_player_index = 1
+#         else:
+#             self.current_player_index = 0
 
-    @staticmethod
-    def clear_screen():
-        """A function made to clear the screen in the Python boardgame.
-        Could be used or altered in Pygame if needed."""
+#     @staticmethod
+#     def clear_screen():
+#         """A function made to clear the screen in the Python boardgame.
+#         Could be used or altered in Pygame if needed."""
 
-        os.system("cls" if os.name == "nt" else "clear")
+#         os.system("cls" if os.name == "nt" else "clear")
 
-    def run(self):
-        self.initialize_game()
-        self.running = True
-        while self.running:
-            start_the_game = input(
-                "Would you like to start the game? Press enter to continue. "
-            )
-            if start_the_game == "":
-                self.clear_screen()
-                break
-        self.board.print()
-        self.player_switch(self.players)
+#     def run(self):
+#         self.initialize_game()
+#         self.running = True
+#         while self.running:
+#             start_the_game = input(
+#                 "Would you like to start the game? Press enter to continue. "
+#             )
+#             if start_the_game == "":
+#                 self.clear_screen()
+#                 break
+#         self.board.print()
+#         self.player_switch(self.players)
 
-    def player_switch(self, players):
-        """This decides what the current player pos is and then switch to the other player, when the player gets asked to end the turn"""
+#     def player_switch(self, players):
+#         """This decides what the current player pos is and then switch to the other player, when the player gets asked to end the turn"""
 
-        while True:
-            current_player = players[self.current_player_index]
-            print(
-                f"\nIt's {current_player.name_of_player.capitalize()}'s turn! Current position is {self.board.players[self.current_player_index]}"
-            )
+#         while True:
+#             current_player = players[self.current_player_index]
+#             print(
+#                 f"\nIt's {current_player.name_of_player.capitalize()}'s turn! Current position is {self.board.players[self.current_player_index]}"
+#             )
 
-            # end_turn = False
+#             # end_turn = False
 
-            while True:
-                roll_dice = input("\nDo you want to roll the dice? (yes/y) \n")
-                if roll_dice.lower() in ["yes", "y"]:
-                    # current_player.dice_roll()
-                    current_player.move_player(self.board)
-                    if current_player:
-                        current_player.perform_action(
-                            self.board,
-                            new_position=self.board.players[self.current_player_index],
-                        )
-                    break
-                else:
-                    print(
-                        "You made a mistake, you can only answer yes to roll the dice!"
-                    )
-                    continue
+#             while True:
+#                 roll_dice = input("\nDo you want to roll the dice? (yes/y) \n")
+#                 if roll_dice.lower() in ["yes", "y"]:
+#                     # current_player.dice_roll()
+#                     current_player.move_player(self.board)
+#                     if current_player:
+#                         current_player.perform_action(
+#                             self.board,
+#                             new_position=self.board.players[self.current_player_index],
+#                         )
+#                     break
+#                 else:
+#                     print(
+#                         "You made a mistake, you can only answer yes to roll the dice!"
+#                     )
+#                     continue
 
-            stop_turn = input("\nDo you want to end your turn? (yes/no) \n")
-            if stop_turn.lower() in ["yes", "y"]:
-                self.toggle_player_index()
-                Board(players).print()
-            elif stop_turn.lower() in ["no", "n"]:
-                print("\nYou must continue your turn.")
-                self.toggle_player_index()
-                Board(players).print()
-            else:
-                print("Input error. Please answer yes or no.")
+#             stop_turn = input("\nDo you want to end your turn? (yes/no) \n")
+#             if stop_turn.lower() in ["yes", "y"]:
+#                 self.toggle_player_index()
+#                 Board(players).print()
+#             elif stop_turn.lower() in ["no", "n"]:
+#                 print("\nYou must continue your turn.")
+#                 self.toggle_player_index()
+#                 Board(players).print()
+#             else:
+#                 print("Input error. Please answer yes or no.")
 
-    def initialize_game(self):
-        print("Ahoy Mateyy To PySeas!\n")
+#     def initialize_game(self):
+#         print("Ahoy Mateyy To PySeas!\n")
 
-        for player in self.players:
-            while True:
-                name = input(f"Enter player {player.player_id+1} name: ").strip()
-                if 2 <= len(name) <= 10 and name.isalpha():
-                    player.name_of_player = name
-                    break
-                else:
-                    print(
-                        "Input error. Player name should be between two characters and maximum ten characters containing only alphabets."
-                    )
-                    continue
+#         for player in self.players:
+#             while True:
+#                 name = input(f"Enter player {player.player_id+1} name: ").strip()
+#                 if 2 <= len(name) <= 10 and name.isalpha():
+#                     player.name_of_player = name
+#                     break
+#                 else:
+#                     print(
+#                         "Input error. Player name should be between two characters and maximum ten characters containing only alphabets."
+#                     )
+#                     continue
 
-        # print(f"\nAhoy {self.players[0].name_of_player.capitalize()} & {self.players[1].name_of_player.capitalize()} to the start of the game!\n")
-        for player in self.players:
-            player.print_info()
-        return self.players
+#         # print(f"\nAhoy {self.players[0].name_of_player.capitalize()} & {self.players[1].name_of_player.capitalize()} to the start of the game!\n")
+#         for player in self.players:
+#             player.print_info()
+#         return self.players
 
 
 @dataclass
@@ -165,6 +171,8 @@ class GUI:
     def __post_init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode(self.screen_size)
+        self.org_screen_size = (SCREEN_WIDTH, SCREEN_HEIGHT)
+        self.current_screen_size = self.org_screen_size
         pygame.display.set_caption("PySeas")
 
         self.players: list[src.sprites.Player] = [src.sprites.Player()]
@@ -214,7 +222,7 @@ class GUI:
             self.render()
 
     def get_font(self, size):
-        return pygame.font.Font("fonts/Grand9K Pixel.ttf", size)
+        return pygame.font.Font("fonts/antiquity-print.ttf", size)
     # font_name: Grand9k Pixel/grand9k_pixel
 
     def play(self, tmx_maps, player_start_pos):
@@ -249,8 +257,8 @@ class GUI:
         self.screen.fill('white')
         OPTIONS_MOUSE_POS = pygame.mouse.get_pos()
 
-        OPT_SCREEN_TXT = self.get_font(35).render('''Here you can find OPTIONS''', True, 'black')
-        OPT_RECT = OPT_SCREEN_TXT.get_rect(center=(520, 550))
+        OPT_SCREEN_TXT = self.get_font(50).render('''OPTIONS''', True, 'black')
+        OPT_RECT = OPT_SCREEN_TXT.get_rect(center=(623, 100))
 
         # TO DO: Adjust the button surface so it doesnt overlap with the other surfaces (DONE)
 
@@ -266,16 +274,16 @@ class GUI:
         diff_button_surface = pygame.Surface((150, 100))
         diff_button_surface.fill('white')
 
-        BACK_BUTTON = Button(image=back_button_surface, pos=(100, 550), text_input="< Back", 
+        BACK_BUTTON = Button(image=back_button_surface, pos=(100, 650), text_input="< Back", 
                                 font=self.get_font(40), base_color='grey', hovering_color='black')
         
-        RES_BUTTON = Button(image=res_button_surface, pos=(150, 50), text_input='Resolution',
+        RES_BUTTON = Button(image=res_button_surface, pos=(623, 250), text_input='Resolution',
                             font=self.get_font(40), base_color='grey', hovering_color='black')
         
-        SFX_BUTTON = Button(image=res_button_surface, pos=(100, 200), text_input='Sound',
+        SFX_BUTTON = Button(image=res_button_surface, pos=(623, 365), text_input='Sound',
                             font=self.get_font(40), base_color='grey', hovering_color='black')
         
-        DIFF_BUTTON = Button(image=res_button_surface, pos=(135, 350), text_input='Difficulty',
+        DIFF_BUTTON = Button(image=res_button_surface, pos=(623, 475), text_input='Difficulty',
                             font=self.get_font(40), base_color='grey', hovering_color='black')
         
         for button in [BACK_BUTTON, RES_BUTTON, SFX_BUTTON, DIFF_BUTTON]:
@@ -292,7 +300,7 @@ class GUI:
         RES_MOUSE_POS = pygame.mouse.get_pos()
 
         RES_TEXT = self.get_font(50).render('RESOLUTION', True, 'black')
-        RES_RECT = RES_TEXT.get_rect(center=(420, 100))
+        RES_RECT = RES_TEXT.get_rect(center=(623, 100))
 
         fhd_button_surface = pygame.Surface((200, 100))
         fhd_button_surface.fill('white')
@@ -303,10 +311,10 @@ class GUI:
         back_button_surface = pygame.Surface((100, 100))
         back_button_surface.fill('white')
 
-        FHD_BUTTON = Button(image=fhd_button_surface, pos=(200, 200), text_input="1920x1080", font=self.get_font(35), base_color='grey', hovering_color='black')
-        HD_BUTTON = Button(image=hd_button_surface, pos=(200, 300), text_input="1280x720", font=self.get_font(35), base_color='grey', hovering_color='black')
-        THIRD_BUTTON = Button(image=third_button_surface, pos=(200, 400), text_input="800x600", font=self.get_font(35), base_color='grey', hovering_color='black')
-        BACK_BUTTON = Button(image=back_button_surface, pos=(100, 550), text_input="< Back", 
+        FHD_BUTTON = Button(image=fhd_button_surface, pos=(623, 250), text_input="1920x1080", font=self.get_font(35), base_color='grey', hovering_color='black')
+        HD_BUTTON = Button(image=hd_button_surface, pos=(623, 365), text_input="1280x720", font=self.get_font(35), base_color='grey', hovering_color='black')
+        THIRD_BUTTON = Button(image=third_button_surface, pos=(623, 475), text_input="800x600", font=self.get_font(35), base_color='grey', hovering_color='black')
+        BACK_BUTTON = Button(image=back_button_surface, pos=(100, 650), text_input="< Back", 
                                 font=self.get_font(40), base_color='grey', hovering_color='black')
 
         for button in [FHD_BUTTON, HD_BUTTON, THIRD_BUTTON, BACK_BUTTON]:
@@ -315,7 +323,7 @@ class GUI:
 
         self.screen.blit(RES_TEXT, RES_RECT)
 
-        return BACK_BUTTON
+        return BACK_BUTTON, FHD_BUTTON, HD_BUTTON, THIRD_BUTTON
 
     def diff(self):
         self.screen.fill('white')
@@ -323,7 +331,7 @@ class GUI:
         DIFF_MOUSE_POS = pygame.mouse.get_pos()
 
         DIFF_TEXT = self.get_font(50).render('DIFFICULTY', True, 'black')
-        DIFF_RECT = DIFF_TEXT.get_rect(center=(380, 100))
+        DIFF_RECT = DIFF_TEXT.get_rect(center=(623, 100))
 
         easy_button_surface = pygame.Surface((200, 100))
         easy_button_surface.fill('white')
@@ -334,10 +342,10 @@ class GUI:
         back_button_surface = pygame.Surface((100, 100))
         back_button_surface.fill('white')
 
-        EASY_BUTTON = Button(image=easy_button_surface, pos=(380, 200), text_input="Easy", font=self.get_font(35), base_color='grey', hovering_color='black')
-        MEDIUM_BUTTON = Button(image=medium_button_surface, pos=(380, 300), text_input="Medium", font=self.get_font(35), base_color='grey', hovering_color='black')
-        HARD_BUTTON = Button(image=hard_button_surface, pos=(380, 400), text_input="Hard", font=self.get_font(35), base_color='grey', hovering_color='black')
-        BACK_BUTTON = Button(image=back_button_surface, pos=(100, 550), text_input="< Back", font=self.get_font(40), base_color='grey', hovering_color='black')
+        EASY_BUTTON = Button(image=easy_button_surface, pos=(623, 250), text_input="Easy", font=self.get_font(35), base_color='grey', hovering_color='black')
+        MEDIUM_BUTTON = Button(image=medium_button_surface, pos=(623, 365), text_input="Medium", font=self.get_font(35), base_color='grey', hovering_color='black')
+        HARD_BUTTON = Button(image=hard_button_surface, pos=(623, 475), text_input="Hard", font=self.get_font(35), base_color='grey', hovering_color='black')
+        BACK_BUTTON = Button(image=back_button_surface, pos=(100, 650), text_input="< Back", font=self.get_font(40), base_color='grey', hovering_color='black')
 
         for button in [EASY_BUTTON, MEDIUM_BUTTON, HARD_BUTTON, BACK_BUTTON]:
             button.changeColor(DIFF_MOUSE_POS)
@@ -352,8 +360,8 @@ class GUI:
 
         MENU_MOUSE_POS = pygame.mouse.get_pos()
 
-        MENU_TEXT = self.get_font(100).render('MAIN MENU', True, 'white')
-        MENU_RECT = MENU_TEXT.get_rect(center=(420, 100))
+        MENU_TEXT = self.get_font(100).render('PYSEAS', True, 'white')
+        MENU_RECT = MENU_TEXT.get_rect(center=(620, 100))
 
         # play_button_surface = pygame.Surface((300, 100))
         # play_button_surface.fill("brown")
@@ -366,13 +374,13 @@ class GUI:
         # quit_button_surface.fill("brown")
 
         PLAY_BUTTON = Button(image=play_button_surface, 
-                                pos=(200, 250), text_input='PLAY', font=self.get_font(45), base_color='white', hovering_color='grey')
+                                pos=(623, 250), text_input='PLAY', font=self.get_font(45), base_color='white', hovering_color='grey')
         
         OPT_BUTTON = Button(image=opt_button_surface, 
-                            pos=(240, 360), text_input='OPTIONS', font=self.get_font(45), base_color='white', hovering_color='grey')
+                            pos=(623, 360), text_input='OPTIONS', font=self.get_font(45), base_color='white', hovering_color='grey')
         
         QUIT_BUTTON = Button(image=quit_button_surface, 
-                            pos=(190, 470), text_input='QUIT', font=self.get_font(45), base_color='white', hovering_color='grey')
+                            pos=(623, 470), text_input='QUIT', font=self.get_font(45), base_color='white', hovering_color='grey')
         
         self.screen.blit(MENU_TEXT, MENU_RECT)
 
@@ -381,6 +389,27 @@ class GUI:
             button.update(self.screen)
 
         return PLAY_BUTTON, OPT_BUTTON, QUIT_BUTTON
+    
+    def scale_content(self, new_resolution):
+        width_scale = new_resolution[0] / self.org_screen_size[0]
+        height_scale = new_resolution[1] / self.org_screen_size[1]
+
+        # Rescale the sprites
+        for sprite in self.all_sprites:
+            sprite.image = pygame.transform.scale(
+                sprite.image, 
+                (int(sprite.rect.width * width_scale), int(sprite.rect.height * height_scale))
+            )
+            sprite.rect.x = int(sprite.rect.x * width_scale)
+            sprite.rect.y = int(sprite.rect.y * height_scale)
+
+        # Rescale the players
+        # for player in self.players:
+        #     player.scale_player(width_scale, height_scale)
+
+        # Update screen size
+        self.screen = pygame.display.set_mode(new_resolution)
+        self.current_screen_size = new_resolution
 
     def handle_events(self) -> None:
         """ get events like keypress or mouse clicks """
@@ -421,9 +450,15 @@ class GUI:
                         self.state = 'options'
 
                 elif self.state == 'res':
-                    BACK_BUTTON = self.res()
+                    BACK_BUTTON, FHD_BUTTON, HD_BUTTON, THIRD_BUTTON = self.res()
                     if BACK_BUTTON.checkForInput(pygame.mouse.get_pos()):
                         self.state = 'options'
+                    if FHD_BUTTON.checkForInput(pygame.mouse.get_pos()):
+                        self.scale_content((1920, 1080))
+                    if HD_BUTTON.checkForInput(pygame.mouse.get_pos()):
+                        self.scale_content((1280, 720))
+                    if THIRD_BUTTON.checkForInput(pygame.mouse.get_pos()):
+                        self.scale_content((800, 600))
 
         if self.state == 'main_menu':
             self.main_menu()
@@ -457,7 +492,7 @@ class GUI:
 
 
 if __name__ == "__main__":
-    # vertion choise is disabled for debugging reasons
+    # version choice is disabled for debugging reasons
     game = GUI()
     game.run()
 
