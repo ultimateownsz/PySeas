@@ -36,6 +36,7 @@ if __name__ == "__main__":
     game = GUI()
     game.run()
 
+    # testing purposes
     # print(
     #     """
     #       Welcome to Pyseas!
