@@ -26,6 +26,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 > ### Legal Notice 
 > When contributing to this project, you must agree that you have authored 100% of the content, that you have the necessary rights to the content and that the content you contribute may be provided under the project [license](https://github.com/ultimateownsz/PySeas?tab=AGPL-3.0-1-ov-file#readme).
 > Tip: If you use assets with a [creative commons license](https://creativecommons.org/licenses/by/4.0/deed.en) you can use it without any legal issues.
+> We keep a list of all the assets, software etc in this [file](./CREDITS.md).
 
 ### Reporting Bugs
 
@@ -68,7 +69,7 @@ This section guides you through submitting an enhancement suggestion for CONTRIB
 #### Before Submitting an Enhancement
 
 - Make sure that you are using the latest version.
-- Read the [documentation](https://open.codecks.io/pyseas) carefully and find out if the functionality is already covered, maybe by an individual configuration.
+- Read the [documentation](/docs/Pyseas%20Game%20Design%20Document.pdf) carefully and find out if the functionality is already covered, maybe by an individual configuration.
 - Perform a [search](https://github.com/ultimateownsz/PySeas/issues) to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 - Find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. Keep in mind that we want features that will be useful to the majority of our users and not just a small subset. If you're just targeting a minority of users, consider writing an add-on/plugin library.
 
@@ -87,7 +88,9 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/ultima
 
 
 ### Improving The Documentation
-We just started this project recently we need help with people who like to document how the game plays, what features there are and what else you can come up with.
+You can find our Game Design Document (GGD) [here](./docs/Pyseas%20Game%20Design%20Document.pdf).
+
+For improvements you can create a *New issue* on [Issues](https://github.com/ultimateownsz/PySeas/issues) or via our [Discord](https://discord.gg/MZ5MHqDnGW), if you have ideas to improve our documentation!
 
 ### Pull Request Process
 **Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://www.freecodecamp.org/news/how-to-contribute-to-open-source-projects-beginners-guide/)

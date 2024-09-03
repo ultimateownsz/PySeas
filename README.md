@@ -4,76 +4,105 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://www.freecodecamp.org/news/how-to-make-your-first-pull-request-on-github-3/)
 [![License](https://img.shields.io/github/license/ultimateownsz/pyseas)](https://github.com/ultimateownsz/PySeas/blob/main/LICENSE)
 
-## Project Description
+<img src="https://i.postimg.cc/NM5R3tzW/100x100-map.png" />
 
-Welcome to PySeas, an open-source project to create an exciting and engaging board game in Python, inspired by the popular game Sea of Thieves! This project is perfect for anyone interested in game development, Python programming, and creative collaboration.
 
-## About the Project
+## Project description
 
-PySeas {working title} a tiled based adventure game Python/Pygame-CE project. It is based on a former school project, a board game made in Python.
+Pyseas is an opensource project that aims to create a 2D, top down, turn based board game in Pygame. Where players become pirates and control their own ship. Using a card-based dice system, players explore a dynamic map, complete quests, and battle rival pirates. This game is designed to be engaging and using interactive elements using tools called Python and Pygame-CE, but you don't need to be a programmer to get involved or enjoy it!
 
-## Get notified about project updates
-For organising the project we mainly use [Codecks](https://open.codecks.io/pyseas). Codecks is a management tool made for indie game developers, it is based on a card game and has a lot of similarities like Trello. The main thing what we liked about this is, we can show you how we make the game via open decks. Decks make it possible to share contens of any projects we are working on publicly on the web. You can create a account to get notified for updates or you can vote on cards.
-
-### Discord server
-We also made a dedicated [Discord](https://discord.gg/MZ5MHqDnGW) server where you can engage in conversations about how to improve, add or give feedback to the developers. It also has the option to construct a message to send to Codecks to directly see it on the deck what is being worked on or being fixed.
-
-## Project Goals
-- **Pygame version:** We aim to create a pygame version, everything we wanted to do in Python wasn't possible so we decided to remake the game in Pygame: bringing enhanced graphics and more dynamic interactions.
-
-For all new goals we refer to see [Codecks](https://open.codecks.io/pyseas) to vote on cards with implementing features/goals. We also made improvements to give feedback within the [Discord](https://discord.gg/MZ5MHqDnGW) directly to Codecks..
-
-### Goals for later
-- **Refactor the Python version:** The project started out as an Python boardgame inspired by Sea of Thieves and is now changed to a bigger project and scope. We intend to first remake the game in Pygame first and later on refactor the game to Python's version too but with an ASCII look.
-- **Unified Launcher:** Our final goal is to provide a Pygame-based launcher that offers players the option to choose between the Python version and the Pygame version of the game, making it easy to play either version from a single interface.
-<img src="https://img.itch.zone/aW1nLzE1MDEzOTMwLmdpZg==/347x500/A%2BBsU5.gif" style="width: 150px; height: 150px;" />
+## Game design document
+Every game needs thorough documentation, and you can find our Game Design Document (GGD) [here](./docs/Pyseas%20Game%20Design%20Document.pdf).
 
 ## Why Join PySeas?
 
-- Learn and improve your Python and Pygame skills through practical, hands-on development.
-- Collaborate with a community of like-minded enthusiasts and contribute to a shared goal.
-- Create something fun and engaging that others can enjoy and build upon.
-- Explore the world of game development and design, gaining valuable experience along the way.
-- Contributing to an open-source project can be a great addition to your resume or portfolio, showcasing your skills to potential employers or collaborators.
-- As an open-source contributor, you have the opportunity to influence the development and future features of the game. Your ideas and feedback are valued and can directly impact the project.
+- **Increasing your skills**: Learn and improve your Python and Pygame skills through practical, hands-on development.
+- **Learn about game development**: Explore the world of game development and design, gaining valuable experience along the way.
+- **Create something enjoyable**: Contributing to a project that results in a game you and others can enjoy.
+- **Join our community on [Discord](https://discord.gg/MZ5MHqDnGW)**: Whether you want to help with ideas, give feedback, or simply enjoy the game, everyone is welcome!
 
-Whether you're a seasoned developer or just starting, your contributions are valuable. Let's create an amazing board game together!
 
-## How to Get Involved
+## Getting started
 
-This project requires Python 3.12 or above. Luckily you can set up a virtual machine to run the project with.
+No need to worry if you are new to programming. This guide will walk you through the setup step by step. by the end, you'll have everything ready to run the Pyseas project.
 
-1. **Clone the Repository:** Start by cloning the PySeas repository from GitHub.
+
+1. **Clone the Repository:**
+First you'll need to copy the Pyseas project to your computer through a process called "cloning".
 ```
   git clone https://github.com/ultimateownsz/pyseas.git
 ```
-2. **Set up a virtual machine:** 
 
-   **Linux/MacOS**
+2. **Set up a virtual environment:** 
+A virtual environment is like a seperate space on your computer where you can install the software needed for this project without affecting other programs.
+- **For Mac or Linux Users:**
+  - In your terminal, navigate to the folder where you downloaded the project (usually the 'pyseas' folder) using the 'cd' command:
+    ```bash
+    cd pyseas
     ```
+  - Set up the virtual environment by typing: 
+    ```bash
     python3 -m venv venv
-    source venv/bin/activate
     ```
-   **Windows**
+  - Activate the virtual environment:
+     ```bash
+     source venv/bin/activate
+     ```
+
+- **For Windows Users**:
+    - Open Command Prompt and navigate to the 'pyseas' folder (where you downloaded the project) using the 'cd' command:
+    ```bash
+    cd pyseas
     ```
-    python -m venv venv
+    - Set up the virtual environment by typing:
+    ```bash
+    python3 -m venv venv
+    ```
+    - Activate the virtual environment:
+    ```bash
     venv\Scripts\activate
     ```
+  
+3. **Install Required Software**:
+Now, you'll need to install the necessary software that the project depends on.
+  - Make sure you're still in the 'pyseas' directory/folder and that the virtual environment is active.
+  - Install the software by typing the following command:
+  ```
+  pip install -r requirements.txt # For running the game (runtime dependencies)
+  ```
+This installs everything you need to run the project.
+  - If you plan to do any local development or modifications, also run:
+  ```
+  pip install -r requirements_dev.txt # For local development
+  ```
 
-4. **Install dependencies:**
+This step is optional and only needed if you want to make changes to the project.
+4. **Run the project**
+Now you are ready to start the project!
+  - Simply type:
+  ```
+  python main.py
+  ```
+  - The project should start running, and you'll see it in action!
+
+**Deactivate the Virtual Environment**:
+When you’re done working, you can deactivate the virtual environment using:
+```bash
+deactivate
 ```
-pip install -r requirements.txt # For running the game (runtime dependencies)
-pip install -r requirements_dev.txt # For local development
-```
-4. **Run this project:**
-```
-python main.py
-```
+
+## Reporting bugs & requesting features
+If you find something that's not working right or have an idea to make our project better, you can let us know by opening an `Issue` here on [Github](https://github.com/ultimateownsz/PySeas/issues). An issue is just a way to tell us about a problem or suggest a new feature.
+
+We use [Github_Projects](https://github.com/users/ultimateownsz/projects/5) to organize and keep track of these issues, so we can make sure everything gets the attention it needs.
+
+If you need more help or want to talk about it, you can join our [Discord](https://discord.gg/MZ5MHqDnGW) community. We're here to chat and help you out!
+
 
 ## Local Development
 **See how to contribute:** [contribute](./CONTRIBUTING.md)
 
-### Linting and Formatting
+### Linting and Formatting for developers
 We chose to use [Ruff](https://docs.astral.sh/ruff/) to automatically lint and format the code. `Run pip install -r requirements_dev.txt` to install Ruff and other relevant dependencies.
 
 > [!IMPORTANT]
@@ -94,3 +123,8 @@ We chose to use [Ruff](https://docs.astral.sh/ruff/) to automatically lint and f
 > ruff check .;
 > mypy main.py
 > ```
+
+## Relevant links
+- [Project Task List](https://github.com/users/ultimateownsz/projects/5)
+- [Pyseas's Discord Server](https://discord.gg/MZ5MHqDnGW)
+- [Pygame's Community Discord](https://discord.gg/pygame)
