@@ -125,6 +125,6 @@ We chose to use [Ruff](https://docs.astral.sh/ruff/) to automatically lint and f
 > ```
 
 ## Relevant links
-- [Project Task List](https://github.com/users/ultimateownsz/projects/5)
-- [Pyseas's Discord Server](https://discord.gg/MZ5MHqDnGW)
+- [Project Task List](https://github.com/users/ultimateownsz/projects/15)
+- [PySeas's Discord Server](https://discord.gg/MZ5MHqDnGW)
 - [Pygame's Community Discord](https://discord.gg/pygame)
