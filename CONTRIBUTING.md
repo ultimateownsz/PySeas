@@ -2,24 +2,38 @@
 Thank you for taking the time to contribute! All types of contributions are encouraged and valued. This project started from a passion for Sea of Thieves, inspired by its seafearing spirit.
 
 > If you like the project, but just don't have time to contribute, that's fine. You could help us out to show support and appreciation of the project by:
-> - Star the project
-> - Share about it on your socials
-> - Refer this project in your project's readme
-> - Mention the project at local meetups and tell your friends/collagues
+> - 🌟 Starring the project
+> - 🗣️ Sharing it on social media or at meetups.
+> - 📄 Mention the project in your own repositories or documentation.
+
+---
 
 ## Table of Contents
-- [Code of Conduct]([#code-of-conduct](https://github.com/ultimateownsz/PySeas?tab=coc-ov-file#readme))
-- [I Want To Contribute](#i-want-to-contribute)
-- [Reporting Bugs](#reporting-bugs)
-- [Suggesting Enhancements](#suggesting-enhancements)
-- [Your First Code Contribution](#your-first-code-contribution)
-- [Improving The Documentation](#improving-the-documentation)
-- [Pull Request Process](#pull-request-process)
-- [Pull Request Template](#pull-request-template)
+- [Contributing to PySeas](#contributing-to-pyseas)
+  - [Table of Contents](#table-of-contents)
+  - [Code of Conduct](#code-of-conduct)
+  - [I Want To Contribute](#i-want-to-contribute)
+  - [How We Handle Issues](#how-we-handle-issues)
+    - [User Story-Based Issues](#user-story-based-issues)
+  - [Reporting Bugs](#reporting-bugs)
+    - [Steps for a Good Bug Report](#steps-for-a-good-bug-report)
+    - [Visual Proof](#visual-proof)
+    - [Suggesting Enhancements](#suggesting-enhancements)
+      - [Before Submitting an Enhancement](#before-submitting-an-enhancement)
+    - [Steps for a Good Enhancement Suggestion](#steps-for-a-good-enhancement-suggestion)
+    - [Proposing Ideas or Tasks (Contributor Guide)](#proposing-ideas-or-tasks-contributor-guide)
+    - [For Your First Code Contribution](#for-your-first-code-contribution)
+    - [Improving The Documentation](#improving-the-documentation)
+    - [Pull Request Process](#pull-request-process)
+    - [Linting and Formatting](#linting-and-formatting)
+
+---
 
 ## Code of Conduct
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 [Go to code of conduct](https://github.com/ultimateownsz/PySeas/blob/main/CODE_OF_CONDUCT.md)
+
+---
 
 ## I Want To Contribute
 
@@ -28,72 +42,112 @@ Please note we have a code of conduct, please follow it in all your interactions
 > Tip: If you use assets with a [creative commons license](https://creativecommons.org/licenses/by/4.0/deed.en) you can use it without any legal issues.
 > We keep a list of all the assets, software etc in this [file](./CREDITS.md).
 
-### Reporting Bugs
+---
 
-#### Before Submitting a Bug Report
+## How We Handle Issues
 
-A good bug report shouldn't leave others needing to chase you up for more information. Therefore, we ask you to investigate carefully, collect information and describe the issue in detail in your report. Please complete the following steps in advance to help us fix any potential bug as fast as possible.
+We use specific templates to ensure issues and tasks are well-structured and easy to collaborate on.
 
-- Make sure that you are using the latest version.
-<!-- - Determine if your bug is really a bug and not an error on your side e.g. using incompatible environment components/versions (Make sure that you have read the [documentation](). If you are looking for support, you might want to check [this section](#i-have-a-question)). -->
-<!-- - To see if other users have experienced (and potentially already solved) the same issue you are having, check if there is not already a bug report existing for your bug or error in the [bug tracker](issues?q=label%3Abug). -->
-- Also make sure to search the internet (including Stack Overflow) to see if users outside of the GitHub community have discussed the issue.
-- Collect information about the bug:
-- Stack trace (Traceback)
-- OS, Platform and Version (Windows, Linux, macOS, x86, ARM)
-- Version of the interpreter, compiler, SDK, runtime environment, package manager, depending on what seems relevant.
-- Possibly your input and the output
-- Can you reliably reproduce the issue? And can you also reproduce it with older versions?
+### User Story-Based Issues
 
-#### How Do I Submit a Good Bug Report?
+We use **user stories** to break down complex features into manageable tasks. Each issue can include multiple user stories, which may be converted into separate issues for collaboration.
 
-> You must never report security related issues, vulnerabilities or bugs including sensitive information to the issue tracker, or elsewhere in public. Instead sensitive bugs must be sent by email to <>.
+- **What is a User Story?**
+  A user story describes the functionality from the user's perspective.  
+  Example:  
+  > As a player, I want to see seamless transitions between the main menu and the game map so that my experience feels smooth and uninterrupted.
 
-We use GitHub issues to track bugs and errors. If you run into an issue with the project:
+- **How Do We Use User Stories?**
+  Each user story includes:
+  - A clear description of the user's goal.
+  - A list of tasks required to implement the story.
+  - Guidance for contributors (e.g., file references, related issues).
 
-- Open an [Issue](https://github.com/ultimateownsz/PySeas/issues). (Since we can't be sure at this point whether it is a bug or not, we ask you not to talk about a bug yet and not to label the issue.)
-- Explain the behavior you would expect and the actual behavior.
-- Please provide as much context as possible and describe the *reproduction steps* that someone else can follow to recreate the issue on their own. This usually includes your code. For good bug reports you should isolate the problem and create a reduced test case.
-- Provide the information you collected in the previous section.
+Check out our **[User Story-Based Template](.github/ISSUE_TEMPLATE/user_story_issue_template.md)** for detailed guidance.
 
-Once it's filed:
+---
 
-- The project team will label the issue accordingly.
-- A team member will try to reproduce the issue with your provided steps. If there are no reproduction steps or no obvious way to reproduce the issue, the team will ask you for those steps and mark the issue as `needs-repro`. Bugs with the `needs-repro` tag will not be addressed until they are reproduced.
-- If the team is able to reproduce the issue, it will be marked `needs-fix`, as well as possibly other tags (such as `critical`), and the issue will be left to be [implemented by someone](#your-first-code-contribution).
+## Reporting Bugs
+
+### Steps for a Good Bug Report
+
+1. **Check if you are using the latest version** of PySeas.
+2. Gather the following information:
+    - OS, Python version, and project version.
+    - Steps to reproduce the bug.
+    - Any error messages or screenshots.
+3. Submit the bug using our **[Bug Report Template](.github/ISSUE_TEMPLATE/bug_report.md)** 
+
+### Visual Proof
+
+For bugs that are hard to explain, a short GIF or video is incredibly helpful. We recommend using:
+
+- **[LICEcap](https://www.cockos.com/licecap/):** A free tool for Windows and macOS to create GIFs of your screen.
+- **[Peek](https://github.com/phw/peek):** A Linux-friendly alternative.
+
+Please attach the GIF or video to your bug report!
+
+> **IMPORTANT:** Do not report security vulnerabilities here.  
+> Please email sensitive issues to [Pyseasproject@proton.me](mailto:Pyseasproject@proton.me).
+> We use **ProtonMail**, a secure, privacy-focues email provider, to handle all security communications. Your messages are encryped in transit for added privacy.
+
+---
 
 ### Suggesting Enhancements
 
-This section guides you through submitting an enhancement suggestion for CONTRIBUTING.md, **including completely new features and minor improvements to existing functionality**. Following these guidelines will help maintainers and the community to understand your suggestion and find related suggestions.
+We welcome your ideas to improve PySeas! Whether it's a completely new feature or minor improvement, your contributions help shape the project. Follow these steps to submit an enhancement suggestion:
+
+Ready to propose an enhancement? Use the **[Enhancement Template](/.github/ISSUE_TEMPLATE/enhancement.md)
 
 #### Before Submitting an Enhancement
 
-- Make sure that you are using the latest version.
-- Read the [documentation](/docs/Pyseas%20Game%20Design%20Document.pdf) carefully and find out if the functionality is already covered, maybe by an individual configuration.
-- Perform a [search](https://github.com/ultimateownsz/PySeas/issues) to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
-- Find out whether your idea fits with the scope and aims of the project. It's up to you to make a strong case to convince the project's developers of the merits of this feature. Keep in mind that we want features that will be useful to the majority of our users and not just a small subset. If you're just targeting a minority of users, consider writing an add-on/plugin library.
+### Steps for a Good Enhancement Suggestion
 
+1. Check the **[Documentation](https://github.com/ultimateownsz/PySeas/tree/main/docs)** to ensure the feature doesn't already exist.
+2. Search for similar suggestions in **[Issues](https://github.com/ultimateownsz/PySeas/issues)**.
 
-#### How Do I Submit a Good Enhancement Suggestion?
+Enhancement suggestions should include:
+- A **clear and descriptive title**.
+- A **step-by-step description** of the proposed feature or improvement.
+- An explanation of **why this enhancement is useful**.
+- Screenshots or GIFs if applicable (see the **[Visual Proof](#visual-proof)** section for tools).
 
-Enhancement suggestions are tracked as [GitHub issues](https://github.com/ultimateownsz/PySeas/issues).
+---
 
-- Use a **clear and descriptive title** for the issue to identify the suggestion.
-- Provide a **step-by-step description of the suggested enhancement** in as many details as possible.
-- **Describe the current behavior** and **explain which behavior you expected to see instead** and why. At this point you can also tell which alternatives do not work for you.
-- You may want to **include screenshots and animated GIFs** which help you demonstrate the steps or point out the part which the suggestion is related to. You can use [this tool](https://www.cockos.com/licecap/) to record GIFs on macOS and Windows, and [this tool](https://github.com/colinkeenan/silentcast) or [this tool](https://github.com/GNOME/byzanz) on Linux. 
-- **Explain why this enhancement would be useful** to most CONTRIBUTING.md users. You may also want to point out the other projects that solved it better and which could serve as inspiration.
+### Proposing Ideas or Tasks (Contributor Guide)
 
-### Your First Code Contribution
+If you're new or have an idea for the project, use our **[Contributor Guide Template](/.github/ISSUE_TEMPLATE/contributor_guide.md)** to structure your proposal.
 
+This template helps you:
+- Describe your idea or task.
+- Get feedback from maintainers.
+- Understand next steps to get started.
+
+> **Example:**
+> If you're proposing a feature for the map, you can describe how it improves the player experience and outline basic steps to implement it.
+
+---
+
+### For Your First Code Contribution
+
+1. Look for **[Good First Issues](https://github.com/ultimateownsz/PySeas/issues?q=is%3Aopen+label%3A%22good+first+issue%22)**.
+2. Fork the repository and clone it locally.
+3. Work on your changes in a new branch.
+4. Submit a pull request when you're ready.
+
+---
 
 ### Improving The Documentation
 You can find our Game Design Document (GGD) [here](./docs/Pyseas%20Game%20Design%20Document.pdf).
 
-For improvements you can create a *New issue* on [Issues](https://github.com/ultimateownsz/PySeas/issues) or via our [Discord](https://discord.gg/MZ5MHqDnGW), if you have ideas to improve our documentation!
+For improvements you can:
+- Create a *New issue* on [Issues](https://github.com/ultimateownsz/PySeas/issues)
+- Reach out to us on [Discord](https://discord.gg/MZ5MHqDnGW)
+
+---
 
 ### Pull Request Process
-**Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://www.freecodecamp.org/news/how-to-contribute-to-open-source-projects-beginners-guide/)
+**Working on your first Pull Request?** You can learn how from this **free** series [How to Contribute to an Open Source Project on GitHub](https://www.freecodecamp.org/news/how-to-contribute-to-open-source-projects-beginners-guide/)
 
 
 ### Linting and Formatting
@@ -117,14 +171,3 @@ We chose to use [Ruff](https://docs.astral.sh/ruff/) to automatically lint and f
 > ruff check .;
 > mypy main.py
 > ```
-
-
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a build.
-2. If you find issues in the code you can make a *New issue* on [Issues](https://github.com/ultimateownsz/PySeas/issues)
-3. When making a Pull Request you may have to wait for the sign-off of a reviewer that approves your changes.
-
-### Pull Request Template
-- Title: Short one line title describing your idea/bug/feature.
-- Description: Write a longer description of what the change does (if the title isn't enough).
-- Explain: Give an explanation of why the change is being made.
-- Discuss: Perhaps a discussion of context nd/or alternatives that were considered.

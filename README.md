@@ -6,12 +6,25 @@
 
 <img src="https://i.postimg.cc/NM5R3tzW/100x100-map.png" />
 
+## Table of Contents
+- [PySeas - Open Source Pirate (Adventure) Board Game](#pyseas---open-source-pirate-adventure-board-game)
+  - [Table of Contents](#table-of-contents)
+  - [Project Description](#project-description)
+  - [Game Design Document](#game-design-document)
+  - [Why Join PySeas?](#why-join-pyseas)
+  - [Getting Started](#getting-started)
+  - [Reporting bugs \& requesting features](#reporting-bugs--requesting-features)
+  - [Local Development](#local-development)
+    - [Linting and Formatting for developers](#linting-and-formatting-for-developers)
+  - [License](#license)
+  - [Relevant Links](#relevant-links)
 
-## Project description
+## Project Description
 
 Pyseas is an opensource project that aims to create a 2D, top down, turn based board game in Pygame. Where players become pirates and control their own ship. Using a card-based dice system, players explore a dynamic map, complete quests, and battle rival pirates. This game is designed to be engaging and using interactive elements using tools called Python and Pygame-CE, but you don't need to be a programmer to get involved or enjoy it!
 
-## Game design document
+
+## Game Design Document
 Every game needs thorough documentation, and you can find our Game Design Document (GGD) [here](./docs/Pyseas%20Game%20Design%20Document.pdf).
 
 ## Why Join PySeas?
@@ -22,7 +35,7 @@ Every game needs thorough documentation, and you can find our Game Design Docume
 - **Join our community on [Discord](https://discord.gg/MZ5MHqDnGW)**: Whether you want to help with ideas, give feedback, or simply enjoy the game, everyone is welcome!
 
 
-## Getting started
+## Getting Started
 
 No need to worry if you are new to programming. This guide will walk you through the setup step by step. by the end, you'll have everything ready to run the Pyseas project.
 
@@ -94,7 +107,11 @@ deactivate
 ## Reporting bugs & requesting features
 If you find something that's not working right or have an idea to make our project better, you can let us know by opening an `Issue` here on [Github](https://github.com/ultimateownsz/PySeas/issues). An issue is just a way to tell us about a problem or suggest a new feature.
 
-We use [Github_Projects](https://github.com/users/ultimateownsz/projects/5) to organize and keep track of these issues, so we can make sure everything gets the attention it needs.
+We use [Github Projects](https://github.com/users/ultimateownsz/projects/15) to organize and keep track of these issues, so we can make sure everything gets the attention it needs.
+
+Before submitting an issue, check out our **[Contributing Guide](./CONTRIBUTING.md)** for detailed instructions on:
+- **Reporting Bugs:** Learn how to describe issues effectively to help us resolve them quickly.
+- **Proposing Enhancements:** Follow our steps to suggest features and improvements.
 
 If you need more help or want to talk about it, you can join our [Discord](https://discord.gg/MZ5MHqDnGW) community. We're here to chat and help you out!
 
@@ -124,7 +141,11 @@ We chose to use [Ruff](https://docs.astral.sh/ruff/) to automatically lint and f
 > mypy main.py
 > ```
 
-## Relevant links
-- [Project Task List](https://github.com/users/ultimateownsz/projects/5)
+## License
+
+This project is licensed under the terms of the **[AGPL-3.0 License](/LICENSE)**.
+
+## Relevant Links
+- [Project Task List](https://github.com/users/ultimateownsz/projects/15)
 - [Pyseas's Discord Server](https://discord.gg/MZ5MHqDnGW)
 - [Pygame's Community Discord](https://discord.gg/pygame)
