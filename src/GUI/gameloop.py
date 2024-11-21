@@ -38,7 +38,7 @@ class GUI:
         # Initialize player inventory
         self.player_inventory = Inventory()
         self.inventory_gui = InventoryGUI(self.screen, self.player_inventory)
-
+        
         self.players: list[src.sprites.Player] = [src.sprites.Player()]
 
         self.running = True
@@ -104,6 +104,8 @@ class GUI:
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_i:
                     self.inventory_gui.running = False # Close the inventory
+                elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1: # Left click
+                    self.inventory_gui.handle_mouse_click(event.pos)
 
             self.inventory_gui.draw()
             pygame.display.flip() # Update the display
