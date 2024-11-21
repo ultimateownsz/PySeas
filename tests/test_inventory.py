@@ -27,7 +27,9 @@ class TestInventory(unittest.TestCase):
         self.inventory.add_item("Potion", 3)
         result = self.inventory.remove_item("Potion", 2)
         self.assertEqual(self.inventory.items, {"Potion": 1})
-        self.assertEqual(result, "Successfully removed 2 Potion(s) from your inventory.")
+        self.assertEqual(
+            result, "Successfully removed 2 Potion(s) from your inventory."
+        )
 
     def test_remove_item_fail(self):
         """Test failing to remove an item not in inventory or insufficient quantity."""
@@ -81,6 +83,7 @@ class TestInventory(unittest.TestCase):
         chests = self.inventory.get_chests()
         self.assertEqual(len(chests), 1)
         self.assertIsNot(chests, self.inventory.chests)  # Copy of items
+
     # Test get_quests
     def test_get_quests(self):
         """Test getting a copy of quests."""
@@ -89,6 +92,7 @@ class TestInventory(unittest.TestCase):
         quests = self.inventory.get_quests()
         self.assertEqual(len(quests), 1)
         self.assertIsNot(quests, self.inventory.quests)  # Copy of items
+
 
 if __name__ == "__main__":
     unittest.main()

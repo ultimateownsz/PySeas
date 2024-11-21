@@ -41,8 +41,8 @@ class GUI:
         self.inventory_gui = InventoryGUI(self.screen, self.player_inventory)
 
         # Load initial inventory items from JSON file
-        self.load_inventory_from_json("data/inventory.json") 
-        
+        self.load_inventory_from_json("data/inventory.json")
+
         self.players: list[src.sprites.Player] = [src.sprites.Player()]
 
         self.running = True
@@ -97,9 +97,9 @@ class GUI:
                     pygame.quit()
                     sys.exit()
                 case pygame.KEYDOWN:
-                    if event.key == pygame.K_i: # Toggle inventory with "I" key
+                    if event.key == pygame.K_i:  # Toggle inventory with "I" key
                         self.toggle_inventory()
-        
+
     def toggle_inventory(self):
         """Toggle the inventory overlay."""
         self.inventory_gui.running = not self.inventory_gui.running
@@ -107,14 +107,16 @@ class GUI:
         while self.inventory_gui.running:
             for event in pygame.event.get():
                 if event.type == pygame.KEYDOWN and event.key == pygame.K_i:
-                    self.inventory_gui.running = False # Close the inventory
-                elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1: # Left click
+                    self.inventory_gui.running = False  # Close the inventory
+                elif (
+                    event.type == pygame.MOUSEBUTTONDOWN and event.button == 1
+                ):  # Left click
                     self.inventory_gui.handle_mouse_click(event.pos)
                 elif event.type == pygame.MOUSEWHEEL:
                     self.inventory_gui.handle_events(event)
 
             self.inventory_gui.draw()
-            pygame.display.flip() # Update the display
+            pygame.display.flip()  # Update the display
 
     def load_inventory_from_json(self, file_path: str):
         """Load initial inventory items from JSON file."""
@@ -122,9 +124,9 @@ class GUI:
             with open(file_path, "r") as f:
                 items = json.load(f)
                 for item_name, properties in items.items():
-                    quantity = properties.get("quantity", 1) # Default to 1 if missing
+                    quantity = properties.get("quantity", 1)  # Default to 1 if missing
                     self.player_inventory.add_item(item_name, quantity)
-        except (FileNotFoundError, json.JSONecodeError) as e:
+        except (FileNotFoundError, json.JSONDecodeError):
             print(f"Error: The file at {file_path} does not exist.")
 
     def update(self) -> None:
