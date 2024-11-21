@@ -1,0 +1,12 @@
+{
+    "Cutlass": {"type": "weapon", "effect": "melee_attack", "quantity": 1},
+    "Flintlock Pistol": {"type": "weapon", "effect": "ranged_attack", "quantity": 1},
+    "Rum Flask": {"type": "consumable", "effect": "restore_stamina", "quantity": 3},
+    "Treasure Map": {"type": "tool", "effect": "reveal_hidden_treasure", "quantity": 1},
+    "Spyglass": {"type": "tool", "effect": "enhance_vision", "quantity": 1},
+    "Wooden Planks": {"type": "material", "effect": "repair_ship", "quantity": 10},
+    "Cannonball": {"type": "ammunition", "effect": "ship_damage", "quantity": 20},
+    "Rope": {"type": "tool", "effect": "secure_ship", "quantity": 5},
+    "Black Powder": {"type": "material", "effect": "load_cannon", "quantity": 15},
+    "Pirate Hat": {"type": "gear", "effect": "boost_charisma", "quantity": 1}
+}

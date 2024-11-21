@@ -1,5 +1,6 @@
 from os.path import join
 import sys
+import json
 
 # import dataclasses and typchecking
 from dataclasses import dataclass, field
@@ -38,6 +39,9 @@ class GUI:
         # Initialize player inventory
         self.player_inventory = Inventory()
         self.inventory_gui = InventoryGUI(self.screen, self.player_inventory)
+
+        # Load initial inventory items from JSON file
+        self.load_inventory_from_json("data/inventory.json") 
         
         self.players: list[src.sprites.Player] = [src.sprites.Player()]
 
@@ -109,6 +113,17 @@ class GUI:
 
             self.inventory_gui.draw()
             pygame.display.flip() # Update the display
+
+    def load_inventory_from_json(self, file_path: str):
+        """Load initial inventory items from JSON file."""
+        try:
+            with open(file_path, "r") as f:
+                items = json.load(f)
+                for item_name, properties in items.items():
+                    quantity = properties.get("quantity", 1) # Default to 1 if missing
+                    self.player_inventory.add_item(item_name, quantity)
+        except (FileNotFoundError, json.JSONecodeError) as e:
+            print(f"Error: The file at {file_path} does not exist.")
 
     def update(self) -> None:
         """update the player"""
