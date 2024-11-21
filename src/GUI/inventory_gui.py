@@ -17,6 +17,10 @@ class InventoryGUI:
         # Initialize button actions 
         self.button_actions = {}
 
+        # Action messages
+        self.message = ""
+        self.message_end_time = 0 # Time to display the message
+
     def draw_buttons(self, x: int, y: int, item: str) -> None:
         """Draw Use and Discard buttons for a specific item."""
         use_button = pygame.Rect(x, y, self.button_width, self.button_height)
@@ -58,10 +62,17 @@ class InventoryGUI:
         hint_text = self.font.render("Press 'I' to close inventory", True, (200, 200, 200)) # Light gray text
         self.screen.blit(hint_text, (50, y_offset + 20)) 
 
+        # Display action message at the bottom
+        if self.message and pygame.time.get_ticks() < self.message_end_time:
+            message_text = self.font.render(self.message, True, (255, 255, 0)) # Yellow
+            self.screen.blit(message_text, (50, y_offset + 50))
+
     def handle_mouse_click(self, mouse_pos):
-        """handle mouse clicks on buttons."""
+        """Handle mouse clicks on buttons."""
         for item, (use_button, discard_button) in self.button_actions.items():
             if use_button.collidepoint(mouse_pos):
-                print(self.inventory.use_item(item)) # Example: Use the item
+                self.message = self.inventory.use_item(item)
+                self.message_end_time = pygame.time.get_ticks() + 3000 # 3 seconds
             elif discard_button.collidepoint(mouse_pos):
-                print(self.inventory.remove_item(item, 1)) # Example: Discard the item
+                self.message = self.inventory.remove_item(item, 1)
+                self.message_end_time = pygame.time.get_ticks() + 4000 # 4 seconds
