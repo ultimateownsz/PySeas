@@ -99,7 +99,7 @@ class GUI:
                 case pygame.KEYDOWN:
                     if event.key == pygame.K_i: # Toggle inventory with "I" key
                         self.toggle_inventory()
-
+        
     def toggle_inventory(self):
         """Toggle the inventory overlay."""
         self.inventory_gui.running = not self.inventory_gui.running
@@ -110,6 +110,8 @@ class GUI:
                     self.inventory_gui.running = False # Close the inventory
                 elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1: # Left click
                     self.inventory_gui.handle_mouse_click(event.pos)
+                elif event.type == pygame.MOUSEWHEEL:
+                    self.inventory_gui.handle_events(event)
 
             self.inventory_gui.draw()
             pygame.display.flip() # Update the display

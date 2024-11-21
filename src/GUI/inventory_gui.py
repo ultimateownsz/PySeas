@@ -10,6 +10,11 @@ class InventoryGUI:
         self.font = pygame.font.Font(None, 36)
         self.running = False
 
+        # Scrolling inventory
+        self.scroll_offset = 0 
+        self.max_visible_items = 10
+        self.item_height = 60
+
         # Load sprite sheet and extract the icons 
         self.sprite_sheet = pygame.image.load("images/tilesets/Treasure+.png").convert_alpha()
         self.icons = {
@@ -27,6 +32,14 @@ class InventoryGUI:
         # Action messages
         self.message = ""
         self.message_end_time = 0 # Time to display the message
+
+    def handle_events(self, event):
+        """Handle events like keypress or mouse wheel."""
+        if event.type == pygame.MOUSEWHEEL:
+            # Adjust scroll offset
+            self.scroll_offset = max(0, self.scroll_offset - event.y)
+            max_offset = max(0, len(self.inventory.get_items()) - self.max_visible_items)
+            self.scroll_offset = min(self.scroll_offset, max_offset)
 
     def extract_icon(self, x, y, size = 16):
         """Extract a single icon from the sprite sheet."""
@@ -50,15 +63,18 @@ class InventoryGUI:
      
     def draw(self):
         """Draw the inventory overlay."""
-        self.screen.fill((0, 0, 0)) # Solid Black background
+        self.screen.fill((0, 0, 0))  # Solid Black background
 
         # Reset button actions
         self.button_actions = {}
 
         # Draw the inventory items
-        y_offset = 50 # Start below the title
-        for item, quantity in self.inventory.get_items().items():
-            # Draw icon 
+        items = list(self.inventory.get_items().items())
+        visible_items = items[self.scroll_offset:self.scroll_offset + self.max_visible_items]
+        y_offset = 50  # Start below the title
+
+        for item, quantity in visible_items:
+            # Draw icon
             if item in self.icons:
                 self.screen.blit(self.icons[item], (50, y_offset))
 
@@ -73,18 +89,38 @@ class InventoryGUI:
             # Draw buttons
             use_button, discard_button = self.draw_buttons(400, y_offset, item)
 
-            # Store buttonr references for event handling
+            # Store button references for event handling
             self.button_actions[item] = (use_button, discard_button)
-            y_offset += 60 # Move down for the next item
+            y_offset += 60  # Move down for the next item
 
-        # Draw hint 
-        hint_text = self.font.render("Press 'I' to close inventory", True, (200, 200, 200)) # Light gray text
-        self.screen.blit(hint_text, (50, y_offset + 20)) 
+        # Draw hint
+        hint_text = self.font.render("Press 'I' to close inventory", True, (200, 200, 200))  # Light gray text
+        self.screen.blit(hint_text, (50, self.screen.get_height() - 60))
 
-        # Display action message at the bottom
+        # Display action message above the hint
         if self.message and pygame.time.get_ticks() < self.message_end_time:
-            message_text = self.font.render(self.message, True, (255, 255, 0)) # Yellow
-            self.screen.blit(message_text, (50, y_offset + 50))
+            # Render the message text
+            message_text = self.font.render(self.message, True, (255, 255, 0))  # Yellow
+
+            # Measure the message text size
+            text_width, text_height = message_text.get_size()
+
+            # Message background
+            message_bg_x = 40
+            message_bg_y = self.screen.get_height() - 120
+            message_bg_width = text_width + 20  # Add padding
+            message_bg_height = text_height + 10  # Add padding
+
+            # Draw background rectangle for the message
+            pygame.draw.rect(
+                self.screen, (0, 0, 0),  # Black background
+                (message_bg_x, message_bg_y, message_bg_width, message_bg_height)
+            )
+
+            # Draw the message text on top of the background
+            self.screen.blit(
+                message_text, (message_bg_x + 10, message_bg_y + 5)  # Position text with padding
+            )
 
     def handle_mouse_click(self, mouse_pos):
         """Handle mouse clicks on buttons."""
