@@ -10,6 +10,13 @@ class InventoryGUI:
         self.font = pygame.font.Font(None, 36)
         self.running = False
 
+        # Load sprite sheet and extract the icons 
+        self.sprite_sheet = pygame.image.load("images/tilesets/Treasure+.png").convert_alpha()
+        self.icons = {
+            "Gold Coin": self.extract_icon(0, 0),
+            "Silver Coin": self.extract_icon(16, 0),
+            "Coin Stack (1)": self.extract_icon(32, 0),}
+
         # Button dimmentions
         self.button_width = 100
         self.button_height = 50
@@ -20,6 +27,10 @@ class InventoryGUI:
         # Action messages
         self.message = ""
         self.message_end_time = 0 # Time to display the message
+
+    def extract_icon(self, x, y, size = 16):
+        """Extract a single icon from the sprite sheet."""
+        return self.sprite_sheet.subsurface((x, y, size, size))
 
     def draw_buttons(self, x: int, y: int, item: str) -> None:
         """Draw Use and Discard buttons for a specific item."""
@@ -47,12 +58,20 @@ class InventoryGUI:
         # Draw the inventory items
         y_offset = 50 # Start below the title
         for item, quantity in self.inventory.get_items().items():
-            # Display item and quantity
-            text = self.font.render(f"{item}: {quantity}", True, (255, 255, 255)) # White
-            self.screen.blit(text, (50, y_offset))
+            # Draw icon 
+            if item in self.icons:
+                self.screen.blit(self.icons[item], (50, y_offset))
+
+            # Draw quantity next to the icon
+            quantity_text = self.font.render(f"x{quantity}", True, (255, 255, 255))
+            self.screen.blit(quantity_text, (100, y_offset + 5))
+
+            # Draw item name (move text to the right)
+            text = self.font.render(item, True, (255, 255, 255))
+            self.screen.blit(text, (150, y_offset))
 
             # Draw buttons
-            use_button, discard_button = self.draw_buttons(300, y_offset, item)
+            use_button, discard_button = self.draw_buttons(400, y_offset, item)
 
             # Store buttonr references for event handling
             self.button_actions[item] = (use_button, discard_button)
