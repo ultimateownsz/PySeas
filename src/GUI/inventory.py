@@ -19,28 +19,59 @@ class Quest:
 
 
 class Inventory:
-    """contain money, chests, quests"""
+    """Manage player's inventory, including money, item, chests, and quests"""
 
     def __init__(self) -> None:
-        # special attribute
+        # Currency
         self.money: int = 0
 
-        # items :
+        # Item management
+        self.items: dict[str, int] = {} # name: quantity
+
+        # Special attributes:
         self.chests: list[Chest] = []
         self.quests: list[Quest] = []
 
+    # General item management
+    def add_item(self, item_name: str, quantity: int) -> None:
+        """Add an item to the inventory"""
+        if item_name in self.items:
+            self.items[item_name] += quantity
+        else:
+            self.items[item_name] = quantity
+
+    def remove_item(self, item_name: str, quantity: int) -> None:
+        """Remove an item from the inventory. Return True if successful."""
+        if item_name in self.items and self.items[item_name] >= quantity:
+            self.items[item_name] -= quantity
+            if self.items[item_name] == 0:
+                del self.items[item_name]
+            return True
+        return False
+    
+    def use_item(self, item_name: str) -> None:
+        """Use an item, applying its effect. Return a message."""
+        if self.remove_item(item_name, 1):
+            return f"{item_name} used."
+        return f"{item_name} not found."
+    
+    def get_items(self) -> dict[str, int]:
+        """Return a copy of the items dictionary."""
+        return self.items.copy()
+    
+    # Methods for Chest and Quest
     def add_chest(self, chest: Chest) -> None:
-        """append a chest to the inventory"""
+        """Add a chest to the inventory."""
         self.chests.append(chest)
 
     def get_chests(self) -> list[Chest]:
-        """Return a copy of the chests list"""
+        """Return a copy of the chests list."""
         return self.chests.copy()
 
     def add_quest(self, quest: Quest) -> None:
-        """append a quest to the inventory"""
+        """Add a quest to the inventory."""
         self.quests.append(quest)
 
     def get_quests(self) -> list[Quest]:
-        """Return a copy of the quests list"""
+        """Return a copy of the quests list."""
         return self.quests.copy()
