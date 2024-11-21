@@ -12,6 +12,10 @@ from pytmx.util_pygame import load_pygame  # type: ignore
 from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE
 import src.sprites
 
+# import inventory related classes
+from src.GUI.inventory_gui import InventoryGUI
+from src.GUI.inventory import Inventory
+
 
 @dataclass
 class GUI:
@@ -30,6 +34,10 @@ class GUI:
         pygame.init()
         self.screen = pygame.display.set_mode(self.screen_size)
         pygame.display.set_caption("PySeas")
+
+        # Initialize player inventory
+        self.player_inventory = Inventory()
+        self.inventory_gui = InventoryGUI(self.screen, self.player_inventory)
 
         self.players: list[src.sprites.Player] = [src.sprites.Player()]
 
@@ -84,6 +92,21 @@ class GUI:
                 case pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+                case pygame.KEYDOWN:
+                    if event.key == pygame.K_i: # Toggle inventory with "I" key
+                        self.toggle_inventory()
+
+    def toggle_inventory(self):
+        """Toggle the inventory overlay."""
+        self.inventory_gui.running = not self.inventory_gui.running
+
+        while self.inventory_gui.running:
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_i:
+                    self.inventory_gui.running = False # Close the inventory
+
+            self.inventory_gui.draw()
+            pygame.display.flip() # Update the display
 
     def update(self) -> None:
         """update the player"""
