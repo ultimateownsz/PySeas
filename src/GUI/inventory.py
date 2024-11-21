@@ -2,7 +2,7 @@
 inventory class for the players
 this file contain types of items, like Chest
 """
-
+from src.utils.messaging import get_message
 
 class Chest:
     """contain loot, and worth"""
@@ -37,8 +37,10 @@ class Inventory:
         """Add an item to the inventory"""
         if item_name in self.items:
             self.items[item_name] += quantity
+            return get_message("inventory", "add_success", item=item_name, quantity=quantity)
         else:
             self.items[item_name] = quantity
+            return get_message("inventory", "add_success", item=item_name, quantity=quantity)
 
     def remove_item(self, item_name: str, quantity: int) -> None:
         """Remove an item from the inventory. Return True if successful."""
@@ -46,14 +48,14 @@ class Inventory:
             self.items[item_name] -= quantity
             if self.items[item_name] == 0:
                 del self.items[item_name]
-            return True
-        return False
+            return get_message("inventory", "remove_success", item=item_name, quantity=quantity)
+        return get_message("inventory", "remove_fail", item=item_name, quantity=quantity)
     
     def use_item(self, item_name: str) -> None:
         """Use an item, applying its effect. Return a message."""
-        if self.remove_item(item_name, 1):
-            return f"{item_name} used."
-        return f"{item_name} not found."
+        if self.remove_item(item_name, 1) == get_message("inventory", "remove_success", item=item_name, quantity=1):
+            return get_message("inventory", "use_success", item=item_name)
+        return get_message("inventory", "use_fail", item=item_name)
     
     def get_items(self) -> dict[str, int]:
         """Return a copy of the items dictionary."""
