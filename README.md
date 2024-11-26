@@ -17,6 +17,7 @@
   - [Local Development](#local-development)
     - [Linting and Formatting for developers](#linting-and-formatting-for-developers)
   - [License](#license)
+    - [Why we chose AGPL](#why-we-chose-agpl)
   - [Relevant Links](#relevant-links)
 
 ## Project Description
@@ -25,7 +26,7 @@ Pyseas is an opensource project that aims to create a 2D, top down, turn based b
 
 
 ## Game Design Document
-Every game needs thorough documentation, and you can find our Game Design Document (GGD) [here](./docs/Pyseas%20Game%20Design%20Document.pdf).
+Every game needs thorough documentation, and you can find our Game Design Document (GGD) [here](./docs/Game%20Design%20Document/GGD.md).
 
 ## Why Join PySeas?
 
@@ -144,6 +145,27 @@ We chose to use [Ruff](https://docs.astral.sh/ruff/) to automatically lint and f
 ## License
 
 This project is licensed under the terms of the **[AGPL-3.0 License](/LICENSE)**.
+
+### Why we chose AGPL
+
+We aim to create a game that is not only fun but also like we mentioned before open source and community-driven. Here's why we chose the **AGPL-3.0 License** for our project:
+
+1. **Focus on Local Gameplay First**
+   Our primary goal is to create a fully functional local game that anyone can play. This our starting point, ensuring a solid foundation before we expand the game further.
+
+2. **Future Multiplayer Features**
+   Once the local gameplay is polished, we plan to introduce multiplayer functionality. This will include the ability to host your own game servers, opening up more possibilities for collaborative and competitive gameplay.
+
+3. **Modding Capabilities / Expansions**
+   We want PySeas to be mod-friendly, allowing players and developers to customize and expand the game to suit their preferences. This flexibility ensures that the game evolves trough community contributions.
+
+4. **Why AGPL?**
+   - The AGPL ensures that the code remains accessible to everyone, even when the game is modified or hosted on private servers.
+   - Any changes made to the game whether as forks or additions must be shared under the same license, making them available to anyone who wants to contribute.
+   - By using AGPL, we protect the game's openness and ensure that it stays true to the vision of collaborative, community-driven project.
+
+In short, the AGPL aligns perfectly with our commitments to openness, community collaboration, and the long-term growth of PySeas as both game and an opensource project.
+
 
 ## Relevant Links
 - [Project Task List](https://github.com/users/ultimateownsz/projects/15)
