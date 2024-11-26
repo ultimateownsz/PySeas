@@ -25,9 +25,11 @@ Thank you for taking the time to contribute! All types of contributions are enco
     - [For Your First Code Contribution](#for-your-first-code-contribution)
     - [Improving The Documentation](#improving-the-documentation)
     - [Pull Request Process](#pull-request-process)
+    - [Commit Messages with Conventional Commits](#commit-messages-with-conventional-commits)
+  - [A commit message example](#a-commit-message-example)
+  - [Common Commit Types](#common-commit-types)
+  - [Example Workflow](#example-workflow)
     - [Linting and Formatting](#linting-and-formatting)
-
----
 
 ## Code of Conduct
 Please note we have a code of conduct, please follow it in all your interactions with the project.
@@ -97,7 +99,7 @@ Please attach the GIF or video to your bug report!
 
 We welcome your ideas to improve PySeas! Whether it's a completely new feature or minor improvement, your contributions help shape the project. Follow these steps to submit an enhancement suggestion:
 
-Ready to propose an enhancement? Use the **[Enhancement Template](/.github/ISSUE_TEMPLATE/enhancement.md)
+Ready to propose an enhancement? Use the **[Enhancement Template](/.github/ISSUE_TEMPLATE/enhancement.md)**
 
 #### Before Submitting an Enhancement
 
@@ -147,8 +149,81 @@ For improvements you can:
 ---
 
 ### Pull Request Process
-**Working on your first Pull Request?** You can learn how from this **free** series [How to Contribute to an Open Source Project on GitHub](https://www.freecodecamp.org/news/how-to-contribute-to-open-source-projects-beginners-guide/)
+**Working on your first Pull Request?** You can learn how from this free series **[How to Contribute to an Open Source Project on GitHub](https://www.freecodecamp.org/news/how-to-contribute-to-open-source-projects-beginners-guide/)**
 
+---
+
+### Commit Messages with Conventional Commits
+
+Using consistent commit messages helps maintainers and contributors quickly understand the purpose of each change, manage the project more effectively, and collaborate better. This guide will show you how to write clear, meaningful commit messages using the **[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)** format.
+
+## A commit message example
+
+A commit message is structured like this:
+
+
+| Component        | Example                      | Description                                             |
+|------------------|------------------------------|---------------------------------------------------------|
+| **type**         | `feat`                       | The type of change (feature, bug fix, etc.).            |
+| **scope**        | `map`                        | (Optional) The part of the project affected.            |
+| **description**  | `add player location markers`| A concise explanation of what the commit does.          |
+
+---
+
+## Common Commit Types
+
+| Type       | Description                               | Example                                    |
+|------------|-------------------------------------------|--------------------------------------------|
+| `feat`     | A new feature                             | `feat(map): add player location markers`   |
+| `fix`      | A bug fix                                 | `fix(api): resolve stats calculation bug`  |
+| `docs`     | Documentation-only changes               | `docs(readme): update contributing section`|
+| `style`    | Code style changes (e.g., formatting)    | `style(ui): adjust button alignment`       |
+| `refactor` | Code changes that neither fix bugs nor add features | `refactor(ui): simplify navigation logic` |
+| `test`     | Adding or updating tests                 | `test(map): add unit tests for markers`    |
+| `chore`    | Maintenance tasks                        | `chore(deps): update dependency versions`  |
+
+---
+
+## Example Workflow
+
+Suppose you're adding a new feature to the game map. Your workflow might look like this:
+
+1. Make changes to the code.
+   - Edit the code to implement your changes
+2. Stage your changes:
+   - Use the following command to stage all modified files:
+   ```sh
+   git add .
+   ```
+3. Write a Commit Message:
+   - Use this command to commit your changes:
+  ```sh
+  git commit -m "<type>(<scope>): <description>"
+  ```
+  - Example:
+  ```sh
+  git commit -m "feat(map): add player location markers"
+  ```
+  - Best Practices:
+    - Write the commit as a command:
+     ```plaintext
+     add player location markers
+     ```
+     Instead of:
+     ```plaintext
+     added player location markers
+     ```
+    - Link issues related to your change:
+    ```plaintext
+    fix(map) resolve marker alignment issue
+    Closes #123
+    ```
+4. Push your Changes:
+  ```sh
+  git push
+  ```
+
+---
 
 ### Linting and Formatting
 We chose to use [Ruff](https://docs.astral.sh/ruff/) to automatically lint and format the code. `Run pip install -r requirements_dev.txt` to install Ruff and other relevant dependencies.
