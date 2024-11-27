@@ -1,6 +1,8 @@
 # Game Design Document
 
-![PySeas](assets/Pygame%20CE%20logo.png)
+<div style="text-align: center;">
+  <img src="Assets/Pygame%20CE%20logo.png" alt="PySeas" width="600">
+</div>
 
 ## Game Summary Pitch
 
@@ -74,6 +76,7 @@ The game will be developed in **Pygame-CE**. Our initial focus is on creating a 
 
 #### Optional Development Software
 - Aseprite for graphics and UI
+- LibreSprite
 
 ### Genre
 - Singeplayer
@@ -94,13 +97,16 @@ board games
 ## Concept
 
 ### Gameplay Overview
-![User Interface](assets/UI.png)
-The player controls a **customizable ship** 
-and rolls dice to move across the board. We aim to create a seamless **user interface (UI)** that integrates the board with the player’s **own map/book**. Like how the old Pokémon games used the ‘Pokedex’ to manage items, Pokémon, and view the map.
+
+| ![Gameplay Overview](Assets/UI.png) | The player controls a **customizable ship** and rolls dice to move across the board. We aim to create a seamless **User Interface (UI)** that integrates the board with the player’s **own map/book**, similar to how the old Pokémon games used the ‘Pokédex’ to manage items, Pokémon, and view the map. |
+|-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 ### Theme Interpretation (Curse is Strenth)
 
-![Curses](assets/Curses.png)
+<div style="text-align: center;">
+  <img src="Assets/Curses.png" alt="PySeas" width="1000">
+</div>
+
 Unlike in Sea of Thieves, where curses are purely cosmetic, we aim to 
 use **curses** more like **status effects** found in role-playing games such 
 as Pillars of Eternity 2. 
@@ -115,19 +121,19 @@ playable characters, undertake quests, or uses the dice system.
 
 | Mechanic              | Description                                                                | Animated mock-up<br>(Art not necessarily final)                 |
 |-----------------------|----------------------------------------------------------------------------|----------------------------------|
-| **Dice Roll**         | Players move based on the number rolled on the dice.                       | ![Dice Roll](assets/dice_roll.gif)|
-| **Virtual Book**      | A virtual book serves as inventory, quest log, and more.                   | ![Virtual book](assets/Virtual%20book.gif)|
-| **Free Movement**     | Players can move freely across the board during their turn.                | ![Free movement](assets/Free%20movement.gif)|
-| **Ship Upgrading**    | Each player begins the game with a starter ship, which can be upgraded to larger and more powerful vessels as the game progresses.<br><br>Upgraded ships offer various advantages, particularly withing the dice system, such as increased movement, better combat options, allowing players to tailor their ships to their preferred playstyle. | ![Ship upgrading 1](assets/Ship%20upgrading%201.png) ![Ship upgrading 2](assets/Ship%20upgrading%202.png) |
+| **Dice Roll**         | Players move based on the number rolled on the dice.                       | ![Dice Roll](Assets/dice_roll.gif) |
+| **Virtual Book**      | A virtual book serves as inventory, quest log, and more.                   | ![Virtual book](Assets/Virtual%20book.gif)|
+| **Free Movement**     | Players can move freely across the board during their turn.                | ![Free movement](Assets/Free%20movement.gif)|
+| **Ship Upgrading**    | Each player begins the game with a starter ship, which can be upgraded to larger and more powerful vessels as the game progresses.<br><br>Upgraded ships offer various advantages, particularly withing the dice system, such as increased movement, better combat options, allowing players to tailor their ships to their preferred playstyle. | ![Ship upgrading 1](Assets/Ship%20upgrading%201.png) ![Ship upgrading 2](Assets/Ship%20upgrading%202.png) |
 
 
 ### Secondary Mechanics
 
 | Mechanic              | Description                                                                | Animated mock-up<br>(Art not necessarily final)                                             |
 |-----------------------|----------------------------------------------------------------------------|--------------------------------------------------------------|
-| **Fog of War**        | Limits the player’s visibility on the map, adding an element of exploration and uncertainty, forcing players to strategically uncover new areas as they progress.                     | ![Fog of War](assets/Fog%20of%20war.gif) |
-| **Procedural Generation** | Ensures that the map layout changes with each playthrough, offering unique challenges and environments every time, which enhances replay-ability.                       | ![Procedural generation](assets/Procedural%20generation.gif) |
-| **World Events**      | World events can be triggered similarly to how encounters occur in the old Pokémon games when players interact with ‘tall grass’ or water areas. These events are dynamic and can happen as players explore certain areas of the map. exploration.                                | ![World events](assets/World%20event.gif) |
+| **Fog of War**        | Limits the player’s visibility on the map, adding an element of exploration and uncertainty, forcing players to strategically uncover new areas as they progress.                     | ![Fog of War](Assets/Fog%20of%20war.gif) |
+| **Procedural Generation** | Ensures that the map layout changes with each playthrough, offering unique challenges and environments every time, which enhances replay-ability.                       | ![Procedural generation](Assets/Procedural%20generation.gif) |
+| **World Events**      | World events can be triggered similarly to how encounters occur in the old Pokémon games when players interact with ‘tall grass’ or water areas. These events are dynamic and can happen as players explore certain areas of the map. exploration.                                | ![World events](Assets/World%20event.gif) |
 
 ---
 
@@ -160,7 +166,7 @@ development and aesthetics.
 For the project we’ve created a simple 100x100 tile-based map using 
 Tiled, utilizing 16x16 pixel assets. This serves as the initial **starting point** for the game, providing a foundational layout for exploration and gameplay. As development progresses, this map can be expanded or modified based on gameplay needs and **community feedback**.
 
-![Map starting point](assets/Map.png)
+![Map starting point](Assets/Map.png)
 
 ---
 
@@ -200,7 +206,7 @@ or instantly focusing on the player.
 
 ### GitHub Projects
 
-We aim to use Github projects to manage the development timeline and roadmap for the game Future features, updates, and milestones  will be organized and tracked through Github, with new features and  tasks being created via issues. This approach allows for transparent  progress tracking, collaborative development, and ensures that the  community can easily follow and contribute to the project.
+We aim to use Github projects to manage the development timeline and roadmap for the game future features, updates, and milestones. It will be organized and tracked through our [Project Task List](https://github.com/users/ultimateownsz/projects/15), with new features and tasks being created via issues. This approach allows for transparent progress tracking, collaborative development, and ensures that the  community can easily follow and contribute to the project.
 
 ---
 
@@ -208,4 +214,4 @@ We aim to use Github projects to manage the development timeline and roadmap for
 
 ### Discord
 
-For communication among contributors, we use our Discord server. This helps us to stay transparent with progress tracking, reporting on feedback and actively involve the community in the project.
+For communication among contributors, we use our [Discord Server](https://discord.gg/MZ5MHqDnGW). This helps us to stay transparent with progress tracking, reporting on feedback and actively involve the community in the project.
