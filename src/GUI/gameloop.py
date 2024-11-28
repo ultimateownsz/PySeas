@@ -24,19 +24,19 @@ class GUI:
     # all_sprites: pygame.sprite.Group = field(
     #     init=False, default_factory=pygame.sprite.Group
     # )
-    all_sprites: pygame.sprite.Group = pygame.sprite.Group()
 
     def __post_init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode(self.screen_size)
         pygame.display.set_caption("PySeas")
 
-        self.players: list[src.sprites.Player] = [src.sprites.Player()]
+        # self.players: list[src.sprites.Player] = [src.sprites.Player()]
 
+        self.all_sprites = src.sprites.AllSprites()
         self.running = True
         self.import_assets()
         self.setup(
-            tmx_maps=self.tmx_map["map"], player_start_pos="Fort"
+            tmx_maps=self.tmx_map["map"], player_start_pos="top_left_island"
         )  # The start positions will be one of the 4 islands in the corners of the board
 
     def import_assets(self):
@@ -61,6 +61,8 @@ class GUI:
 
     def setup(self, tmx_maps, player_start_pos):
         """create tiles"""
+
+        # islands
         islands = tmx_maps.get_layer_by_name("Islands")
         for x, y, surface in islands.tiles():
             # print(x * TILE_SIZE, y * TILE_SIZE, surface)
@@ -70,11 +72,15 @@ class GUI:
                 surf=surface,
             )
 
+        # ships
+        for obj in tmx_maps.get_layer_by_name("Ships"):
+            if obj.name == "Player" and obj.properties["pos"] == player_start_pos:
+                self.player = src.sprites.Player((obj.x, obj.y), self.all_sprites)
+
     def run(self) -> None:
         """main loop of the game"""
         while self.running:
             self.handle_events()
-            self.update()
             self.render()
 
     def handle_events(self) -> None:
@@ -85,18 +91,14 @@ class GUI:
                     pygame.quit()
                     sys.exit()
 
-    def update(self) -> None:
-        """update the player"""
-        for player in self.players:
-            player.update()
-
     def render(self) -> None:
         """draw sprites to the canvas"""
         self.screen.fill("#000000")
-        self.all_sprites.draw(surface=self.screen)
+        self.all_sprites.update()
+        self.all_sprites.draw(self.player.rect.center)
 
         # draw players on top of the other sprites
-        for player in self.players:
-            player.render(surface=self.screen)
+        # for player in self.players:
+        #     player.render(surface=self.screen)
 
         pygame.display.update()
