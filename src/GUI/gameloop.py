@@ -29,6 +29,7 @@ class GUI:
         pygame.init()
         self.screen = pygame.display.set_mode(self.screen_size)
         pygame.display.set_caption("PySeas")
+        self.clock = pygame.Clock()
 
         # self.players: list[src.sprites.Player] = [src.sprites.Player()]
 
@@ -62,7 +63,7 @@ class GUI:
     def setup(self, tmx_maps, player_start_pos):
         """create tiles"""
 
-        # islands
+        # Islands
         islands = tmx_maps.get_layer_by_name("Islands")
         for x, y, surface in islands.tiles():
             # print(x * TILE_SIZE, y * TILE_SIZE, surface)
@@ -72,7 +73,7 @@ class GUI:
                 surf=surface,
             )
 
-        # ships
+        # Objects
         for obj in tmx_maps.get_layer_by_name("Ships"):
             if obj.name == "Player" and obj.properties["pos"] == player_start_pos:
                 self.player = src.sprites.Player((obj.x, obj.y), self.all_sprites)
@@ -93,10 +94,12 @@ class GUI:
 
     def render(self) -> None:
         """draw sprites to the canvas"""
+        dt = self.clock.tick() / 1000
         self.screen.fill("#000000")
-        self.all_sprites.update()
+        self.all_sprites.update(dt)
         self.all_sprites.draw(self.player.rect.center)
 
+        '''No need to loop through the players because it is now in the sprite group AllSprites'''
         # draw players on top of the other sprites
         # for player in self.players:
         #     player.render(surface=self.screen)

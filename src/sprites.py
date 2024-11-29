@@ -6,6 +6,7 @@ from src.GUI.inventory import Inventory
 
 
 # class Entity(pygame.sprite.Sprite):
+'''Will be later used on all entities, classes as Player will inherit from this class'''
 #     def __init__(self, pos, surf, groups):
 #         super().__init__(groups)
 
@@ -13,6 +14,7 @@ from src.GUI.inventory import Inventory
 #         self.rect = self.image.get_frect(center=pos)
 
 class AllSprites(pygame.sprite.Group):
+    '''A sprite group that handles every sprite and handles the camera logic'''
     def __init__(self):
         super().__init__()
 
@@ -38,93 +40,119 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.Surface((16, 16))
         self.image.fill("red")
         self.rect = self.image.get_frect(center=pos)
+        self.direction = pygame.math.Vector2()
+        self.speed = 250
 
-    #     self.image = pygame.Surface(size=(TILE_SIZE, TILE_SIZE))
-    #     self.image.fill("#ff0000")
         self.player_preview = self.image.copy()
         self.player_preview.set_alpha(128)
 
-    #     self.inventory = Inventory()
+        self.inventory = Inventory()
 
+        self.mouse_have_been_pressed: bool = False
     #     self.rect: pygame.Rect = self.image.get_rect()
     #     # keep track of the transparent preview of the next move
     #     self.player_preview_rect = self.rect.copy()
     #     # this is used to only move once when the mouse is pressed
-        self.mouse_have_been_pressed: bool = False
 
-    def update(self) -> None:
-        """move the player and show a ghost to preview the move"""
+    '''DEBUGGING MOVEMENT METHOD'''
+    def input(self):
+        keys = pygame.key.get_pressed()
 
-        # gost preview
-        mouse_pos = pygame.mouse.get_pos()
-
-        # get the relative pos of the player from the mouse
-        # to know on wich axis the player will move
-        delta_x = abs(self.rect.centerx - mouse_pos[0])
-        delta_y = abs(self.rect.centery - mouse_pos[1])
-
-        #  move the gost on the x axis
-        self.player_preview_rect = self.rect.copy()
-        if delta_x > delta_y:
-            if delta_x < (TILE_SIZE / 2):
-                # don't move the gost if the mouse is on the player hitbox
-                self.player_preview_rect.x = self.rect.x
-            elif mouse_pos[0] > self.rect.centerx:
-                # go right
-                self.player_preview_rect.x = self.rect.x + TILE_SIZE
-            else:
-                # go left
-                self.player_preview_rect.x = self.rect.x - TILE_SIZE
-        # move the gost on the y axis
+        if keys[pygame.K_w]:
+            self.direction.y = -1
+        elif keys[pygame.K_s]:
+            self.direction.y = 1
         else:
-            if delta_y < (TILE_SIZE / 2):
-                # don't move if the mouse is on the player hitbox
-                self.player_preview_rect.y = self.rect.y
-            elif mouse_pos[1] > self.rect.centery:
-                # go down
-                self.player_preview_rect.y = self.rect.y + TILE_SIZE
-            else:
-                # go up
-                self.player_preview_rect.y = self.rect.y - TILE_SIZE
+            self.direction.y = 0
 
-        # move the player
-        if not pygame.mouse.get_pressed()[0]:
-            self.mouse_have_been_pressed = False
-            return None
-        if self.mouse_have_been_pressed:
-            return None
-
-        self.mouse_have_been_pressed = True
-
-        # move on the x axis
-        if delta_x > delta_y:
-            if delta_x < (TILE_SIZE / 2):
-                # don't move if the mouse is on the player hitbox
-                return None
-            if mouse_pos[0] > self.rect.centerx:
-                # go right
-                self.rect.x += TILE_SIZE
-            else:
-                # go left
-                self.rect.x -= TILE_SIZE
-        # move on the y axis
+        if keys[pygame.K_a]:
+            self.direction.x = -1
+        elif keys[pygame.K_d]:
+            self.direction.x = 1
         else:
-            if delta_y < (TILE_SIZE / 2):
-                # don't move if the mouse is on the player hitbox
-                return None
-            if mouse_pos[1] > self.rect.centery:
-                # go down
-                self.rect.y += TILE_SIZE
-            else:
-                # go up
-                self.rect.y -= TILE_SIZE
+            self.direction.x = 0
 
-        return None
+    def move(self, dt):
+        self.rect.center += self.direction * self.speed * dt
 
-    def render(self, surface: pygame.Surface) -> None:
-        """blit player image and gost preview to a given surface"""
-        surface.blit(source=self.player_preview, dest=self.player_preview_rect)
-        surface.blit(source=self.image, dest=self.rect)
+    def update(self, dt):
+        self.input()
+        self.move(dt)
+
+    '''OFFICIAL MOVEMENT METHOD'''
+    # def update(self) -> None:
+    #     """move the player and show a ghost to preview the move"""
+
+    #     # gost preview
+    #     mouse_pos = pygame.mouse.get_pos()
+
+    #     # get the relative pos of the player from the mouse
+    #     # to know on wich axis the player will move
+    #     delta_x = abs(self.rect.centerx - mouse_pos[0])
+    #     delta_y = abs(self.rect.centery - mouse_pos[1])
+
+    #     #  move the gost on the x axis
+    #     self.player_preview_rect = self.rect.copy()
+    #     if delta_x > delta_y:
+    #         if delta_x < (TILE_SIZE / 2):
+    #             # don't move the gost if the mouse is on the player hitbox
+    #             self.player_preview_rect.x = self.rect.x
+    #         elif mouse_pos[0] > self.rect.centerx:
+    #             # go right
+    #             self.player_preview_rect.x = self.rect.x + TILE_SIZE
+    #         else:
+    #             # go left
+    #             self.player_preview_rect.x = self.rect.x - TILE_SIZE
+    #     # move the gost on the y axis
+    #     else:
+    #         if delta_y < (TILE_SIZE / 2):
+    #             # don't move if the mouse is on the player hitbox
+    #             self.player_preview_rect.y = self.rect.y
+    #         elif mouse_pos[1] > self.rect.centery:
+    #             # go down
+    #             self.player_preview_rect.y = self.rect.y + TILE_SIZE
+    #         else:
+    #             # go up
+    #             self.player_preview_rect.y = self.rect.y - TILE_SIZE
+
+    #     # move the player
+    #     if not pygame.mouse.get_pressed()[0]:
+    #         self.mouse_have_been_pressed = False
+    #         return None
+    #     if self.mouse_have_been_pressed:
+    #         return None
+
+    #     self.mouse_have_been_pressed = True
+
+    #     # move on the x axis
+    #     if delta_x > delta_y:
+    #         if delta_x < (TILE_SIZE / 2):
+    #             # don't move if the mouse is on the player hitbox
+    #             return None
+    #         if mouse_pos[0] > self.rect.centerx:
+    #             # go right
+    #             self.rect.x += TILE_SIZE
+    #         else:
+    #             # go left
+    #             self.rect.x -= TILE_SIZE
+    #     # move on the y axis
+    #     else:
+    #         if delta_y < (TILE_SIZE / 2):
+    #             # don't move if the mouse is on the player hitbox
+    #             return None
+    #         if mouse_pos[1] > self.rect.centery:
+    #             # go down
+    #             self.rect.y += TILE_SIZE
+    #         else:
+    #             # go up
+    #             self.rect.y -= TILE_SIZE
+
+    #     return None
+
+    # def render(self, surface: pygame.Surface) -> None:
+    #     """blit player image and gost preview to a given surface"""
+    #     surface.blit(source=self.player_preview, dest=self.player_preview_rect)
+    #     surface.blit(source=self.image, dest=self.rect)
 
 
 class Tile(pygame.sprite.Sprite):
