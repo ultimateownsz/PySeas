@@ -37,7 +37,7 @@ class Player(pygame.sprite.Sprite):
         super().__init__(groups)
         # TODO: replace with actual images
 
-        self.image = pygame.Surface((16, 16))
+        self.image = pygame.Surface((TILE_SIZE, TILE_SIZE))
         self.image.fill("red")
         self.rect = self.image.get_frect(center=pos)
         self.direction = pygame.math.Vector2()
