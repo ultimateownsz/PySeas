@@ -10,7 +10,9 @@ from pytmx.util_pygame import load_pygame  # type: ignore
 
 # import Pygame specific objects, functions and functionality
 from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE
+from src.support import *
 import src.sprites
+from src.sprites import AnimatedSprites
 
 
 @dataclass
@@ -44,7 +46,11 @@ class GUI:
         """load the map"""
         # The map was made as a basic start for the game, it can be changes or altered if it is better for the overall flow of the game
         self.tmx_map = {
-            "map": load_pygame(join(".", "data", "maps", "100x100_map.tmx"))
+            "map": load_pygame(join(".", "data", "new_maps", "100x100_map.tmx"))
+        }
+
+        self.world_frames = {
+            "water": import_folder(".", "images", "tilesets", "water")
         }
 
         # # Define the path to the TMX file
@@ -67,16 +73,24 @@ class GUI:
         islands = tmx_maps.get_layer_by_name("Islands")
         for x, y, surface in islands.tiles():
             # print(x * TILE_SIZE, y * TILE_SIZE, surface)
-            src.sprites.Tile(
-                self.all_sprites,
-                pos=(x * TILE_SIZE, y * TILE_SIZE),
-                surf=surface,
-            )
+            # src.sprites.Sprite(
+            #     self.all_sprites,
+            #     pos=(x * TILE_SIZE, y * TILE_SIZE),
+            #     surf=surface,
+            # )
+            src.sprites.Sprite((x * TILE_SIZE, y * TILE_SIZE), surface, self.all_sprites)
 
         # Objects
         for obj in tmx_maps.get_layer_by_name("Ships"):
             if obj.name == "Player" and obj.properties["pos"] == player_start_pos:
                 self.player = src.sprites.Player((obj.x, obj.y), self.all_sprites)
+
+        # Water
+        for obj in tmx_maps.get_layer_by_name("Water"):
+            for x in range(int(obj.x), int(obj.x + obj.width), TILE_SIZE):
+                for y in range(int(obj.y), int(obj.y + obj.height), TILE_SIZE):
+                    AnimatedSprites((x, y), self.world_frames["water"], self.all_sprites)
+
 
     def run(self) -> None:
         """main loop of the game"""
@@ -94,8 +108,9 @@ class GUI:
 
     def render(self) -> None:
         """draw sprites to the canvas"""
+        dt = self.clock.tick() / 1000
         self.screen.fill("#000000")
-        self.all_sprites.update()
+        self.all_sprites.update(dt)
         self.all_sprites.draw(self.player.rect.center, self.player.player_preview, self.player.player_preview_rect)
 
         '''No need to loop through the players because it is now in the sprite group AllSprites'''
