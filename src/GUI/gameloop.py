@@ -94,10 +94,9 @@ class GUI:
 
     def render(self) -> None:
         """draw sprites to the canvas"""
-        dt = self.clock.tick() / 1000
         self.screen.fill("#000000")
-        self.all_sprites.update(dt)
-        self.all_sprites.draw(self.player.rect.center)
+        self.all_sprites.update()
+        self.all_sprites.draw(self.player.rect.center, self.player.player_preview, self.player.player_preview_rect)
 
         '''No need to loop through the players because it is now in the sprite group AllSprites'''
         # draw players on top of the other sprites
