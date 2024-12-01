@@ -1,6 +1,7 @@
 """custom sprites classes"""
 
 import pygame
+from pygame import FRect
 from src.settings import TILE_SIZE, SCREEN_HEIGHT, SCREEN_WIDTH
 from src.GUI.inventory import Inventory
 
@@ -36,6 +37,8 @@ class AllSprites(pygame.sprite.Group):
 
 class Player(pygame.sprite.Sprite):
     """move tile by tile"""
+
+    rect: FRect
 
     def __init__(self, pos, groups):
         super().__init__(groups)
