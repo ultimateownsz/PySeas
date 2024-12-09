@@ -17,7 +17,9 @@ class InventoryGUI:
         self.max_visible_items = 10
         self.item_height = 60
 
-        # Load sprite sheet and extract the icons
+        # Load sprite sheet and extract the icons (Testing purposes)
+        # To be replaced when: 
+        # 1) Spritesheet has been decide. 2) A 'Buy', 'Found' or 'Add' in-game feature has been implemented
         self.sprite_sheet = pygame.image.load(
             "images/tilesets/Treasure+.png"
         ).convert_alpha()

@@ -20,6 +20,10 @@ The Inventory GUI serves as a user-friendly interface for managing in-game items
 - **Keyboard**: Press `I` to toggle the inventory screen on and off.
 - **Mouse**: Click buttons to perform actions.
 
+## Running Tests
+Tests in this project use `pytest`. To run the tests:
+`pytest tests/test_inventory.py`
+
 ## Testing Items
 
 ### Modifying `inventory.json`
