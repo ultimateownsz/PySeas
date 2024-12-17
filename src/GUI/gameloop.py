@@ -1,5 +1,6 @@
 from os.path import join
 import sys
+import json
 
 # import dataclasses and typchecking
 from dataclasses import dataclass, field
@@ -11,6 +12,10 @@ from pytmx.util_pygame import load_pygame  # type: ignore
 # import Pygame specific objects, functions and functionality
 from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE
 import src.sprites
+
+# import inventory related classes
+from src.GUI.inventory_gui import InventoryGUI
+from src.GUI.inventory import Inventory
 
 
 @dataclass
@@ -31,6 +36,14 @@ class GUI:
         pygame.display.set_caption("PySeas")
         self.clock = pygame.Clock()
 
+        # Initialize player inventory
+        self.player_inventory = Inventory()
+        self.inventory_gui = InventoryGUI(self.screen, self.player_inventory)
+
+        # Load initial inventory items from JSON file
+        self.load_inventory_from_json("data/inventory.json")
+
+        # Players list currently commented out; keeping for potential future use
         # self.players: list[src.sprites.Player] = [src.sprites.Player()]
 
         self.all_sprites = src.sprites.AllSprites()
@@ -91,6 +104,38 @@ class GUI:
                 case pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+                case pygame.KEYDOWN:
+                    if event.key == pygame.K_i:  # Toggle inventory with "I" key
+                        self.toggle_inventory()
+
+    def toggle_inventory(self):
+        """Toggle the inventory overlay."""
+        self.inventory_gui.running = not self.inventory_gui.running
+
+        while self.inventory_gui.running:
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_i:
+                    self.inventory_gui.running = False  # Close the inventory
+                elif (
+                    event.type == pygame.MOUSEBUTTONDOWN and event.button == 1
+                ):  # Left click
+                    self.inventory_gui.handle_mouse_click(event.pos)
+                elif event.type == pygame.MOUSEWHEEL:
+                    self.inventory_gui.handle_events(event)
+
+            self.inventory_gui.draw()
+            pygame.display.flip()  # Update the display
+
+    def load_inventory_from_json(self, file_path: str):
+        """Load initial inventory items from JSON file."""
+        try:
+            with open(file_path, "r") as f:
+                items = json.load(f)
+                for item_name, properties in items.items():
+                    quantity = properties.get("quantity", 1)  # Default to 1 if missing
+                    self.player_inventory.add_item(item_name, quantity)
+        except (FileNotFoundError, json.JSONDecodeError):
+            print(f"Error: The file at {file_path} does not exist.")
 
     def render(self) -> None:
         """draw sprites to the canvas"""
