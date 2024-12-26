@@ -51,7 +51,7 @@ class GUI:
 
         self.world_frames = {
             "water": import_folder(".", "images", "tilesets", "water"),
-            "cost": coast_importer(6, 6, ".", "images", "tilesets", "coast")
+            "coast": coast_importer(6, 6, ".", "images", "tilesets", "coast")
         }
 
         # # Define the path to the TMX file
@@ -91,6 +91,12 @@ class GUI:
             for x in range(int(obj.x), int(obj.x + obj.width), TILE_SIZE):
                 for y in range(int(obj.y), int(obj.y + obj.height), TILE_SIZE):
                     AnimatedSprites((x, y), self.world_frames["water"], self.all_sprites)
+
+        # coast
+        for obj in tmx_maps.get_layer_by_name("Coast"):
+            terrain = obj.properties["terrain"]
+            side = obj.properties["side"]
+            AnimatedSprites((obj.x, obj.y), self.world_frames["coast"][terrain][side], self.all_sprites)
 
 
     def run(self) -> None:
