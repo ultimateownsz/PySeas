@@ -5,7 +5,7 @@ import pygame.freetype
 
 SCREEN_WIDTH, SCREEN_HEIGHT = 1280, 720
 TILE_SIZE = 16
-ANIMATION_SPEED = 6
+ANIMATION_SPEED = 4
 
 
 if not getattr(pygame, "IS_CE", False):
