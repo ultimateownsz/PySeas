@@ -50,4 +50,5 @@ def import_tilemap(cols, rows, *path):
 	return frames
 
 def coast_importer(cols, rows, *path):
-	pass
+	frame_dict = import_tilemap(cols, rows, path)
+	print(frame_dict)
