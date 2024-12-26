@@ -2,7 +2,7 @@
 
 import pygame
 from pygame import FRect
-from src.settings import TILE_SIZE, SCREEN_HEIGHT, SCREEN_WIDTH
+from src.settings import TILE_SIZE, SCREEN_HEIGHT, SCREEN_WIDTH, ANIMATION_SPEED
 from src.GUI.inventory import Inventory
 
 
@@ -186,7 +186,7 @@ class AnimatedSprites(Sprite):
         super().__init__(pos, frames[self.frame_index], groups)
 
     def animate(self, dt):
-        self.frame_index += 4 * dt
+        self.frame_index += ANIMATION_SPEED * dt
         self.image = self.frames[int(self.frame_index % len(self.frames))]
 
     def update(self, dt):
