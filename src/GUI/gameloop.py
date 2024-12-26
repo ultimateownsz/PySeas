@@ -70,6 +70,10 @@ class GUI:
     def setup(self, tmx_maps, player_start_pos):
         """create tiles"""
 
+        # # sea
+        for x, y, surface in tmx_maps.get_layer_by_name("Sea").tiles():
+            src.sprites.Sprite((x * TILE_SIZE, y * TILE_SIZE), surface, self.all_sprites)
+
         # Islands
         islands = tmx_maps.get_layer_by_name("Islands")
         for x, y, surface in islands.tiles():
@@ -81,12 +85,13 @@ class GUI:
             # )
             src.sprites.Sprite((x * TILE_SIZE, y * TILE_SIZE), surface, self.all_sprites)
 
+
         # Objects
         for obj in tmx_maps.get_layer_by_name("Ships"):
             if obj.name == "Player" and obj.properties["pos"] == player_start_pos:
                 self.player = src.sprites.Player((obj.x, obj.y), self.all_sprites)
 
-        # Water
+        # water_animated
         for obj in tmx_maps.get_layer_by_name("Water"):
             for x in range(int(obj.x), int(obj.x + obj.width), TILE_SIZE):
                 for y in range(int(obj.y), int(obj.y + obj.height), TILE_SIZE):
