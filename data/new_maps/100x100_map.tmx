@@ -322,19 +322,19 @@
  <objectgroup id="16" name="Coast">
   <object id="56" x="208" y="192" width="16" height="16">
    <properties>
-    <property name="side" value="left"/>
+    <property name="side" value="right"/>
     <property name="terrain" value="sand"/>
    </properties>
   </object>
   <object id="57" x="208" y="176" width="16" height="16">
    <properties>
-    <property name="side" value="left"/>
+    <property name="side" value="right"/>
     <property name="terrain" value="sand"/>
    </properties>
   </object>
   <object id="60" x="208" y="128" width="16" height="16">
    <properties>
-    <property name="side" value="left"/>
+    <property name="side" value="right"/>
     <property name="terrain" value="sand"/>
    </properties>
   </object>
@@ -352,25 +352,25 @@
   </object>
   <object id="76" x="208" y="112" width="16" height="16">
    <properties>
-    <property name="side" value="topleft"/>
+    <property name="side" value="topright"/>
     <property name="terrain" value="sand"/>
    </properties>
   </object>
   <object id="78" x="208" y="208" width="16" height="16">
    <properties>
-    <property name="side" value="bottomleft"/>
+    <property name="side" value="bottomright"/>
     <property name="terrain" value="sand"/>
    </properties>
   </object>
   <object id="81" x="208" y="160" width="16" height="16">
    <properties>
-    <property name="side" value="left"/>
+    <property name="side" value="right"/>
     <property name="terrain" value="sand"/>
    </properties>
   </object>
   <object id="82" x="208" y="144" width="16" height="16">
    <properties>
-    <property name="side" value="left"/>
+    <property name="side" value="right"/>
     <property name="terrain" value="sand"/>
    </properties>
   </object>
