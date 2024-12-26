@@ -48,3 +48,6 @@ def import_tilemap(cols, rows, *path):
 			cutout_surf.blit(surf, (0,0), cutout_rect)
 			frames[(col, row)] = cutout_surf
 	return frames
+
+def coast_importer(cols, rows, *path):
+	pass
