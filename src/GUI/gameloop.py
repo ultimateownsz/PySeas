@@ -93,7 +93,7 @@ class GUI:
             if obj.name == "Player" and obj.properties["pos"] == player_start_pos:
                 self.player = src.sprites.Player(
                     pos = (obj.x, obj.y), 
-                    frames = self.world_frames["ships"]["player_ship"], 
+                    frames = self.world_frames["ships"]["player_sloop"], 
                     groups = self.all_sprites)
 
         # water_animated
