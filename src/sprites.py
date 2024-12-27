@@ -28,6 +28,11 @@ class Entity(pygame.sprite.Sprite):
 
     def get_state(self):
         moving = bool(self.direction)
+        if moving:
+            if self.direction.x != 0:
+                self.facing_direction = "right" if self.direction.x > 0 else "left"
+            if self.direction.y != 0:
+                self.facing_direction = "down" if self.direction.x > 0 else "up"
         return f"{self.facing_direction}{"" if moving else "_idle"}"
 
 
