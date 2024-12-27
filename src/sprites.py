@@ -12,6 +12,11 @@ class Entity(pygame.sprite.Sprite):
 
         # graphics
         self.frame_index, self.frames = 0, frames
+        self.facing_direction = "down"
+
+        # movement
+        self.direction = pygame.math.Vector2()
+        # self.speed = 250
 
         # sprite setup
         self.image = self.frames[self.get_state()][self.frame_index]
@@ -22,7 +27,8 @@ class Entity(pygame.sprite.Sprite):
         self.image = self.frames[self.get_state()][int(self.frame_index % len(self.frames[self.get_state()]))]
 
     def get_state(self):
-        return "left_idle"
+        moving = bool(self.direction)
+        return f"{self.facing_direction}{"" if moving else "_idle"}"
 
 
 class AllSprites(pygame.sprite.Group):
