@@ -63,10 +63,14 @@ def coast_importer(cols, rows, *path):
 			new_dict[terrain][key] = [frame_dict[(pos[0] + index * 3, pos[1] + row)] for row in range(0, rows, 3)]
 	return new_dict
 
+def character_importer(cols, rows, *path):
+	frame_dict = import_tilemap(cols, rows, *path)
+	new_dict = {}
+
 def all_character_import(*path):
 	new_dict = {}
 	for _, _, image_names in walk(join(*path)):
 		for image in image_names:
 			image_name = image.split(".")[0]
-			new_dict[image_name] = import_tilemap(7, 4, *path, image_name)
+			new_dict[image_name] = character_importer(7, 4, *path)
 	return new_dict
