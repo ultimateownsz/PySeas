@@ -51,7 +51,8 @@ class GUI:
 
         self.world_frames = {
             "water": import_folder(".", "images", "tilesets", "water"),
-            "coast": coast_importer(6, 6, ".", "images", "tilesets", "coast")
+            "coast": coast_importer(6, 6, ".", "images", "tilesets", "coast"),
+            "ships": all_character_import(".", "images", "ships")
         }
 
         # # Define the path to the TMX file
