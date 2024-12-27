@@ -21,9 +21,6 @@ class Entity(pygame.sprite.Sprite):
         self.frame_index += ANIMATION_SPEED * dt
         self.image = self.frames["down"][int(self.frame_index % len(self.frames["down"]))]
 
-    def update(self, dt):
-        self.animate(dt)
-
 
 class AllSprites(pygame.sprite.Group):
     '''A sprite group that handles every sprite and handles the camera logic'''
@@ -152,6 +149,7 @@ class Player(Entity):
     def update(self, dt) -> None:
         """blit player image and gost preview to a given surface"""
         self.input()
+        self.animate(dt)
 
 
 class Tile(pygame.sprite.Sprite):
