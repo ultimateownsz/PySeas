@@ -66,11 +66,15 @@ def coast_importer(cols, rows, *path):
 def character_importer(cols, rows, *path):
 	frame_dict = import_tilemap(cols, rows, *path)
 	new_dict = {}
+	for row, direction in enumerate(("down", "left", "right", "up")):
+		new_dict[direction] = [frame_dict[(col, row)] for col in range(cols)]
+		new_dict[f"{direction}_idle"] = [frame_dict[(0, row)]]
+	return new_dict
 
 def all_character_import(*path):
 	new_dict = {}
 	for _, _, image_names in walk(join(*path)):
 		for image in image_names:
 			image_name = image.split(".")[0]
-			new_dict[image_name] = character_importer(7, 4, *path)
+			new_dict[image_name] = character_importer(7, 4, *path, image_name)
 	return new_dict
