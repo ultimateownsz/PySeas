@@ -52,8 +52,9 @@ class GUI:
         self.world_frames = {
             "water": import_folder(".", "images", "tilesets", "water"),
             "coast": coast_importer(6, 6, ".", "images", "tilesets", "coast"),
-            "ships": all_character_import(".", "images", "ships")
+            "ships": all_character_import(".", "images", "tilesets", "ships")
         }
+        print(self.world_frames["ships"])
 
         # # Define the path to the TMX file
         # tmx_path = os.path.join('data', 'maps', '100x100_map.tmx')
