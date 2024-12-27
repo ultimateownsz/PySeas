@@ -24,11 +24,11 @@ class AllSprites(pygame.sprite.Group):
         if not self.display_surface:
             raise ValueError("Display surface is not initialized")
         self.offset = pygame.math.Vector2()
-        self.scale = 1.0
+        self.scale = 2.0
 
     def draw(self, player_center, player_preview, player_preview_rect):
-        self.offset.x = -(player_center[0] - SCREEN_WIDTH / 2) * self.scale
-        self.offset.y = -(player_center[1] - SCREEN_HEIGHT / 2) * self.scale
+        self.offset.x = -(player_center[0] * self.scale - SCREEN_WIDTH / 2)
+        self.offset.y = -(player_center[1] * self.scale - SCREEN_HEIGHT / 2)
 
         for sprite in self:
             scaled_image = pygame.transform.scale(sprite.image, 
@@ -45,8 +45,9 @@ class AllSprites(pygame.sprite.Group):
 
         self.display_surface.blit(scaled_preview, scaled_preview_rect.topleft)
 
-    def set_scale(self, scale):
-        self.scale = max(scale, 0.1)
+    # method for zooming (might be usefull later?)
+    # def set_scale(self, scale):
+    #     self.scale = max(scale, 0.1)
 
 
 class Player(pygame.sprite.Sprite):
