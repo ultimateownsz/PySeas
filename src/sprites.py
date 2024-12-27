@@ -18,7 +18,11 @@ class Entity(pygame.sprite.Sprite):
         self.rect = self.image.get_frect(center = pos)
 
     def animate(self, dt):
-        pass
+        self.frame_index += ANIMATION_SPEED * dt
+        self.image = self.frames["down"][int(self.frame_index % len(self.frames["down"]))]
+
+    def update(self, dt):
+        self.animate(dt)
 
 
 class AllSprites(pygame.sprite.Group):
