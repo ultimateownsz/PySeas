@@ -17,6 +17,9 @@ class Entity(pygame.sprite.Sprite):
         self.image = self.frames["down"][self.frame_index]
         self.rect = self.image.get_frect(center = pos)
 
+    def animate(self, dt):
+        pass
+
 
 class AllSprites(pygame.sprite.Group):
     '''A sprite group that handles every sprite and handles the camera logic'''
