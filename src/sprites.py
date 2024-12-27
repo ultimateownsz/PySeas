@@ -14,12 +14,15 @@ class Entity(pygame.sprite.Sprite):
         self.frame_index, self.frames = 0, frames
 
         # sprite setup
-        self.image = self.frames["down"][self.frame_index]
+        self.image = self.frames[self.get_state()][self.frame_index]
         self.rect = self.image.get_frect(center = pos)
 
     def animate(self, dt):
         self.frame_index += ANIMATION_SPEED * dt
-        self.image = self.frames["down"][int(self.frame_index % len(self.frames["down"]))]
+        self.image = self.frames[self.get_state()][int(self.frame_index % len(self.frames[self.get_state()]))]
+
+    def get_state(self):
+        return "left_idle"
 
 
 class AllSprites(pygame.sprite.Group):
