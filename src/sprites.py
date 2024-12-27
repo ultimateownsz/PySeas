@@ -24,15 +24,29 @@ class AllSprites(pygame.sprite.Group):
         if not self.display_surface:
             raise ValueError("Display surface is not initialized")
         self.offset = pygame.math.Vector2()
+        self.scale = 1.0
 
     def draw(self, player_center, player_preview, player_preview_rect):
-        self.offset.x = -(player_center[0] - SCREEN_WIDTH / 2)
-        self.offset.y = -(player_center[1] - SCREEN_HEIGHT / 2)
+        self.offset.x = -(player_center[0] - SCREEN_WIDTH / 2) * self.scale
+        self.offset.y = -(player_center[1] - SCREEN_HEIGHT / 2) * self.scale
 
         for sprite in self:
-            self.display_surface.blit(sprite.image, sprite.rect.topleft + self.offset)
+            scaled_image = pygame.transform.scale(sprite.image, 
+                            (int(sprite.rect.width * self.scale), int(sprite.rect.height * self.scale)))
+            scaled_rect = scaled_image.get_rect(center=(sprite.rect.center[0] * self.scale, sprite.rect.center[1] * self.scale))
+            scaled_rect.topleft += self.offset
 
-        self.display_surface.blit(player_preview, player_preview_rect.topleft + self.offset)
+            self.display_surface.blit(scaled_image, scaled_rect.topleft)
+
+        scaled_preview = pygame.transform.scale(player_preview, 
+                         (int(player_preview_rect.width * self.scale), int(player_preview_rect.height * self.scale)))
+        scaled_preview_rect = scaled_preview.get_rect(center=(player_preview_rect.center[0] * self.scale, player_preview_rect.center[1] * self.scale))
+        scaled_preview_rect.topleft += self.offset
+
+        self.display_surface.blit(scaled_preview, scaled_preview_rect.topleft)
+
+    def set_scale(self, scale):
+        self.scale = max(scale, 0.1)
 
 
 class Player(pygame.sprite.Sprite):
