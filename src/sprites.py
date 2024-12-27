@@ -6,13 +6,16 @@ from src.settings import TILE_SIZE, SCREEN_HEIGHT, SCREEN_WIDTH, ANIMATION_SPEED
 from src.GUI.inventory import Inventory
 
 
-# class Entity(pygame.sprite.Sprite):
-'''Will be later used on all entities, classes as Player will inherit from this class'''
-#     def __init__(self, pos, surf, groups):
-#         super().__init__(groups)
+class Entity(pygame.sprite.Sprite):
+    def __init__(self, pos, frames, groups):
+        super().__init__(groups)
 
-#         self.image = surf
-#         self.rect = self.image.get_frect(center=pos)
+        # graphics
+        self.frame_index, self.frames = 0, frames
+
+        # sprite setup
+        self.image = self.frames["down"][self.frame_index]
+        self.rect = self.image.get_frect(center = pos)
 
 
 class AllSprites(pygame.sprite.Group):
@@ -50,18 +53,18 @@ class AllSprites(pygame.sprite.Group):
     #     self.scale = max(scale, 0.1)
 
 
-class Player(pygame.sprite.Sprite):
+class Player(Entity):
     """move tile by tile"""
 
     rect: FRect
 
-    def __init__(self, pos, groups):
-        super().__init__(groups)
+    def __init__(self, pos, frames, groups):
+        super().__init__(pos, frames, groups)
         # TODO: replace with actual images
 
-        self.image = pygame.Surface((TILE_SIZE, TILE_SIZE))
-        self.image.fill("red")
-        self.rect = self.image.get_frect(center=pos)
+        # self.image = pygame.Surface((TILE_SIZE, TILE_SIZE))
+        # self.image.fill("red")
+        # self.rect = self.image.get_frect(center=pos)
 
         # ghost preview
         self.player_preview = self.image.copy()

@@ -54,7 +54,7 @@ class GUI:
             "coast": coast_importer(6, 6, ".", "images", "tilesets", "coast"),
             "ships": all_character_import(".", "images", "tilesets", "ships")
         }
-        print(self.world_frames["ships"])
+        # print(self.world_frames["ships"])
 
         # # Define the path to the TMX file
         # tmx_path = os.path.join('data', 'maps', '100x100_map.tmx')
@@ -91,7 +91,10 @@ class GUI:
         # Objects
         for obj in tmx_maps.get_layer_by_name("Ships"):
             if obj.name == "Player" and obj.properties["pos"] == player_start_pos:
-                self.player = src.sprites.Player((obj.x, obj.y), self.all_sprites)
+                self.player = src.sprites.Player(
+                    pos = (obj.x, obj.y), 
+                    frames = self.world_frames["ships"]["player_ship"], 
+                    groups = self.all_sprites)
 
         # water_animated
         for obj in tmx_maps.get_layer_by_name("Water"):
