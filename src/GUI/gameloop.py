@@ -63,6 +63,12 @@ class GUI:
         for x, y, surface in tmx_maps.get_layer_by_name("Sea").tiles():
             src.sprites.Sprite((x * TILE_SIZE, y * TILE_SIZE), surface, self.all_sprites, WORLD_LAYERS["bg"])
 
+        # Water animated
+        for obj in tmx_maps.get_layer_by_name("Water"):
+            for x in range(int(obj.x), int(obj.x + obj.width), TILE_SIZE):
+                for y in range(int(obj.y), int(obj.y + obj.height), TILE_SIZE):
+                    AnimatedSprites((x, y), self.world_frames["water"], self.all_sprites, WORLD_LAYERS["water"])
+
         # Shallow water
         for x, y, surface in tmx_maps.get_layer_by_name("Shallow Sea").tiles():
             src.sprites.Sprite((x * TILE_SIZE, y * TILE_SIZE), surface, self.all_sprites, WORLD_LAYERS["bg"])
@@ -79,12 +85,6 @@ class GUI:
                     pos = (obj.x, obj.y), 
                     frames = self.world_frames["ships"]["player_sloop"], 
                     groups = self.all_sprites)
-
-        # Water animated
-        for obj in tmx_maps.get_layer_by_name("Water"):
-            for x in range(int(obj.x), int(obj.x + obj.width), TILE_SIZE):
-                for y in range(int(obj.y), int(obj.y + obj.height), TILE_SIZE):
-                    AnimatedSprites((x, y), self.world_frames["water"], self.all_sprites, WORLD_LAYERS["water"])
 
         # Coast
         for obj in tmx_maps.get_layer_by_name("Coast"):
