@@ -54,7 +54,7 @@ class AllSprites(pygame.sprite.Group):
         mouse_pressed = pygame.mouse.get_pressed()
         mouse_pos = pygame.mouse.get_pos()
 
-        if mouse_pos[0]:
+        if mouse_pressed[0]:
             if not self.dragging:
                 self.dragging = True
                 self.last_mouse_pos = mouse_pos
@@ -69,8 +69,11 @@ class AllSprites(pygame.sprite.Group):
             self.last_mouse_pos = None
 
     def draw(self, player_center, player_preview, player_preview_rect):
-        self.offset.x = -(player_center[0] * self.scale - SCREEN_WIDTH / 2)
-        self.offset.y = -(player_center[1] * self.scale - SCREEN_HEIGHT / 2)
+        player_offset_x = -(player_center[0] * self.scale - SCREEN_WIDTH / 2)
+        player_offset_y = -(player_center[1] * self.scale - SCREEN_HEIGHT / 2)
+
+        self.offset.x += player_offset_x
+        self.offset.y += player_offset_y
 
         background_sprites = [sprite for sprite in self if sprite.z < WORLD_LAYERS["main"]]
         main_sprites = [sprite for sprite in self if sprite.z == WORLD_LAYERS["main"]]

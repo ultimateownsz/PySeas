@@ -111,6 +111,7 @@ class GUI:
         """draw sprites to the canvas"""
         dt = self.clock.tick() / 1000
         self.screen.fill("#000000")
+        self.all_sprites.camera_drag()
         self.all_sprites.update(dt)
         self.all_sprites.draw(self.player.rect.center, self.player.player_preview, self.player.player_preview_rect)
 
