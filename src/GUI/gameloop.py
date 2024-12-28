@@ -59,17 +59,17 @@ class GUI:
     def setup(self, tmx_maps, player_start_pos):
         """create tiles"""
 
-        # # sea
+        # Sea
         for x, y, surface in tmx_maps.get_layer_by_name("Sea").tiles():
-            src.sprites.Sprite((x * TILE_SIZE, y * TILE_SIZE), surface, self.all_sprites)
+            src.sprites.Sprite((x * TILE_SIZE, y * TILE_SIZE), surface, self.all_sprites, WORLD_LAYERS["bg"])
 
         # Islands
         islands = tmx_maps.get_layer_by_name("Islands")
         for x, y, surface in islands.tiles():
-            src.sprites.Sprite((x * TILE_SIZE, y * TILE_SIZE), surface, self.all_sprites)
+            src.sprites.Sprite((x * TILE_SIZE, y * TILE_SIZE), surface, self.all_sprites, WORLD_LAYERS["bg"])
 
 
-        # Objects
+        # Enitites
         for obj in tmx_maps.get_layer_by_name("Ships"):
             if obj.name == "Player" and obj.properties["pos"] == player_start_pos:
                 self.player = src.sprites.Player(
@@ -77,17 +77,17 @@ class GUI:
                     frames = self.world_frames["ships"]["player_sloop"], 
                     groups = self.all_sprites)
 
-        # water_animated
+        # Water animated
         for obj in tmx_maps.get_layer_by_name("Water"):
             for x in range(int(obj.x), int(obj.x + obj.width), TILE_SIZE):
                 for y in range(int(obj.y), int(obj.y + obj.height), TILE_SIZE):
-                    AnimatedSprites((x, y), self.world_frames["water"], self.all_sprites)
+                    AnimatedSprites((x, y), self.world_frames["water"], self.all_sprites, WORLD_LAYERS["water"])
 
-        # coast
+        # Coast
         for obj in tmx_maps.get_layer_by_name("Coast"):
             terrain = obj.properties["terrain"]
             side = obj.properties["side"]
-            AnimatedSprites((obj.x, obj.y), self.world_frames["coast"][terrain][side], self.all_sprites)
+            AnimatedSprites((obj.x, obj.y), self.world_frames["coast"][terrain][side], self.all_sprites, WORLD_LAYERS["bg"])
 
 
     def run(self) -> None:
