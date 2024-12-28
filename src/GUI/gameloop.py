@@ -56,19 +56,6 @@ class GUI:
         }
         # print(self.world_frames["ships"])
 
-        # # Define the path to the TMX file
-        # tmx_path = os.path.join('data', 'maps', '100x100_map.tmx')
-        # sprite_group = pygame.sprite.Group()
-
-        # # Check if the file exists
-        # if not os.path.exists(self.tmx_maps):
-        #     print(f"Error: The file at {self.tmx_maps} does not exist.")
-        #     return None
-
-        # # Load the TMX file using load_pygame
-        # tmx_data = load_pygame(tmx_path)
-        # print(tmx_data.layers)
-
     def setup(self, tmx_maps, player_start_pos):
         """create tiles"""
 
@@ -79,12 +66,6 @@ class GUI:
         # Islands
         islands = tmx_maps.get_layer_by_name("Islands")
         for x, y, surface in islands.tiles():
-            # print(x * TILE_SIZE, y * TILE_SIZE, surface)
-            # src.sprites.Sprite(
-            #     self.all_sprites,
-            #     pos=(x * TILE_SIZE, y * TILE_SIZE),
-            #     surf=surface,
-            # )
             src.sprites.Sprite((x * TILE_SIZE, y * TILE_SIZE), surface, self.all_sprites)
 
 
