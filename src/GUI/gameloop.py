@@ -41,6 +41,7 @@ class GUI:
         self.setup(
             tmx_maps=self.tmx_map["map"], player_start_pos="top_left_island"
         )  # The start positions will be one of the 4 islands in the corners of the board
+        self.camera_mode = "drag"
 
     def import_assets(self):
         """load the map"""
@@ -111,7 +112,16 @@ class GUI:
         """draw sprites to the canvas"""
         dt = self.clock.tick() / 1000
         self.screen.fill("#000000")
-        self.all_sprites.camera_drag()
+
+        self.all_sprites.dragging_camera = False
+        self.all_sprites.moving_player = False
+
+        if self.camera_mode == "drag":
+            self.all_sprites.start_drag()
+            self.all_sprites.camera_drag()
+        else:
+            self.all_sprites.center_on_player(self.player.rect.center)
+
         self.all_sprites.update(dt)
         self.all_sprites.draw(self.player.rect.center, self.player.player_preview, self.player.player_preview_rect)
 
