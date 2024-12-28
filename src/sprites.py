@@ -2,7 +2,7 @@
 
 import pygame
 from pygame import FRect
-from src.settings import TILE_SIZE, SCREEN_HEIGHT, SCREEN_WIDTH, ANIMATION_SPEED
+from src.settings import TILE_SIZE, SCREEN_HEIGHT, SCREEN_WIDTH, ANIMATION_SPEED, WORLD_LAYERS
 from src.GUI.inventory import Inventory
 
 
@@ -211,16 +211,17 @@ class Tile(pygame.sprite.Sprite):
 
 
 class Sprite(pygame.sprite.Sprite):
-    def __init__(self, pos, surf, groups):
+    def __init__(self, pos, surf, groups, z = WORLD_LAYERS["main"]):
         super().__init__(groups)
         self.image = surf
         self.rect = self.image.get_frect(topleft=pos)
+        self.z = z
 
 
 class AnimatedSprites(Sprite):
-    def __init__(self, pos, frames, groups):
+    def __init__(self, pos, frames, groups, z = WORLD_LAYERS["main"]):
         self.frame_index, self.frames = 0, frames
-        super().__init__(pos, frames[self.frame_index], groups)
+        super().__init__(pos, frames[self.frame_index], groups, z)
 
     def animate(self, dt):
         self.frame_index += ANIMATION_SPEED * dt
