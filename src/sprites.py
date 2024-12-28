@@ -84,11 +84,6 @@ class Player(Entity):
 
     def __init__(self, pos, frames, groups):
         super().__init__(pos, frames, groups)
-        # TODO: replace with actual images
-
-        # self.image = pygame.Surface((TILE_SIZE, TILE_SIZE))
-        # self.image.fill("red")
-        # self.rect = self.image.get_frect(center=pos)
 
         # ghost preview
         self.player_preview = self.image.copy()
