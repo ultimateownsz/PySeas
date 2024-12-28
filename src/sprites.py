@@ -52,20 +52,25 @@ class AllSprites(pygame.sprite.Group):
         self.offset.x = -(player_center[0] * self.scale - SCREEN_WIDTH / 2)
         self.offset.y = -(player_center[1] * self.scale - SCREEN_HEIGHT / 2)
 
-        for sprite in self:
-            scaled_image = pygame.transform.scale(sprite.image, 
-                            (int(sprite.rect.width * self.scale), int(sprite.rect.height * self.scale)))
-            scaled_rect = scaled_image.get_rect(center=(sprite.rect.center[0] * self.scale, sprite.rect.center[1] * self.scale))
-            scaled_rect.topleft += self.offset
+        background_sprites = [sprite for sprite in self if sprite.z < WORLD_LAYERS["main"]]
+        main_sprites = [sprite for sprite in self if sprite.z == WORLD_LAYERS["main"]]
+        foreground_sprites = [sprite for sprite in self if sprite.z > WORLD_LAYERS["main"]]
 
-            self.display_surface.blit(scaled_image, scaled_rect.topleft)
+        for layer in (background_sprites, main_sprites, foreground_sprites):
+            for sprite in layer:
+                scaled_image = pygame.transform.scale(sprite.image, 
+                                (int(sprite.rect.width * self.scale), int(sprite.rect.height * self.scale)))
+                scaled_rect = scaled_image.get_rect(center=(sprite.rect.center[0] * self.scale, sprite.rect.center[1] * self.scale))
+                scaled_rect.topleft += self.offset
 
-        scaled_preview = pygame.transform.scale(player_preview, 
-                         (int(player_preview_rect.width * self.scale), int(player_preview_rect.height * self.scale)))
-        scaled_preview_rect = scaled_preview.get_rect(center=(player_preview_rect.center[0] * self.scale, player_preview_rect.center[1] * self.scale))
-        scaled_preview_rect.topleft += self.offset
+                self.display_surface.blit(scaled_image, scaled_rect.topleft)
 
-        self.display_surface.blit(scaled_preview, scaled_preview_rect.topleft)
+            scaled_preview = pygame.transform.scale(player_preview, 
+                            (int(player_preview_rect.width * self.scale), int(player_preview_rect.height * self.scale)))
+            scaled_preview_rect = scaled_preview.get_rect(center=(player_preview_rect.center[0] * self.scale, player_preview_rect.center[1] * self.scale))
+            scaled_preview_rect.topleft += self.offset
+
+            self.display_surface.blit(scaled_preview, scaled_preview_rect.topleft)
 
     # method for zooming (might be usefull later?)
     # def set_scale(self, scale):
