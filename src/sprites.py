@@ -47,6 +47,26 @@ class AllSprites(pygame.sprite.Group):
             raise ValueError("Display surface is not initialized")
         self.offset = pygame.math.Vector2()
         self.scale = 2.0
+        self.dragging = False
+        self.last_mouse_pos = None
+
+    def camera_drag(self):
+        mouse_pressed = pygame.mouse.get_pressed()
+        mouse_pos = pygame.mouse.get_pos()
+
+        if mouse_pos[0]:
+            if not self.dragging:
+                self.dragging = True
+                self.last_mouse_pos = mouse_pos
+            else:
+                delta_x = mouse_pos[0] - self.last_mouse_pos[0]
+                delta_y = mouse_pos[1] - self.last_mouse_pos[1]
+                self.offset.x += delta_x
+                self.offset.y += delta_y
+                self.last_mouse_pos = mouse_pos
+        else:
+            self.dragging = False
+            self.last_mouse_pos = None
 
     def draw(self, player_center, player_preview, player_preview_rect):
         self.offset.x = -(player_center[0] * self.scale - SCREEN_WIDTH / 2)
