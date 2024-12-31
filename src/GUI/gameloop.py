@@ -17,6 +17,8 @@ import src.sprites
 from src.GUI.inventory_gui import InventoryGUI
 from src.GUI.inventory import Inventory
 
+# import states
+from src.states.game_running import GameRunning
 
 @dataclass
 class GUI:
@@ -52,6 +54,9 @@ class GUI:
         self.setup(
             tmx_maps=self.tmx_map["map"], player_start_pos="top_left_island"
         )  # The start positions will be one of the 4 islands in the corners of the board
+
+        # instanciate the initial state
+        self.state = GameRunning()
 
     def import_assets(self):
         """load the map"""
@@ -94,8 +99,9 @@ class GUI:
     def run(self) -> None:
         """main loop of the game"""
         while self.running:
-            self.handle_events()
-            self.render()
+            self.state.handle_events()
+            self.state.update()
+            self.state.render()
 
     def handle_events(self) -> None:
         """get events like keypress or mouse clicks"""
