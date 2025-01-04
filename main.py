@@ -23,7 +23,7 @@ Pygame Version: 0.0.1"""
 
 
 # import Pygame specific objects, functions and functionality
-from src.GUI.gameloop import GUI
+from src.gameloop import GameStateManager
 
 
 class Launcher:
@@ -33,7 +33,7 @@ class Launcher:
 
 if __name__ == "__main__":
     # version choice is disabled for debugging reasons
-    game = GUI()
+    game = GameStateManager()
     game.run()
 
     # print(

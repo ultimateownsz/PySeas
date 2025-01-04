@@ -3,7 +3,7 @@
 import pygame
 from pygame import FRect
 from src.settings import TILE_SIZE, SCREEN_HEIGHT, SCREEN_WIDTH
-from src.GUI.inventory import Inventory
+from src.inventory import Inventory
 
 
 # class Entity(pygame.sprite.Sprite):

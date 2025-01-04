@@ -1,40 +1,23 @@
 from os.path import join
-import sys
 import json
-
-# import dataclasses and typchecking
-from dataclasses import dataclass, field
 
 # import pygame related
 import pygame
 from pytmx.util_pygame import load_pygame  # type: ignore
 
-# import Pygame specific objects, functions and functionality
 from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE
 import src.sprites
-
-# import inventory related classes
-from src.GUI.inventory_gui import InventoryGUI
-from src.GUI.inventory import Inventory
 
 # import states
 from src.states.game_running import GameRunning
 
-@dataclass
 class GUI:
     """Graphial User Interface vertion of the game, using pygame-ce"""
 
-    screen_size: tuple[int, int] = (SCREEN_WIDTH, SCREEN_HEIGHT)
-    screen: pygame.Surface = field(init=False)
-
-    # groups
-    # all_sprites: pygame.sprite.Group = field(
-    #     init=False, default_factory=pygame.sprite.Group
-    # )
 
     def __post_init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode(self.screen_size)
+        self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         pygame.display.set_caption("PySeas")
         self.clock = pygame.Clock()
 
@@ -81,10 +64,13 @@ class GUI:
     def setup(self, tmx_maps, player_start_pos):
         """create tiles"""
 
+        self.tmx_map = {
+            "map": load_pygame(join(".", "data", "maps", "100x100_map.tmx"))
+        }
+
         # Islands
         islands = tmx_maps.get_layer_by_name("Islands")
         for x, y, surface in islands.tiles():
-            # print(x * TILE_SIZE, y * TILE_SIZE, surface)
             src.sprites.Tile(
                 self.all_sprites,
                 pos=(x * TILE_SIZE, y * TILE_SIZE),
@@ -95,24 +81,6 @@ class GUI:
         for obj in tmx_maps.get_layer_by_name("Ships"):
             if obj.name == "Player" and obj.properties["pos"] == player_start_pos:
                 self.player = src.sprites.Player((obj.x, obj.y), self.all_sprites)
-
-    def run(self) -> None:
-        """main loop of the game"""
-        while self.running:
-            self.state.handle_events()
-            self.state.update()
-            self.state.render()
-
-    def handle_events(self) -> None:
-        """get events like keypress or mouse clicks"""
-        for event in pygame.event.get():
-            match event.type:
-                case pygame.QUIT:
-                    pygame.quit()
-                    sys.exit()
-                case pygame.KEYDOWN:
-                    if event.key == pygame.K_i:  # Toggle inventory with "I" key
-                        self.toggle_inventory()
 
     def toggle_inventory(self):
         """Toggle the inventory overlay."""
@@ -143,15 +111,26 @@ class GUI:
         except (FileNotFoundError, json.JSONDecodeError):
             print(f"Error: The file at {file_path} does not exist.")
 
-    def render(self) -> None:
-        """draw sprites to the canvas"""
-        self.screen.fill("#000000")
-        self.all_sprites.update()
-        self.all_sprites.draw(self.player.rect.center, self.player.player_preview, self.player.player_preview_rect)
 
-        '''No need to loop through the players because it is now in the sprite group AllSprites'''
-        # draw players on top of the other sprites
-        # for player in self.players:
-        #     player.render(surface=self.screen)
+class GameStateManager:
+    def __init__(self):
 
-        pygame.display.update()
+        # init pygame
+        pygame.init()
+        self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        pygame.display.set_caption("PySeas")
+
+        self.clock = pygame.Clock()
+        self.running = True
+
+        # instanciate the initial state
+        self.state = GameRunning()
+
+
+    def run(self) -> None:
+        """main loop of the game"""
+        while self.running:
+            self.state.handle_events()
+            # state.update() return self or a new state
+            self.state = self.state.update()
+            self.state.render(self.screen)
