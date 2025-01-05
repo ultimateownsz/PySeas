@@ -1,3 +1,7 @@
+"""
+paused state
+holding the inventory
+"""
 from typing import Dict, Tuple
 
 import pygame
@@ -8,8 +12,12 @@ from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT
 
 
 class Paused(BaseState):
-    def __init__(self, GameStateManager, inventory: Inventory) -> None:
-        super().__init__(GameStateManager)
+    """
+    paused state
+    holding the inventory
+    """
+    def __init__(self, game_state_manager, inventory: Inventory) -> None:
+        super().__init__(game_state_manager)
 
         self.inventory = inventory
         self.font = pygame.font.Font(None, 36)
@@ -25,7 +33,8 @@ class Paused(BaseState):
 
         # Load sprite sheet and extract the icons (Testing purposes)
         # To be replaced when:
-        # 1) Spritesheet has been decide. 2) A 'Buy', 'Found' or 'Add' in-game feature has been implemented
+        # 1) Spritesheet has been decide.
+        # 2) A 'Buy', 'Found' or 'Add' in-game feature has been implemented
         self.sprite_sheet = pygame.image.load(
             "images/tilesets/Treasure+.png"
         ).convert_alpha()
@@ -117,14 +126,17 @@ class Paused(BaseState):
         return use_button, discard_button
 
     def update(self, events):
+        """
+        handle key press and mouse scroll
+        """
         for event in events:
             match event.type:
                 case pygame.KEYDOWN:
                     if event.key == pygame.K_i:
-                        self.GameStateManager.exit_state()
+                        self.game_state_manager.exit_state()
                 case pygame.MOUSEBUTTONDOWN:
                     if event.button == 1:
-                        self.inventory_gui.handle_mouse_click(event.pos)
+                        self.handle_mouse_click(event.pos)
                 case pygame.MOUSEWHEEL:
                     self.scroll_offset = max(0, self.scroll_offset - event.y)
                     max_offset = max(

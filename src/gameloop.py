@@ -1,3 +1,9 @@
+"""
+main game loop
+structure of the game, using a stack of states
+"""
+
+
 import sys
 import pygame
 

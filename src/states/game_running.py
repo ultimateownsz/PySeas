@@ -1,6 +1,9 @@
+"""
+GameRunning state, where you move the ship
+"""
 import os
-import pygame
 import json
+import pygame
 from pytmx.util_pygame import load_pygame  # type: ignore
 
 from src.states.base_state import BaseState
@@ -12,8 +15,11 @@ import src.sprites
 
 
 class GameRunning(BaseState):
-    def __init__(self, GameStateManager) -> None:
-        super().__init__(GameStateManager)
+    """
+    GameRunning state, where you move the ship
+    """
+    def __init__(self, game_state_manager) -> None:
+        super().__init__(game_state_manager)
 
 
         # Initialize player inventory
@@ -25,7 +31,9 @@ class GameRunning(BaseState):
         self.setup(player_start_pos="top_left_island")
 
     def setup(self, player_start_pos):
-
+        """
+        setup the map and player from the tiled file
+        """
         self.tmx_map = {
             "map": load_pygame(os.path.join(".", "data", "maps", "100x100_map.tmx"))
         }
@@ -47,7 +55,7 @@ class GameRunning(BaseState):
     def load_inventory_from_json(self, file_path: str):
         """Load initial inventory items from JSON file."""
         try:
-            with open(file_path, "r") as f:
+            with open(file_path, "r", encoding="utf-8") as f:
                 items = json.load(f)
                 for item_name, properties in items.items():
                     quantity = properties.get("quantity", 1)  # Default to 1 if missing
@@ -64,14 +72,19 @@ class GameRunning(BaseState):
 
         # get events like keypress or mouse clicks
         for event in events:
-            match event.type:
-                case pygame.KEYDOWN:
-                    if event.key == pygame.K_i:  # Toggle inventory with "I" key
-                        self.GameStateManager.enter_state(Paused(self.GameStateManager, Inventory()))
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_i:  # Toggle inventory with "I" key
+                    self.game_state_manager.enter_state(
+                        Paused(self.game_state_manager, Inventory())
+                    )
 
     def render(self, screen) -> None:
         """draw sprites to the canvas"""
         screen.fill("#000000")
-        self.all_sprites.draw(self.player.rect.center, self.player.player_preview, self.player.player_preview_rect)
+        self.all_sprites.draw(
+            self.player.rect.center,
+            self.player.player_preview,
+            self.player.player_preview_rect
+        )
 
         pygame.display.update()

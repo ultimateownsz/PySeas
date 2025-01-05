@@ -25,10 +25,6 @@ Pygame Version: 0.0.1"""
 # import Pygame specific objects, functions and functionality
 from src.gameloop import GameStateManager
 
-class Launcher:
-    def __init__(self) -> None:
-        pass
-
 
 if __name__ == "__main__":
     # version choice is disabled for debugging reasons
