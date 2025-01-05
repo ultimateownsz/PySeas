@@ -1,16 +1,22 @@
 from typing import Dict, Tuple
+
 import pygame
-from src.inventory import Inventory
+from src.states.base_state import BaseState
+from src.inventory import Inventory  # for typehints
+
+from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT
 
 
-class InventoryGUI:
-    """Graphical User Interface to display the player's inventory."""
+class Paused(BaseState):
+    def __init__(self, GameStateManager, inventory: Inventory) -> None:
+        super().__init__(GameStateManager)
 
-    def __init__(self, screen: pygame.Surface, inventory: Inventory) -> None:
-        self.screen = screen
         self.inventory = inventory
         self.font = pygame.font.Font(None, 36)
-        self.running = False
+        self.running = True
+
+        # self.screen is a temp surface, blitted to the display after the rendering
+        self.screen = pygame.Surface((SCREEN_WIDTH, SCREEN_HEIGHT))
 
         # Scrolling inventory
         self.scroll_offset = 0
@@ -18,7 +24,7 @@ class InventoryGUI:
         self.item_height = 60
 
         # Load sprite sheet and extract the icons (Testing purposes)
-        # To be replaced when: 
+        # To be replaced when:
         # 1) Spritesheet has been decide. 2) A 'Buy', 'Found' or 'Add' in-game feature has been implemented
         self.sprite_sheet = pygame.image.load(
             "images/tilesets/Treasure+.png"
@@ -78,15 +84,15 @@ class InventoryGUI:
         self.message = ""
         self.message_end_time = 0  # Time to display the message
 
-    def handle_events(self, event):
-        """Handle events like keypress or mouse wheel."""
-        if event.type == pygame.MOUSEWHEEL:
-            # Adjust scroll offset
-            self.scroll_offset = max(0, self.scroll_offset - event.y)
-            max_offset = max(
-                0, len(self.inventory.get_items()) - self.max_visible_items
-            )
-            self.scroll_offset = min(self.scroll_offset, max_offset)
+    def handle_mouse_click(self, mouse_pos) -> None:
+        """Handle mouse clicks on buttons."""
+        for item, (use_button, discard_button) in self.button_actions.items():
+            if use_button.collidepoint(mouse_pos):
+                self.message = self.inventory.use_item(item) # `self.message` stores strings
+                self.message_end_time = pygame.time.get_ticks() + 3000  # 3 seconds
+            elif discard_button.collidepoint(mouse_pos):
+                self.message = self.inventory.remove_item(item, 1)
+                self.message_end_time = pygame.time.get_ticks() + 4000  # 4 seconds
 
     def extract_icon(self, x, y, size=16):
         """Extract a single icon from the sprite sheet."""
@@ -110,8 +116,25 @@ class InventoryGUI:
 
         return use_button, discard_button
 
-    def draw(self):
+    def update(self, events):
+        for event in events:
+            match event.type:
+                case pygame.KEYDOWN:
+                    if event.key == pygame.K_i:
+                        self.GameStateManager.exit_state()
+                case pygame.MOUSEBUTTONDOWN:
+                    if event.button == 1:
+                        self.inventory_gui.handle_mouse_click(event.pos)
+                case pygame.MOUSEWHEEL:
+                    self.scroll_offset = max(0, self.scroll_offset - event.y)
+                    max_offset = max(
+                        0, len(self.inventory.get_items()) - self.max_visible_items
+                    )
+                    self.scroll_offset = min(self.scroll_offset, max_offset)
+
+    def render(self, screen: pygame.Surface) -> None:
         """Draw the inventory overlay."""
+
         self.screen.fill((0, 0, 0))  # Solid Black background
 
         # Reset button actions
@@ -177,12 +200,6 @@ class InventoryGUI:
                 (message_bg_x + 10, message_bg_y + 5),  # Position text with padding
             )
 
-    def handle_mouse_click(self, mouse_pos) -> None:
-        """Handle mouse clicks on buttons."""
-        for item, (use_button, discard_button) in self.button_actions.items():
-            if use_button.collidepoint(mouse_pos):
-                self.message = self.inventory.use_item(item) # `self.message` stores strings
-                self.message_end_time = pygame.time.get_ticks() + 3000  # 3 seconds
-            elif discard_button.collidepoint(mouse_pos):
-                self.message = self.inventory.remove_item(item, 1)
-                self.message_end_time = pygame.time.get_ticks() + 4000  # 4 seconds
+        # blit tmp self.screen to the actual display (screen form the argument)
+        screen.blit(self.screen, dest=(0, 0))
+        pygame.display.flip()  # Update the display
