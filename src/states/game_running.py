@@ -1,4 +1,3 @@
-import sys
 import os
 import pygame
 import json
@@ -8,7 +7,7 @@ from src.states.base_state import BaseState
 from src.states.paused import Paused
 from src.inventory import Inventory
 
-from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE
+from src.settings import TILE_SIZE
 import src.sprites
 
 
@@ -56,7 +55,7 @@ class GameRunning(BaseState):
         except (FileNotFoundError, json.JSONDecodeError):
             print(f"Error: The file at {file_path} does not exist.")
 
-    def update(self, events) -> BaseState:
+    def update(self, events) -> None:
         """
         update each sprites and handle events
         """
