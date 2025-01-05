@@ -24,6 +24,7 @@ class GameRunning(BaseState):
 
         # Initialize player inventory
         self.player_inventory = Inventory()
+        self.load_inventory_from_json("data/inventory.json")
 
         self.all_sprites = src.sprites.AllSprites()
 
@@ -75,7 +76,7 @@ class GameRunning(BaseState):
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_i:  # Toggle inventory with "I" key
                     self.game_state_manager.enter_state(
-                        Paused(self.game_state_manager, Inventory())
+                        Paused(self.game_state_manager, self.player_inventory)
                     )
 
     def render(self, screen) -> None:
