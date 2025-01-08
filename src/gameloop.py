@@ -9,7 +9,7 @@ import pygame
 
 from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT
 
-# import state for typehint
+# import basestate for typehint
 from src.states.base_state import BaseState
 from src.states.game_running import GameRunning
 
@@ -28,12 +28,21 @@ class GameStateManager:
 
         self.clock = pygame.Clock()
         self.running = True
-        self.event: list[pygame.event.Event] = []
+        self.events: list[pygame.event.Event] = []
         self.states_stack: list[BaseState] = []
 
         # instanciate the initial state
         self.states_stack.append(GameRunning(self))
 
+    def __str__(self) -> str:
+        """
+        return a string representing the stack
+        e.g. : >MainMenu>GameRunning>Paused
+        """
+        stack_repr:str = ""
+        for state in self.states_stack:
+            stack_repr += '>' + str(state)
+        return stack_repr
 
     def enter_state(self, state: BaseState) -> None:
         """
@@ -45,6 +54,8 @@ class GameStateManager:
         """
         pop and return the last state
         """
+        if len(self.states_stack) == 0:
+            raise ValueError("the stack is empty")
         return self.states_stack.pop()
 
     def _handle_events(self):

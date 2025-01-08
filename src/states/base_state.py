@@ -14,6 +14,9 @@ class BaseState(ABC):
     def __init__(self, game_state_manager) -> None:
         self.game_state_manager = game_state_manager
 
+    def __str__(self):
+        return self.__class__.__name__
+
     @abstractmethod
     def update(self, events): # return self
         """
