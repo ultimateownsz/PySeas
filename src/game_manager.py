@@ -7,7 +7,7 @@ structure of the game, using a stack of states
 import sys
 import pygame
 
-from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT
+from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, FPS
 
 # import basestate for typehint
 from src.states.base_state import BaseState
@@ -16,8 +16,13 @@ from src.states.game_running import GameRunning
 
 class GameStateManager:
     """
-    Initialise pygame
-    and the first game state
+    Manages the main game loop and the structure of the game using a stack of states.
+
+    This class is responsible for:
+    - Initializing Pygame and setting up the main screen.
+    - Managing a stack of game states, allowing for seamless transitions (e.g., from gameplay to paused state).
+    - Handling Pygame events and delegating them to the active state.
+    - Running the main game loop with controlled frame rate.
     """
     def __init__(self) -> None:
 
@@ -78,4 +83,4 @@ class GameStateManager:
             self.states_stack[-1].render(self.screen)
 
             # magic value, use a FPS const in settings or delta time
-            self.clock.tick(60)
+            self.clock.tick(FPS)

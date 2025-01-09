@@ -23,7 +23,7 @@ Pygame Version: 0.0.1"""
 
 
 # import Pygame specific objects, functions and functionality
-from src.gameloop import GameStateManager
+from src.game_manager import GameStateManager
 
 
 if __name__ == "__main__":

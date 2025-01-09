@@ -1,5 +1,5 @@
 """
-GameRunning state, where you move the ship
+Represents the GameRunning state, where the player controls a ship and interacts with the game world.
 """
 import os
 import json
@@ -16,7 +16,13 @@ import src.sprites
 
 class GameRunning(BaseState):
     """
-    GameRunning state, where you move the ship
+    Represents the GameRunning state, where the player controls a ship and interacts with the game world.
+
+    Responsibilities:
+      - Loads the game map and player starting position.
+      - Manages player inventory.
+      - Updates game entities.
+      - Renders the game world on the screen.
     """
     def __init__(self, game_state_manager) -> None:
         super().__init__(game_state_manager)

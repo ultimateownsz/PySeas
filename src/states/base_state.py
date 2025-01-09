@@ -1,7 +1,8 @@
 """
-Base exemple state
-each state shall have an update (that loop throug events)
-and and render method (who draw on the given surface).
+Represents a base example state in the game.
+Each state must implement:
+- `update`: A method that loops through and handles events.
+- `render`: A method responsible for drawing the state on the given surface.
 """
 from abc import ABC, abstractmethod
 import pygame
@@ -21,7 +22,7 @@ class BaseState(ABC):
     def update(self, events): # return self
         """
         update current state
-        handel events
+        handle events
         and return current state or another one
         """
 
