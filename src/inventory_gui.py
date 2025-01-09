@@ -1,6 +1,6 @@
 from typing import Dict, Tuple
 import pygame
-from src.GUI.inventory import Inventory
+from src.inventory import Inventory
 
 
 class InventoryGUI:
