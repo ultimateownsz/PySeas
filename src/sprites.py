@@ -169,25 +169,6 @@ class Player(Entity):
 
         return None
 
-        # mouse_pos = pygame.mouse.get_pos()
-        # mouse_pressed = pygame.mouse.get_pressed()
-        # camera = AllSprites()
-
-        # if not camera.dragging_camera:
-        #     if mouse_pressed[0]:
-        #         if not self.draggin and self.rect.collidepoint(mouse_pos):
-        #             self.draggin = True
-
-        #             self.offset_x = self.rect.x - mouse_pos[0]
-        #             self.offset_y = self.rect.y - mouse_pos[1]
-
-        # if self.draggin:
-        #     self.rect.x = mouse_pos[0] + self.offset_x
-        #     self.rect.y = mouse_pos[1] + self.offset_y
-
-        # if not mouse_pressed[0]:
-        #     self.draggin = False
-
     def update(self, dt) -> None:
         """blit player image and gost preview to a given surface"""
         self.input()
