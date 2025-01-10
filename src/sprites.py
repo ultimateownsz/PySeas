@@ -49,22 +49,6 @@ class AllSprites(pygame.sprite.Group):
         self.offset = pygame.math.Vector2()
         self.scale = 2.0
 
-    # def camera_drag(self):
-    #     mouse_pressed = pygame.mouse.get_pressed()
-    #     mouse_pos = pygame.mouse.get_pos()
-
-    #     if not self.moving_player:
-    #         if self.dragging and mouse_pressed[0]:
-    #             delta_x = mouse_pos[0] - self.last_mouse_pos[0]
-    #             delta_y = mouse_pos[1] - self.last_mouse_pos[1]
-
-    #             self.offset.x += delta_x
-    #             self.offset.y += delta_y
-
-    #             self.last_mouse_pos = mouse_pos
-    #         else:
-    #             self.dragging = False
-
     # def center_on_player(self, player_center):
     #     self.offset.x = -(player_center[0] * self.scale - SCREEN_WIDTH / 2)
     #     self.offset.y = -(player_center[1] * self.scale - SCREEN_HEIGHT / 2)
