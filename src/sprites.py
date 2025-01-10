@@ -49,12 +49,6 @@ class AllSprites(pygame.sprite.Group):
         self.offset = pygame.math.Vector2()
         self.scale = 2.0
 
-
-    # def start_drag(self):
-    #     if pygame.mouse.get_pressed()[0]:
-    #         self.dragging = True
-    #         self.last_mouse_pos = pygame.mouse.get_pos()
-
     # def camera_drag(self):
     #     mouse_pressed = pygame.mouse.get_pressed()
     #     mouse_pos = pygame.mouse.get_pos()
