@@ -50,11 +50,11 @@ class AllSprites(pygame.sprite.Group):
         self.scale = 2.0
 
     def draw(self, player_center, player_preview, player_preview_rect):
-        player_offset_x = -(player_center[0] * self.scale - SCREEN_WIDTH / 2)
-        player_offset_y = -(player_center[1] * self.scale - SCREEN_HEIGHT / 2)
+        # player_offset_x = -(player_center[0] * self.scale - SCREEN_WIDTH / 2)
+        # player_offset_y = -(player_center[1] * self.scale - SCREEN_HEIGHT / 2)
 
-        self.offset.x += player_offset_x
-        self.offset.y += player_offset_y
+        self.offset.x = -(player_center[0] * self.scale - SCREEN_WIDTH / 2)
+        self.offset.y = -(player_center[1] * self.scale - SCREEN_HEIGHT / 2)
 
         background_sprites = [sprite for sprite in self if sprite.z < WORLD_LAYERS["main"]]
         main_sprites = [sprite for sprite in self if sprite.z == WORLD_LAYERS["main"]]
