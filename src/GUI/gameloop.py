@@ -113,14 +113,14 @@ class GUI:
         dt = self.clock.tick() / 1000
         self.screen.fill("#000000")
 
-        self.all_sprites.dragging_camera = False
-        self.all_sprites.moving_player = False
+        # self.all_sprites.dragging_camera = False
+        # self.all_sprites.moving_player = False
 
-        if self.camera_mode == "drag":
-            self.all_sprites.start_drag()
-            self.all_sprites.camera_drag()
-        else:
-            self.all_sprites.center_on_player(self.player.rect.center)
+        # if self.camera_mode == "drag":
+        #     self.all_sprites.start_drag()
+        #     self.all_sprites.camera_drag()
+        # else:
+        #     self.all_sprites.center_on_player(self.player.rect.center)
 
         self.all_sprites.update(dt)
         self.all_sprites.draw(self.player.rect.center, self.player.player_preview, self.player.player_preview_rect)

@@ -49,42 +49,38 @@ class AllSprites(pygame.sprite.Group):
         self.offset = pygame.math.Vector2()
         self.scale = 2.0
 
-        self.moving_player = False
-        self.dragging_camera = False
-        self.last_mouse_pos = None
-        self.dragging = False
 
-    def start_drag(self):
-        if pygame.mouse.get_pressed()[0]:
-            self.dragging = True
-            self.last_mouse_pos = pygame.mouse.get_pos()
+    # def start_drag(self):
+    #     if pygame.mouse.get_pressed()[0]:
+    #         self.dragging = True
+    #         self.last_mouse_pos = pygame.mouse.get_pos()
 
-    def camera_drag(self):
-        mouse_pressed = pygame.mouse.get_pressed()
-        mouse_pos = pygame.mouse.get_pos()
+    # def camera_drag(self):
+    #     mouse_pressed = pygame.mouse.get_pressed()
+    #     mouse_pos = pygame.mouse.get_pos()
 
-        if not self.moving_player:
-            if self.dragging and mouse_pressed[0]:
-                delta_x = mouse_pos[0] - self.last_mouse_pos[0]
-                delta_y = mouse_pos[1] - self.last_mouse_pos[1]
+    #     if not self.moving_player:
+    #         if self.dragging and mouse_pressed[0]:
+    #             delta_x = mouse_pos[0] - self.last_mouse_pos[0]
+    #             delta_y = mouse_pos[1] - self.last_mouse_pos[1]
 
-                self.offset.x += delta_x
-                self.offset.y += delta_y
+    #             self.offset.x += delta_x
+    #             self.offset.y += delta_y
 
-                self.last_mouse_pos = mouse_pos
-            else:
-                self.dragging = False
+    #             self.last_mouse_pos = mouse_pos
+    #         else:
+    #             self.dragging = False
 
-    def center_on_player(self, player_center):
-        self.offset.x = -(player_center[0] * self.scale - SCREEN_WIDTH / 2)
-        self.offset.y = -(player_center[1] * self.scale - SCREEN_HEIGHT / 2)
+    # def center_on_player(self, player_center):
+    #     self.offset.x = -(player_center[0] * self.scale - SCREEN_WIDTH / 2)
+    #     self.offset.y = -(player_center[1] * self.scale - SCREEN_HEIGHT / 2)
 
     def draw(self, player_center, player_preview, player_preview_rect):
-        # player_offset_x = -(player_center[0] * self.scale - SCREEN_WIDTH / 2)
-        # player_offset_y = -(player_center[1] * self.scale - SCREEN_HEIGHT / 2)
+        player_offset_x = -(player_center[0] * self.scale - SCREEN_WIDTH / 2)
+        player_offset_y = -(player_center[1] * self.scale - SCREEN_HEIGHT / 2)
 
-        # self.offset.x += player_offset_x
-        # self.offset.y += player_offset_y
+        self.offset.x += player_offset_x
+        self.offset.y += player_offset_y
 
         background_sprites = [sprite for sprite in self if sprite.z < WORLD_LAYERS["main"]]
         main_sprites = [sprite for sprite in self if sprite.z == WORLD_LAYERS["main"]]
@@ -134,89 +130,89 @@ class Player(Entity):
         """move the player and show a ghost to preview the move"""
 
         # gost preview
-        # mouse_pos = pygame.mouse.get_pos()
+        mouse_pos = pygame.mouse.get_pos()
 
-        # # get the relative pos of the player from the mouse
-        # # to know on wich axis the player will move
-        # delta_x = abs(self.rect.centerx - mouse_pos[0])
-        # delta_y = abs(self.rect.centery - mouse_pos[1])
+        # get the relative pos of the player from the mouse
+        # to know on wich axis the player will move
+        delta_x = abs(self.rect.centerx - mouse_pos[0])
+        delta_y = abs(self.rect.centery - mouse_pos[1])
 
         # #  move the gost on the x axis
         self.player_preview_rect = self.rect.copy()
-        # if delta_x > delta_y:
-        #     if delta_x < (TILE_SIZE / 2):
-        #         # don't move the gost if the mouse is on the player hitbox
-        #         self.player_preview_rect.x = self.rect.x
-        #     elif mouse_pos[0] > self.rect.centerx:
-        #         # go right
-        #         self.player_preview_rect.x = self.rect.x + TILE_SIZE
-        #     else:
-        #         # go left
-        #         self.player_preview_rect.x = self.rect.x - TILE_SIZE
-        # # move the gost on the y axis
-        # else:
-        #     if delta_y < (TILE_SIZE / 2):
-        #         # don't move if the mouse is on the player hitbox
-        #         self.player_preview_rect.y = self.rect.y
-        #     elif mouse_pos[1] > self.rect.centery:
-        #         # go down
-        #         self.player_preview_rect.y = self.rect.y + TILE_SIZE
-        #     else:
-        #         # go up
-        #         self.player_preview_rect.y = self.rect.y - TILE_SIZE
+        if delta_x > delta_y:
+            if delta_x < (TILE_SIZE / 2):
+                # don't move the gost if the mouse is on the player hitbox
+                self.player_preview_rect.x = self.rect.x
+            elif mouse_pos[0] > self.rect.centerx:
+                # go right
+                self.player_preview_rect.x = self.rect.x + TILE_SIZE
+            else:
+                # go left
+                self.player_preview_rect.x = self.rect.x - TILE_SIZE
+        # move the gost on the y axis
+        else:
+            if delta_y < (TILE_SIZE / 2):
+                # don't move if the mouse is on the player hitbox
+                self.player_preview_rect.y = self.rect.y
+            elif mouse_pos[1] > self.rect.centery:
+                # go down
+                self.player_preview_rect.y = self.rect.y + TILE_SIZE
+            else:
+                # go up
+                self.player_preview_rect.y = self.rect.y - TILE_SIZE
 
-        # # move the player
-        # if not pygame.mouse.get_pressed()[0]:
-        #     self.mouse_have_been_pressed = False
-        #     return None
-        # if self.mouse_have_been_pressed:
-        #     return None
+        # move the player
+        if not pygame.mouse.get_pressed()[0]:
+            self.mouse_have_been_pressed = False
+            return None
+        if self.mouse_have_been_pressed:
+            return None
 
-        # self.mouse_have_been_pressed = True
+        self.mouse_have_been_pressed = True
 
-        # # move on the x axis
-        # if delta_x > delta_y:
-        #     if delta_x < (TILE_SIZE / 2):
-        #         # don't move if the mouse is on the player hitbox
-        #         return None
-        #     if mouse_pos[0] > self.rect.centerx:
-        #         # go right
-        #         self.rect.x += TILE_SIZE
-        #     else:
-        #         # go left
-        #         self.rect.x -= TILE_SIZE
-        # # move on the y axis
-        # else:
-        #     if delta_y < (TILE_SIZE / 2):
-        #         # don't move if the mouse is on the player hitbox
-        #         return None
-        #     if mouse_pos[1] > self.rect.centery:
-        #         # go down
-        #         self.rect.y += TILE_SIZE
-        #     else:
-        #         # go up
-        #         self.rect.y -= TILE_SIZE
+        # move on the x axis
+        if delta_x > delta_y:
+            if delta_x < (TILE_SIZE / 2):
+                # don't move if the mouse is on the player hitbox
+                return None
+            if mouse_pos[0] > self.rect.centerx:
+                # go right
+                self.rect.x += TILE_SIZE
+            else:
+                # go left
+                self.rect.x -= TILE_SIZE
+        # move on the y axis
+        else:
+            if delta_y < (TILE_SIZE / 2):
+                # don't move if the mouse is on the player hitbox
+                return None
+            if mouse_pos[1] > self.rect.centery:
+                # go down
+                self.rect.y += TILE_SIZE
+            else:
+                # go up
+                self.rect.y -= TILE_SIZE
 
-        # return None
+        return None
 
-        mouse_pos = pygame.mouse.get_pos()
-        mouse_pressed = pygame.mouse.get_pressed()
-        camera = AllSprites()
+        # mouse_pos = pygame.mouse.get_pos()
+        # mouse_pressed = pygame.mouse.get_pressed()
+        # camera = AllSprites()
 
-        if not camera.dragging_camera:
-            if mouse_pressed[0]:
-                if not self.draggin and self.rect.collidepoint(mouse_pos):
-                    self.draggin = True
+        # if not camera.dragging_camera:
+        #     if mouse_pressed[0]:
+        #         if not self.draggin and self.rect.collidepoint(mouse_pos):
+        #             self.draggin = True
 
-                    self.offset_x = self.rect.x - mouse_pos[0]
-                    self.offset_y = self.rect.y - mouse_pos[1]
+        #             self.offset_x = self.rect.x - mouse_pos[0]
+        #             self.offset_y = self.rect.y - mouse_pos[1]
 
-        if self.draggin:
-            self.rect.x = mouse_pos[0] + self.offset_x
-            self.rect.y = mouse_pos[1] + self.offset_y
+        # if self.draggin:
+        #     self.rect.x = mouse_pos[0] + self.offset_x
+        #     self.rect.y = mouse_pos[1] + self.offset_y
 
-        if not mouse_pressed[0]:
-            self.draggin = False
+        # if not mouse_pressed[0]:
+        #     self.draggin = False
 
     def update(self, dt) -> None:
         """blit player image and gost preview to a given surface"""
