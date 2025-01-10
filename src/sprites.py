@@ -86,9 +86,6 @@ class Player(Entity):
     def __init__(self, pos, frames, groups):
         super().__init__(pos, frames, groups)
 
-        # Reset direction
-        self.direction = pygame.math.Vector2(0, 0)
-
         # ghost preview
         self.player_preview = self.image.copy()
         self.player_preview.set_alpha(128)
@@ -102,6 +99,8 @@ class Player(Entity):
 
     def input(self) -> None:
         """move the player and show a ghost to preview the move"""
+        # Reset direction
+        self.direction = pygame.math.Vector2(0, 0)
 
         # gost preview
         mouse_pos = pygame.mouse.get_pos()
@@ -138,36 +137,30 @@ class Player(Entity):
         # move the player
         if not pygame.mouse.get_pressed()[0]:
             self.mouse_have_been_pressed = False
-            return None
+            return
         if self.mouse_have_been_pressed:
-            return None
+            return
 
         self.mouse_have_been_pressed = True
 
         # move on the x axis
         if delta_x > delta_y:
-            if delta_x < (TILE_SIZE / 2):
-                # don't move if the mouse is on the player hitbox
-                return None
-            if mouse_pos[0] > self.rect.centerx:
-                # go right
-                self.rect.x += TILE_SIZE
-            else:
-                # go left
-                self.rect.x -= TILE_SIZE
-        # move on the y axis
+            if delta_x >= (TILE_SIZE / 2):
+                if mouse_pos[0] > self.rect.centerx:
+                    self.direction.x = 1
+                else:
+                    self.direction.x = -1
         else:
-            if delta_y < (TILE_SIZE / 2):
-                # don't move if the mouse is on the player hitbox
-                return None
-            if mouse_pos[1] > self.rect.centery:
-                # go down
-                self.rect.y += TILE_SIZE
-            else:
-                # go up
-                self.rect.y -= TILE_SIZE
+            if delta_y >= (TILE_SIZE / 2):
+                if mouse_pos[1] > self.rect.centery:
+                    self.direction.y = 1
+                else:
+                    self.direction.y = -1
 
-        return None
+        self.rect.x += self.direction.x * TILE_SIZE
+        self.rect.y += self.direction.y * TILE_SIZE
+
+        # return None
 
     def update(self, dt) -> None:
         """blit player image and gost preview to a given surface"""
