@@ -86,6 +86,9 @@ class Player(Entity):
     def __init__(self, pos, frames, groups):
         super().__init__(pos, frames, groups)
 
+        # Reset direction
+        self.direction = pygame.math.Vector2(0, 0)
+
         # ghost preview
         self.player_preview = self.image.copy()
         self.player_preview.set_alpha(128)
