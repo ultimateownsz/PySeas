@@ -49,10 +49,6 @@ class AllSprites(pygame.sprite.Group):
         self.offset = pygame.math.Vector2()
         self.scale = 2.0
 
-    # def center_on_player(self, player_center):
-    #     self.offset.x = -(player_center[0] * self.scale - SCREEN_WIDTH / 2)
-    #     self.offset.y = -(player_center[1] * self.scale - SCREEN_HEIGHT / 2)
-
     def draw(self, player_center, player_preview, player_preview_rect):
         player_offset_x = -(player_center[0] * self.scale - SCREEN_WIDTH / 2)
         player_offset_y = -(player_center[1] * self.scale - SCREEN_HEIGHT / 2)
