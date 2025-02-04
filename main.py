@@ -27,22 +27,5 @@ from src.game_manager import GameStateManager
 
 
 if __name__ == "__main__":
-    # version choice is disabled for debugging reasons
     game = GameStateManager()
     game.run()
-
-    # print(
-    #     """
-    #       Welcome to Pyseas!
-    #       Please select a version to play:
-    #       1. CLI version
-    #       2. GUI version"""
-    # )
-    # choice: str = input("Enter the number of your choice: ")
-    # while choice not in ['1', '2']:
-    #     choice = input("Enter the number of your choice: ")
-
-    # if choice == "1":
-    #     CLI().run()
-    # elif choice == "2":
-    #     GUI().run()
