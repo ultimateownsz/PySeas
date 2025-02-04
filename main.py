@@ -21,7 +21,6 @@ Pygame Version: 0.0.1"""
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-
 # import Pygame specific objects, functions and functionality
 from src.game_manager import GameStateManager
 
