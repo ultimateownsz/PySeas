@@ -9,8 +9,8 @@ import pygame
 from pytmx.util_pygame import load_pygame  # type: ignore
 
 # import Pygame specific objects, functions and functionality
-from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE
-from src.support import *
+from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TILE_SIZE, WORLD_LAYERS
+from src.support import import_folder, coast_importer, all_character_import
 import src.sprites
 from src.sprites import AnimatedSprites
 
