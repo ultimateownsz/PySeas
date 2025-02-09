@@ -18,7 +18,7 @@ class InventoryGUI:
         self.item_height = 60
 
         # Load sprite sheet and extract the icons (Testing purposes)
-        # To be replaced when: 
+        # To be replaced when:
         # 1) Spritesheet has been decide. 2) A 'Buy', 'Found' or 'Add' in-game feature has been implemented
         self.sprite_sheet = pygame.image.load(
             "images/tilesets/Treasure+.png"
@@ -92,7 +92,9 @@ class InventoryGUI:
         """Extract a single icon from the sprite sheet."""
         return self.sprite_sheet.subsurface((x, y, size, size))
 
-    def draw_buttons(self, x: int, y: int, item: str) -> Tuple[pygame.Rect, pygame.Rect]:
+    def draw_buttons(
+        self, x: int, y: int, item: str
+    ) -> Tuple[pygame.Rect, pygame.Rect]:
         """Draw Use and Discard buttons for a specific item."""
         use_button = pygame.Rect(x, y, self.button_width, self.button_height)
         discard_button = pygame.Rect(
@@ -181,7 +183,9 @@ class InventoryGUI:
         """Handle mouse clicks on buttons."""
         for item, (use_button, discard_button) in self.button_actions.items():
             if use_button.collidepoint(mouse_pos):
-                self.message = self.inventory.use_item(item) # `self.message` stores strings
+                self.message = self.inventory.use_item(
+                    item
+                )  # `self.message` stores strings
                 self.message_end_time = pygame.time.get_ticks() + 3000  # 3 seconds
             elif discard_button.collidepoint(mouse_pos):
                 self.message = self.inventory.remove_item(item, 1)

@@ -3,7 +3,6 @@ main game loop
 structure of the game, using a stack of states
 """
 
-
 import sys
 import pygame
 
@@ -24,8 +23,8 @@ class GameStateManager:
     - Handling Pygame events and delegating them to the active state.
     - Running the main game loop with controlled frame rate.
     """
-    def __init__(self) -> None:
 
+    def __init__(self) -> None:
         # init pygame
         pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -44,9 +43,9 @@ class GameStateManager:
         return a string representing the stack
         e.g. : >MainMenu>GameRunning>Paused
         """
-        stack_repr:str = ""
+        stack_repr: str = ""
         for state in self.states_stack:
-            stack_repr += '>' + str(state)
+            stack_repr += ">" + str(state)
         return stack_repr
 
     def enter_state(self, state: BaseState) -> None:

@@ -38,7 +38,8 @@ class Entity(pygame.sprite.Sprite):
 
 
 class AllSprites(pygame.sprite.Group):
-    '''A sprite group that handles every sprite and handles the camera logic'''
+    """A sprite group that handles every sprite and handles the camera logic"""
+
     def __init__(self):
         super().__init__()
 

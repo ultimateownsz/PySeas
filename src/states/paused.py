@@ -2,6 +2,7 @@
 paused state
 holding the inventory
 """
+
 from typing import Dict, Tuple
 
 import pygame
@@ -16,6 +17,7 @@ class Paused(BaseState):
     paused state
     holding the inventory
     """
+
     def __init__(self, game_state_manager, inventory: Inventory) -> None:
         super().__init__(game_state_manager)
 
@@ -97,7 +99,9 @@ class Paused(BaseState):
         """Handle mouse clicks on buttons."""
         for item, (use_button, discard_button) in self.button_actions.items():
             if use_button.collidepoint(mouse_pos):
-                self.message = self.inventory.use_item(item) # `self.message` stores strings
+                self.message = self.inventory.use_item(
+                    item
+                )  # `self.message` stores strings
                 self.message_end_time = pygame.time.get_ticks() + 3000  # 3 seconds
             elif discard_button.collidepoint(mouse_pos):
                 self.message = self.inventory.remove_item(item, 1)
@@ -107,7 +111,9 @@ class Paused(BaseState):
         """Extract a single icon from the sprite sheet."""
         return self.sprite_sheet.subsurface((x, y, size, size))
 
-    def draw_buttons(self, x: int, y: int, item: str) -> Tuple[pygame.Rect, pygame.Rect]:
+    def draw_buttons(
+        self, x: int, y: int, item: str
+    ) -> Tuple[pygame.Rect, pygame.Rect]:
         """Draw Use and Discard buttons for a specific item."""
         use_button = pygame.Rect(x, y, self.button_width, self.button_height)
         discard_button = pygame.Rect(
