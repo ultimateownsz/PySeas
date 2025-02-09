@@ -7,7 +7,7 @@ from src.inventory import Inventory
 
 
 # class Entity(pygame.sprite.Sprite):
-'''Will be later used on all entities, classes as Player will inherit from this class'''
+"""Will be later used on all entities, classes as Player will inherit from this class"""
 #     def __init__(self, pos, surf, groups):
 #         super().__init__(groups)
 
@@ -16,7 +16,8 @@ from src.inventory import Inventory
 
 
 class AllSprites(pygame.sprite.Group):
-    '''A sprite group that handles every sprite and handles the camera logic'''
+    """A sprite group that handles every sprite and handles the camera logic"""
+
     def __init__(self):
         super().__init__()
 
@@ -32,7 +33,9 @@ class AllSprites(pygame.sprite.Group):
         for sprite in self:
             self.display_surface.blit(sprite.image, sprite.rect.topleft + self.offset)
 
-        self.display_surface.blit(player_preview, player_preview_rect.topleft + self.offset)
+        self.display_surface.blit(
+            player_preview, player_preview_rect.topleft + self.offset
+        )
 
 
 class Player(pygame.sprite.Sprite):
