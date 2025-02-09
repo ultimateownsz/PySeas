@@ -8,7 +8,6 @@ import unittest
 from src.GUI.inventory import Inventory, Chest, Quest
 
 
-
 class TestInventory(unittest.TestCase):
     def setUp(self):
         """Set up a new Inventory object before each test."""

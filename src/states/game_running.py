@@ -1,6 +1,7 @@
 """
 Represents the GameRunning state, where the player controls a ship and interacts with the game world.
 """
+
 import os
 import json
 import pygame
@@ -24,9 +25,9 @@ class GameRunning(BaseState):
       - Updates game entities.
       - Renders the game world on the screen.
     """
+
     def __init__(self, game_state_manager) -> None:
         super().__init__(game_state_manager)
-
 
         # Initialize player inventory
         self.player_inventory = Inventory()
@@ -46,7 +47,7 @@ class GameRunning(BaseState):
         }
 
         # Islands
-        islands = self.tmx_map['map'].get_layer_by_name("Islands")
+        islands = self.tmx_map["map"].get_layer_by_name("Islands")
         for x, y, surface in islands.tiles():
             src.sprites.Tile(
                 self.all_sprites,
@@ -55,7 +56,7 @@ class GameRunning(BaseState):
             )
 
         # Objects
-        for obj in self.tmx_map['map'].get_layer_by_name("Ships"):
+        for obj in self.tmx_map["map"].get_layer_by_name("Ships"):
             if obj.name == "Player" and obj.properties["pos"] == player_start_pos:
                 self.player = src.sprites.Player((obj.x, obj.y), self.all_sprites)
 
@@ -91,7 +92,7 @@ class GameRunning(BaseState):
         self.all_sprites.draw(
             self.player.rect.center,
             self.player.player_preview,
-            self.player.player_preview_rect
+            self.player.player_preview_rect,
         )
 
         pygame.display.update()
