@@ -122,3 +122,4 @@ class GUI:
         #     player.render(surface=self.screen)
 
         pygame.display.update()
+

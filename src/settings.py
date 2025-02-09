@@ -13,6 +13,7 @@ WORLD_LAYERS = {
     "main": 2,
     "top": 3
 }
+FPS = 60
 
 
 if not getattr(pygame, "IS_CE", False):

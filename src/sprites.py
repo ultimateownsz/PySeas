@@ -191,7 +191,7 @@ class Tile(pygame.sprite.Sprite):
             There is a known typing error related to missing type parameters for the generic type 'Group' in pygame.
             You may see warnings like:
             - src\\sprites.py:107: error: Missing type parameters for generic type 'Group' [type-arg]
-            - src\\GUI\\gameloop.py:45: error: Missing type parameters for generic type 'SpriteGroup' [type-arg]
+            - src\\GUI\\game_manager.py:45: error: Missing type parameters for generic type 'SpriteGroup' [type-arg]
 
             These errors can be ignored for now, as they are related to type annotations in pygame's codebase.
         """
