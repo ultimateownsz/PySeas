@@ -84,7 +84,7 @@ class GUI:
             if obj.name == "Player" and obj.properties["pos"] == player_start_pos:
                 self.player = src.sprites.Player(
                     pos = (obj.x, obj.y), 
-                    frames = self.world_frames["ships"]["player_sloop"], 
+                    frames = self.world_frames["ships"]["player_test_ship"], 
                     groups = self.all_sprites)
 
         # Coast
