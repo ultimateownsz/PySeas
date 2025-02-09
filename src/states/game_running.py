@@ -71,7 +71,6 @@ class GameRunning(BaseState):
 
         # Islands
         islands = self.tmx_map["map"].get_layer_by_name("Islands")
-        islands = self.tmx_map["map"].get_layer_by_name("Islands")
         for x, y, surface in islands.tiles():
             src.sprites.Sprite((x * TILE_SIZE, y * TILE_SIZE), surface, self.all_sprites, WORLD_LAYERS["bg"])
 
