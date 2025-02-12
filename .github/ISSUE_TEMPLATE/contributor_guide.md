@@ -70,7 +70,7 @@ Thank you for your interest in contributing to PyCeas! This guide will help you 
 
 **Example:**
 - Code snippet: `/player_movement.py` line 45.
-- Related issue: [Issue #123](https://github.com/ultimateownsz/PyCeas/issues).
+- Related issue: [Issue #123](https://github.com/PyCeas/Pyceas/issues).
 
 ---
 

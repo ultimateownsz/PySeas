@@ -8,10 +8,10 @@ For general contribution guidelines, see our **[Contributing Guide](/CONTRIBUTIN
 
 ## Steps for Submitting Enhancements
 
-1. **Check the [Documentation](https://github.com/ultimateownsz/PyCeas/tree/main/docs):**  
+1. **Check the [Documentation](https://github.com/PyCeas/Pyceas/tree/main/docs):**  
    Ensure the feature doesn’t already exist.
 2. **Search Existing Issues:**  
-   Look through **[open issues](https://github.com/ultimateownsz/PyCeas/issues)** to see if your idea has been proposed.
+   Look through **[open issues](https://github.com/PyCeas/Pyceas/issues)** to see if your idea has been proposed.
 3. **Submit Your Suggestion:**  
    - Use the **[Contributor Guide Template](.github/ISSUE_TEMPLATE/contributor_guide.md)** for small or straightforward enhancements.
    - Use the **[User Story-Based Template](.github/ISSUE_TEMPLATE/user_story_based_issue.md)** for larger or complex features that need to be broken into tasks.
