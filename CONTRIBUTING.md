@@ -1,4 +1,4 @@
-# Contributing to PySeas
+# Contributing to PyCeas
 Thank you for taking the time to contribute! All types of contributions are encouraged and valued. This project started from a passion for Sea of Thieves, inspired by its seafearing spirit.
 
 > If you like the project, but just don't have time to contribute, that's fine. You could help us out to show support and appreciation of the project by:
@@ -9,7 +9,7 @@ Thank you for taking the time to contribute! All types of contributions are enco
 ---
 
 ## Table of Contents
-- [Contributing to PySeas](#contributing-to-pyseas)
+- [Contributing to PyCeas](#contributing-to-PyCeas)
   - [Table of Contents](#table-of-contents)
   - [Code of Conduct](#code-of-conduct)
   - [I Want To Contribute](#i-want-to-contribute)
@@ -33,14 +33,14 @@ Thank you for taking the time to contribute! All types of contributions are enco
 
 ## Code of Conduct
 Please note we have a code of conduct, please follow it in all your interactions with the project.
-[Go to code of conduct](https://github.com/ultimateownsz/PySeas/blob/main/CODE_OF_CONDUCT.md)
+[Go to code of conduct](https://github.com/ultimateownsz/PyCeas/blob/main/CODE_OF_CONDUCT.md)
 
 ---
 
 ## I Want To Contribute
 
 > ### Legal Notice 
-> When contributing to this project, you must agree that you have authored 100% of the content, that you have the necessary rights to the content and that the content you contribute may be provided under the project [license](https://github.com/ultimateownsz/PySeas?tab=AGPL-3.0-1-ov-file#readme).
+> When contributing to this project, you must agree that you have authored 100% of the content, that you have the necessary rights to the content and that the content you contribute may be provided under the project [license](https://github.com/ultimateownsz/PyCeas?tab=AGPL-3.0-1-ov-file#readme).
 > Tip: If you use assets with a [creative commons license](https://creativecommons.org/licenses/by/4.0/deed.en) you can use it without any legal issues.
 > We keep a list of all the assets, software etc in this [file](./CREDITS.md).
 
@@ -73,7 +73,7 @@ Check out our **[User Story-Based Template](.github/ISSUE_TEMPLATE/user_story_is
 
 ### Steps for a Good Bug Report
 
-1. **Check if you are using the latest version** of PySeas.
+1. **Check if you are using the latest version** of PyCeas.
 2. Gather the following information:
     - OS, Python version, and project version.
     - Steps to reproduce the bug.
@@ -90,14 +90,14 @@ For bugs that are hard to explain, a short GIF or video is incredibly helpful. W
 Please attach the GIF or video to your bug report!
 
 > **IMPORTANT:** Do not report security vulnerabilities here.  
-> Please email sensitive issues to [Pyseasproject@proton.me](mailto:Pyseasproject@proton.me).
+> Please email sensitive issues to [PyCeasproject@proton.me](mailto:PyCeasproject@proton.me).
 > We use **ProtonMail**, a secure, privacy-focues email provider, to handle all security communications. Your messages are encryped in transit for added privacy.
 
 ---
 
 ### Suggesting Enhancements
 
-We welcome your ideas to improve PySeas! Whether it's a completely new feature or minor improvement, your contributions help shape the project. Follow these steps to submit an enhancement suggestion:
+We welcome your ideas to improve PyCeas! Whether it's a completely new feature or minor improvement, your contributions help shape the project. Follow these steps to submit an enhancement suggestion:
 
 Ready to propose an enhancement? Use the **[Enhancement Template](/.github/ISSUE_TEMPLATE/enhancement.md)**
 
@@ -105,8 +105,8 @@ Ready to propose an enhancement? Use the **[Enhancement Template](/.github/ISSUE
 
 ### Steps for a Good Enhancement Suggestion
 
-1. Check the **[Documentation](https://github.com/ultimateownsz/PySeas/tree/main/docs)** to ensure the feature doesn't already exist.
-2. Search for similar suggestions in **[Issues](https://github.com/ultimateownsz/PySeas/issues)**.
+1. Check the **[Documentation](https://github.com/ultimateownsz/PyCeas/tree/main/docs)** to ensure the feature doesn't already exist.
+2. Search for similar suggestions in **[Issues](https://github.com/ultimateownsz/PyCeas/issues)**.
 
 Enhancement suggestions should include:
 - A **clear and descriptive title**.
@@ -132,7 +132,7 @@ This template helps you:
 
 ### For Your First Code Contribution
 
-1. Look for **[Good First Issues](https://github.com/ultimateownsz/PySeas/issues?q=is%3Aopen+label%3A%22good+first+issue%22)**.
+1. Look for **[Good First Issues](https://github.com/ultimateownsz/PyCeas/issues?q=is%3Aopen+label%3A%22good+first+issue%22)**.
 2. Fork the repository and clone it locally.
 3. Work on your changes in a new branch.
 4. Submit a pull request when you're ready.
@@ -140,10 +140,10 @@ This template helps you:
 ---
 
 ### Improving The Documentation
-You can find our Game Design Document (GGD) [here](./docs/Pyseas%20Game%20Design%20Document.pdf).
+You can find our Game Design Document (GGD) [here](./docs/PyCeas%20Game%20Design%20Document.pdf).
 
 For improvements you can:
-- Create a *New issue* on [Issues](https://github.com/ultimateownsz/PySeas/issues)
+- Create a *New issue* on [Issues](https://github.com/ultimateownsz/PyCeas/issues)
 - Reach out to us on [Discord](https://discord.gg/MZ5MHqDnGW)
 
 ---

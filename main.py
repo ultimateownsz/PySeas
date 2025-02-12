@@ -1,5 +1,5 @@
-"""Project Name: PySeas
-Description: PySeas is an open-source project to create an engaging board game in Python,
+"""Project Name: PyCeas
+Description: PyCeas is an open-source project to create an engaging board game in Python,
 inspired by Sea of Thieves. Ideal for game development enthusiasts and Python programmers
 Author(s): Danilo Saiu (https://www.github.com/ultimateownsz),
 Davit Alsemgeest (https://www.github.com/davidek523)

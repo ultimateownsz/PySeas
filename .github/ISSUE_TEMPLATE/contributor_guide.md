@@ -9,7 +9,7 @@ assignees: ''
 
 # Welcome to the Project!
 
-Thank you for your interest in contributing to PySeas! This guide will help you propose or document your contribution and understand how to get started.
+Thank you for your interest in contributing to PyCeas! This guide will help you propose or document your contribution and understand how to get started.
 
 ## Proposal or Task Description
 
@@ -70,7 +70,7 @@ Thank you for your interest in contributing to PySeas! This guide will help you 
 
 **Example:**
 - Code snippet: `/player_movement.py` line 45.
-- Related issue: [Issue #123](https://github.com/ultimateownsz/PySeas/issues).
+- Related issue: [Issue #123](https://github.com/ultimateownsz/PyCeas/issues).
 
 ---
 
