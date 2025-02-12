@@ -2,7 +2,7 @@
 
 [![Discord](https://discord.com/api/guilds/1272287320934056066/widget.png)](https://discord.gg/s2P9fZbeZs)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://www.freecodecamp.org/news/how-to-make-your-first-pull-request-on-github-3/)
-[![License](https://img.shields.io/github/license/ultimateownsz/PyCeas)](https://github.com/ultimateownsz/PyCeas/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/ultimateownsz/PyCeas)](https://github.com/PyCeas/Pyceas/blob/main/LICENSE)
 
 ## Table of Contents
 - [PyCeas - Open Source Pirate (Adventure) Board Game](#pyceas---open-source-pirate-adventure-board-game)
@@ -10,7 +10,6 @@
   - [Project Description](#project-description)
   - [Game Design Document](#game-design-document)
   - [Why Join PyCeas?](#why-join-pyceas)
-  - [Repository Rename Notice](#repository-rename-notice)
   - [Getting Started](#getting-started)
   - [Reporting bugs \& requesting features](#reporting-bugs--requesting-features)
   - [Local Development](#local-development)
@@ -23,6 +22,10 @@
 
 PyCeas is an opensource project that aims to create a 2D, top down, turn based board game in Pygame. Where players become pirates and control their own ship. Using a card-based dice system, players explore a dynamic map, complete quests, and battle rival pirates. This game is designed to be engaging and using interactive elements using tools called Python and Pygame-CE, but you don't need to be a programmer to get involved or enjoy it!
 
+> If you like the project, but just don't have time to contribute, that's fine. You could help us out to show support and appreciation of the project by:
+> - 🌟 Starring the project
+> - 🗣️ Sharing it on social media or at meetups.
+> - 📄 Mention the project in your own repositories or documentation.
 
 ## Game Design Document
 Every game needs thorough documentation, and you can find our Game Design Document (GGD) [here](./docs/Game%20Design%20Document/GGD.md).
@@ -34,26 +37,24 @@ Every game needs thorough documentation, and you can find our Game Design Docume
 - **Create something enjoyable**: Contributing to a project that results in a game you and others can enjoy.
 - **Join our community on [Discord](https://discord.gg/MZ5MHqDnGW)**: Whether you want to help with ideas, give feedback, or simply enjoy the game, everyone is welcome!
 
-## Repository Rename Notice
-
-This project was previously known as **PySeas** and has been renamed to **PyCeas**.
-
-If you have already cloned the repository under the old name, update your local repository’s remote URL:
-
-```
-git remote set-url origin https://github.com/PyCeas/Pyceas.git
-```
-
-
 ## Getting Started
 
 No need to worry if you are new to programming. This guide will walk you through the setup step by step. by the end, you'll have everything ready to run the PyCeas project.
+
+> [!IMPORTANT]
+>
+> This project was previously known as **PySeas** and has been renamed to **PyCeas**.
+> If you have already cloned the repository under the old name, update your local repository’s remote URL:
+>
+> ```
+> git remote set-url origin https://github.com/PyCeas/Pyceas.git
+> ```
 
 
 1. **Clone the Repository:**
 First you'll need to copy the PyCeas project to your computer through a process called "cloning".
 ```
-  git clone https://github.com/PyCeas/PyCeas.git
+  git clone https://github.com/PyCeas/Pyceas.git
 
 ```
 
@@ -116,9 +117,9 @@ deactivate
 ```
 
 ## Reporting bugs & requesting features
-If you find something that's not working right or have an idea to make our project better, you can let us know by opening an `Issue` here on [Github](https://github.com/ultimateownsz/PyCeas/issues). An issue is just a way to tell us about a problem or suggest a new feature.
+If you find something that's not working right or have an idea to make our project better, you can let us know by opening an `Issue` here on [Github](https://github.com/PyCeas/Pyceas/issues). An issue is just a way to tell us about a problem or suggest a new feature.
 
-We use [Github Projects](https://github.com/users/ultimateownsz/projects/15) to organize and keep track of these issues, so we can make sure everything gets the attention it needs.
+We use [Github Projects](https://github.com/orgs/PyCeas/projects/3) to organize and keep track of these issues, so we can make sure everything gets the attention it needs.
 
 Before submitting an issue, check out our **[Contributing Guide](./CONTRIBUTING.md)** for detailed instructions on:
 - **Reporting Bugs:** Learn how to describe issues effectively to help us resolve them quickly.
@@ -178,7 +179,7 @@ In short, the AGPL aligns perfectly with our commitments to openness, community 
 
 
 ## Relevant Links
-- [Project Task List](https://github.com/users/ultimateownsz/projects/15)
-- [GitHub discussions](https://github.com/ultimateownsz/PyCeas/discussions)
+- [Project Task List](https://github.com/orgs/PyCeas/projects/3)
+- [GitHub discussions](https://github.com/PyCeas/Pyceas/discussions)
 - [PyCeas's Discord Server](https://discord.gg/MZ5MHqDnGW)
 - [Pygame's Community Discord](https://discord.gg/pygame)
