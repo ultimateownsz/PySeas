@@ -1,13 +1,17 @@
 # Pull Request Template
 
 ## 📝 Instructions
-Please choose the appropriate template based on the nature of your changes. Click one of the links below, copy the content of that template, and paste it into this pull request.
+Please choose the appropriate template based on the nature of your changes. Use one of the following templates:
 
-- **[Code Changes Template](https://github.com/PyCeas/Pyceas/blob/main/.github/PULL_REQUEST_TEMPLATE/code_pr_template.md)**
-- **[Documentation Changes](https://github.com/PyCeas/Pyceas/blob/main/.github/PULL_REQUEST_TEMPLATE/docs_pr_template.md)**
-- **[Revert Previous Changes](https://github.com/PyCeas/Pyceas/blob/main/.github/PULL_REQUEST_TEMPLATE/revert_pr_template.md)**
-- **[Asset Changes](https://github.com/PyCeas/Pyceas/blob/main/.github/PULL_REQUEST_TEMPLATE/asset_pr_template.md)**
-- **[Audio Changes](https://github.com/PyCeas/Pyceas/blob/main/.github/PULL_REQUEST_TEMPLATE/audio_pr_template.md)**
+- **[Code Changes Template](https://github.com/PyCeas/Pyceas/compare/main?expand=1&template=code_pr_template.md)**
+- **[Documentation Changes](https://github.com/PyCeas/Pyceas/compare/main?expand=1&template=docs_pr_template.md)**
+- **[Revert Previous Changes](https://github.com/PyCeas/Pyceas/compare/main?expand=1&template=revert_pr_template.md)**
+- **[Asset Changes](https://github.com/PyCeas/Pyceas/compare/main?expand=1&template=asset_pr_template.md)**
+- **[Audio Changes](https://github.com/PyCeas/Pyceas/compare/main?expand=1&template=audio_pr_template.md)**
+
+> ![IMPORTANT]
+> When creating a pull request, make sure the base branch is set to `main`. If you are working from a different branch, you can update the target branch > in the pull request interface.
+
 
 ---
 
