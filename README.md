@@ -4,8 +4,6 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://www.freecodecamp.org/news/how-to-make-your-first-pull-request-on-github-3/)
 [![License](https://img.shields.io/github/license/ultimateownsz/PyCeas)](https://github.com/ultimateownsz/PyCeas/blob/main/LICENSE)
 
-<img src="https://i.postimg.cc/NM5R3tzW/100x100-map.png" />
-
 ## Table of Contents
 - [PyCeas - Open Source Pirate (Adventure) Board Game](#pyceas---open-source-pirate-adventure-board-game)
   - [Table of Contents](#table-of-contents)
