@@ -9,7 +9,7 @@ Thank you for taking the time to contribute! All types of contributions are enco
 ---
 
 ## Table of Contents
-- [Contributing to PyCeas](#contributing-to-PyCeas)
+- [Contributing to PyCeas](#contributing-to-pyceas)
   - [Table of Contents](#table-of-contents)
   - [Code of Conduct](#code-of-conduct)
   - [I Want To Contribute](#i-want-to-contribute)
@@ -33,14 +33,14 @@ Thank you for taking the time to contribute! All types of contributions are enco
 
 ## Code of Conduct
 Please note we have a code of conduct, please follow it in all your interactions with the project.
-[Go to code of conduct](https://github.com/ultimateownsz/PyCeas/blob/main/CODE_OF_CONDUCT.md)
+[Go to code of conduct](https://github.com/PyCeas/Pyceas/blob/main/CODE_OF_CONDUCT.md)
 
 ---
 
 ## I Want To Contribute
 
 > ### Legal Notice 
-> When contributing to this project, you must agree that you have authored 100% of the content, that you have the necessary rights to the content and that the content you contribute may be provided under the project [license](https://github.com/ultimateownsz/PyCeas?tab=AGPL-3.0-1-ov-file#readme).
+> When contributing to this project, you must agree that you have authored 100% of the content, that you have the necessary rights to the content and that the content you contribute may be provided under the project [license](https://github.com/PyCeas/Pyceas?tab=AGPL-3.0-1-ov-file#readme).
 > Tip: If you use assets with a [creative commons license](https://creativecommons.org/licenses/by/4.0/deed.en) you can use it without any legal issues.
 > We keep a list of all the assets, software etc in this [file](./CREDITS.md).
 
@@ -90,8 +90,9 @@ For bugs that are hard to explain, a short GIF or video is incredibly helpful. W
 Please attach the GIF or video to your bug report!
 
 > **IMPORTANT:** Do not report security vulnerabilities here.  
-> Please email sensitive issues to [PyCeasproject@proton.me](mailto:PyCeasproject@proton.me).
+> Please email sensitive issues to [PySeasproject@proton.me](mailto:PySeasproject@proton.me).
 > We use **ProtonMail**, a secure, privacy-focues email provider, to handle all security communications. Your messages are encryped in transit for added privacy.
+> The email may still be seen as PySeas, this is not misspelled, this was made before we changed our project's name, will change in the future!
 
 ---
 
@@ -105,8 +106,8 @@ Ready to propose an enhancement? Use the **[Enhancement Template](/.github/ISSUE
 
 ### Steps for a Good Enhancement Suggestion
 
-1. Check the **[Documentation](https://github.com/ultimateownsz/PyCeas/tree/main/docs)** to ensure the feature doesn't already exist.
-2. Search for similar suggestions in **[Issues](https://github.com/ultimateownsz/PyCeas/issues)**.
+1. Check the **[Documentation](https://github.com/PyCeas/Pyceas/tree/main/docs)** to ensure the feature doesn't already exist.
+2. Search for similar suggestions in **[Issues](https://github.com/PyCeas/Pyceas/issues)**.
 
 Enhancement suggestions should include:
 - A **clear and descriptive title**.
@@ -132,7 +133,7 @@ This template helps you:
 
 ### For Your First Code Contribution
 
-1. Look for **[Good First Issues](https://github.com/ultimateownsz/PyCeas/issues?q=is%3Aopen+label%3A%22good+first+issue%22)**.
+1. Look for **[Good First Issues](https://github.com/PyCeas/Pyceas/labels/good%20first%20issue)**.
 2. Fork the repository and clone it locally.
 3. Work on your changes in a new branch.
 4. Submit a pull request when you're ready.
@@ -143,7 +144,7 @@ This template helps you:
 You can find our Game Design Document (GGD) [here](./docs/PyCeas%20Game%20Design%20Document.pdf).
 
 For improvements you can:
-- Create a *New issue* on [Issues](https://github.com/ultimateownsz/PyCeas/issues)
+- Create a *New issue* on [Issues](https://github.com/PyCeas/Pyceas/issues)
 - Reach out to us on [Discord](https://discord.gg/MZ5MHqDnGW)
 
 ---
