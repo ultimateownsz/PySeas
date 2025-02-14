@@ -12,7 +12,7 @@
   - [Why Join PyCeas?](#why-join-pyceas)
   - [Getting Started](#getting-started)
   - [Reporting bugs \& requesting features](#reporting-bugs--requesting-features)
-  - [Local Development](#local-development)
+    - [Local Development](#local-development)
     - [Linting and Formatting for developers](#linting-and-formatting-for-developers)
   - [License](#license)
     - [Why we chose AGPL](#why-we-chose-agpl)
@@ -121,15 +121,15 @@ If you find something that's not working right or have an idea to make our proje
 
 We use [Github Projects](https://github.com/orgs/PyCeas/projects/3) to organize and keep track of these issues, so we can make sure everything gets the attention it needs.
 
-Before submitting an issue, check out our **[Contributing Guide](./CONTRIBUTING.md)** for detailed instructions on:
+Before submitting an issue, check out our **[Contributor Guide](https://github.com/PyCeas/.github/blob/main/.github/ISSUE_TEMPLATE/contributor_guide.md)** for detailed instructions on:
 - **Reporting Bugs:** Learn how to describe issues effectively to help us resolve them quickly.
 - **Proposing Enhancements:** Follow our steps to suggest features and improvements.
 
 If you need more help or want to talk about it, you can join our [Discord](https://discord.gg/MZ5MHqDnGW) community. We're here to chat and help you out!
 
 
-## Local Development
-**See how to contribute:** [contribute](./CONTRIBUTING.md)
+### Local Development
+[See how to contribute](./CONTRIBUTING.md)
 
 ### Linting and Formatting for developers
 We chose to use [Ruff](https://docs.astral.sh/ruff/) to automatically lint and format the code. `Run pip install -r requirements_dev.txt` to install Ruff and other relevant dependencies.
