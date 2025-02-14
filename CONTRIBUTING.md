@@ -65,7 +65,7 @@ We use **user stories** to break down complex features into manageable tasks. Ea
   - A list of tasks required to implement the story.
   - Guidance for contributors (e.g., file references, related issues).
 
-Check out our **[User Story-Based Template](.github/ISSUE_TEMPLATE/user_story_issue_template.md)** for detailed guidance.
+Check out our **[User Story-Based Template](https://github.com/PyCeas/.github/blob/main/.github/ISSUE_TEMPLATE/user_story_based_issue.md)** for detailed guidance.
 
 ---
 
@@ -78,7 +78,7 @@ Check out our **[User Story-Based Template](.github/ISSUE_TEMPLATE/user_story_is
     - OS, Python version, and project version.
     - Steps to reproduce the bug.
     - Any error messages or screenshots.
-3. Submit the bug using our **[Bug Report Template](.github/ISSUE_TEMPLATE/bug_report.md)** 
+3. Submit the bug using our **[Bug Report Template](https://github.com/PyCeas/.github/blob/main/.github/ISSUE_TEMPLATE/bug_report.yml)** 
 
 ### Visual Proof
 
@@ -100,7 +100,7 @@ Please attach the GIF or video to your bug report!
 
 We welcome your ideas to improve PyCeas! Whether it's a completely new feature or minor improvement, your contributions help shape the project. Follow these steps to submit an enhancement suggestion:
 
-Ready to propose an enhancement? Use the **[Enhancement Template](/.github/ISSUE_TEMPLATE/enhancement.md)**
+Ready to propose an enhancement? Use the **[Enhancement Template](https://github.com/PyCeas/.github/blob/main/.github/ISSUE_TEMPLATE/enhancement.md)**
 
 #### Before Submitting an Enhancement
 
@@ -119,7 +119,7 @@ Enhancement suggestions should include:
 
 ### Proposing Ideas or Tasks (Contributor Guide)
 
-If you're new or have an idea for the project, use our **[Contributor Guide Template](/.github/ISSUE_TEMPLATE/contributor_guide.md)** to structure your proposal.
+If you're new or have an idea for the project, use our **[Contributor Guide Template](https://github.com/PyCeas/.github/blob/main/.github/ISSUE_TEMPLATE/contributor_guide.md)** to structure your proposal.
 
 This template helps you:
 - Describe your idea or task.
