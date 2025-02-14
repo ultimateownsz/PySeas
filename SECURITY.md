@@ -71,7 +71,7 @@ Please report:
 
 Please **do not** report:
 - General bugs (use [GitHub Issues](https://github.com/PyCeas/Pyceas/issues)).
-- Feature requests (use [our enhancement template](/.github/ISSUE_TEMPLATE/user_story_issue_template.md)).
+- Feature requests (use [our enhancement template](https://github.com/PyCeas/.github/blob/main/.github/ISSUE_TEMPLATE/user_story_based_issue.md)).
 
 ---
 
