@@ -27,7 +27,7 @@ If you discover a security vulnerability, we encourage you to report it responsi
    - Any relevant information (e.g., logs, screenshots, or code snippets).
   
 2. **Use GitHub Security Advisories:**
-   If you prefer not to use email, you can report vulnerabilies privately through GitHub's built-in [Security Advisories](https://github.com/ultimateownsz/PySeas/security/advisories/new).
+   If you prefer not to use email, you can report vulnerabilies privately through GitHub's built-in [Security Advisories](https://github.com/PyCeas/Pyceas/security/advisories/new).
 
 > **Optional:** For extra privacy, you may encrypt your email using our public PGB key. [Download PGB key](docs/pyseas_public.asc)
 
@@ -70,8 +70,8 @@ Please report:
 - Code injection, buffer overflows, or similar exploits.
 
 Please **do not** report:
-- General bugs (use [GitHub Issues](https://github.com/ultimateownsz/PySeas/issues)).
-- Feature requests (use [our enhancement template](/.github/ISSUE_TEMPLATE/user_story_issue_template.md)).
+- General bugs (use [GitHub Issues](https://github.com/PyCeas/Pyceas/issues)).
+- Feature requests (use [our enhancement template](https://github.com/PyCeas/.github/blob/main/.github/ISSUE_TEMPLATE/user_story_based_issue.md)).
 
 ---
 

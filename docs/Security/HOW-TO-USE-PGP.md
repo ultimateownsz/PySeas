@@ -9,7 +9,7 @@ PGP (Pretty Good Privacy) is a method of encrypting your messages and files to e
 ## How to Use Our PGP Key
 
 1. **Download the Key**  
-   You can find our public PGP key in the [`docs/pyseas_public`](/docs/Guides/Security/pyseas_public.asc) file.
+   You can find our public PGP key in the [`docs/PyCeas_public`](/docs/Guides/Security/PyCeas_public.asc) file.
 
 2. **Import the Key**  
    Import the key into your PGP/GPG software:

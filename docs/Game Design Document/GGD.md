@@ -1,12 +1,12 @@
 # Game Design Document
 
 <div style="text-align: center;">
-  <img src="Assets/Pygame%20CE%20logo.png" alt="PySeas" width="600">
+  <img src="Assets/Pygame%20CE%20logo.png" alt="PyCeas" width="600">
 </div>
 
 ## Game Summary Pitch
 
-> Pyseas is an opensource project that aims to create a 2D, top down, turn based board game in Pygame. Where players become pirates and control their own ship. Using a card-based dice system, players explore a dynamic map, complete quests, and battle rival pirates.
+> PyCeas is an opensource project that aims to create a 2D, top down, turn based board game in Pygame. Where players become pirates and control their own ship. Using a card-based dice system, players explore a dynamic map, complete quests, and battle rival pirates.
 > 
 > Whether you’re a developer, artist, writer, or just curious about game design, there’s a role for everyone on this ship.
 
@@ -68,17 +68,17 @@ The game will be developed in phases, with an initial focus on a small, playable
 ---
 
 ### Key Terms
-> Just as a pirate needs a map to navigate the seas, contributors to PySeas can use this section to navigate the terms and ideas in this document.
+> Just as a pirate needs a map to navigate the seas, contributors to PyCeas can use this section to navigate the terms and ideas in this document.
 
 #### Board Game Mechanics
 
 - `Turn-Based Gameplay`: A game structure where players take turns performing actions, allowing time for strategic decision-making.
-- `Dice Rolls`, see [reference](#concept-dice-roll): A mechanic where random outcomes, like movement or combat results, are determined by rolling dice. In PySeas, these rolls are influenced by a card-based system.
+- `Dice Rolls`, see [reference](#concept-dice-roll): A mechanic where random outcomes, like movement or combat results, are determined by rolling dice. In PyCeas, these rolls are influenced by a card-based system.
 - `Modular Map`, see [reference](#map-design): A dynamically arranged map composed of tiles, creating unique layouts for each playthrough..
 
 #### Game Development Concepts
 
-- `Procedural Generation`, see [reference](#concept-procedural-generation): A method of creating game content algorithmically rather than manually. In PySeas, this applies to generating map layouts and resource placements.
+- `Procedural Generation`, see [reference](#concept-procedural-generation): A method of creating game content algorithmically rather than manually. In PyCeas, this applies to generating map layouts and resource placements.
 - `Fog of War`, see [reference](#concept-fog-of-war): A mechanic that obscures unexplored areas of the map..
 - `World Events`, see [reference](#concept-world-events): In-game occurrences triggered by player actions, such as stepping into specific areas or interacting with certain objects. These events add unpredictability and variety.
 
@@ -101,7 +101,7 @@ The game will be developed in phases, with an initial focus on a small, playable
 
 ## Genre
 1. **Tabletop-Inspired Board Game:**
-   PySeas replicates the feel of classic tabletop games in a digital format. Players interact with modular maps, roll dice, and manage resources in a turn-based structure that emphasizes strategic decision-making.
+   PyCeas replicates the feel of classic tabletop games in a digital format. Players interact with modular maps, roll dice, and manage resources in a turn-based structure that emphasizes strategic decision-making.
 2. **Exploration-Based Strategy Game:**
    Players navigate procedurally generated maps, uncover hidden tiles, and interact with dynamic events. Strategy lies in balancing exploration, risk, and resource management.
 3. **Role-Playing Adventure Game:**
@@ -110,12 +110,12 @@ The game will be developed in phases, with an initial focus on a small, playable
 ## Inspiration
 
 #### Sea of Thieves
-PySeas draws inspiration from the immersive exploration and competitive interactions in Sea of Thieves. Initially inspired by the video game's dynamic pirate world, PySeas also aligns with the tabletop mechanics seen in the official Sea of Thieves board game.
+PyCeas draws inspiration from the immersive exploration and competitive interactions in Sea of Thieves. Initially inspired by the video game's dynamic pirate world, PyCeas also aligns with the tabletop mechanics seen in the official Sea of Thieves board game.
 
 ![Sea of Thieves](/docs/Game%20Design%20Document/Assets/seaofthievesboardgame.jpg)
 
 #### Pillars of Eternity 2: Dead Fire
-Narrative `choices` and their impact on `outcomes` are central to PySeas, inspired by RPGs like Pillars of Eternity 2.
+Narrative `choices` and their impact on `outcomes` are central to PyCeas, inspired by RPGs like Pillars of Eternity 2.
 
 ![Pillars of Eternity 2: Dead Fire](/docs/Game%20Design%20Document/Assets/pillars2ship.jpg)
 
@@ -129,7 +129,7 @@ Narrative `choices` and their impact on `outcomes` are central to PySeas, inspir
 
 ## Player Experience & Gameloop
 
-> In PySeas, each turn feels like a step into the unknown. This section highlights the strategic and immersive gameplay loop that defines the player's journey.
+> In PyCeas, each turn feels like a step into the unknown. This section highlights the strategic and immersive gameplay loop that defines the player's journey.
 
 - Players uncover hidden tiles, discover new locations, and trigger narrative-driven quests.
 - Unexpected encounters like rival pirates, mysterious islands, or treasure discoveries add variety to gameplay.
@@ -138,7 +138,7 @@ Narrative `choices` and their impact on `outcomes` are central to PySeas, inspir
 
 ### Platform
 
-PySeas will be developed using Pygame-CE, focussing on optimized performance, scalability, and compatibility with older hardware.
+PyCeas will be developed using Pygame-CE, focussing on optimized performance, scalability, and compatibility with older hardware.
 
 #### Future Plans
 Future updates aim to introduce multiplayer modes, browser accessibility, and local network connections.
@@ -157,15 +157,15 @@ Future updates aim to introduce multiplayer modes, browser accessibility, and lo
 
 ## Target Audience
 
-> PySeas is designed for anyone who loves adventure, strategy, and storytelling. Here’s who we’re inviting aboard:
+> PyCeas is designed for anyone who loves adventure, strategy, and storytelling. Here’s who we’re inviting aboard:
 
 1. **Casual Gamers:**
-   PySeas is accesible to players who want engaging, pirate themed gameplay without a steep learning curve.
+   PyCeas is accesible to players who want engaging, pirate themed gameplay without a steep learning curve.
 2. **Indie Game Fans:**
-   Open-source enthusiasts and indie game players will appreciate PySeas' collaborative development model and unique mechanics.
+   Open-source enthusiasts and indie game players will appreciate PyCeas' collaborative development model and unique mechanics.
 3. **Age Range:**
    - 12-18: Young players will enjoy the simple gameplay and pirate-themed adventure.
-   - 18-70: Adults seeking strategy with replayability will enjoy PySeas'depth and customization options.
+   - 18-70: Adults seeking strategy with replayability will enjoy PyCeas'depth and customization options.
 
 ---
 
@@ -173,7 +173,7 @@ Future updates aim to introduce multiplayer modes, browser accessibility, and lo
 
 ### Design and Thematic Pillars
 
-> These pillars act as the foundation of PySeas—a treasure map guiding the team toward a shared vision.
+> These pillars act as the foundation of PyCeas—a treasure map guiding the team toward a shared vision.
 
 1. **Exploration and Discovery:**
    Players reveal hidden treasures, quests, and dynamic events as they explore the modular map. Each playtrough offers new challenges to maintain replayabilty.
@@ -182,7 +182,7 @@ Future updates aim to introduce multiplayer modes, browser accessibility, and lo
 3. **Player Agency:**
    Players customize their ships, choose curses, and make narrative choices that effect their outcomes.
 4. **Immersion in a Pirate World:**
-   PySeas uses vibrant pixel art, thematic audio, and interactive NPC interactions to bring the world of PySeas to life.
+   PyCeas uses vibrant pixel art, thematic audio, and interactive NPC interactions to bring the world of PyCeas to life.
 5. **Community-Driven Development:**
    Encoures flexibility and collaboration by building the game as an open-source project, shaped by community feedback and contributions.
 
@@ -196,10 +196,10 @@ Future updates aim to introduce multiplayer modes, browser accessibility, and lo
 #### Theme Interpretation (Curse is Strenth)
 
 <div style="text-align: center;">
-  <img src="Assets/Curses.png" alt="PySeas" width="1000">
+  <img src="Assets/Curses.png" alt="PyCeas" width="1000">
 </div>
 
-In PySeas, curses are not just cosmetic effects; they serve as gameplay modifiers that add strategic depth and variety to the player's experience. Drawing inspiration from role-playing games like Pillars of Eternity 2, curses act as status effects that influences how players interact with the world, engage in combat, and make decisions.
+In PyCeas, curses are not just cosmetic effects; they serve as gameplay modifiers that add strategic depth and variety to the player's experience. Drawing inspiration from role-playing games like Pillars of Eternity 2, curses act as status effects that influences how players interact with the world, engage in combat, and make decisions.
 
 - At the start of the game, players choose one of several available curses.
 - Each curse introduces unique advantages and disadvantages, shaping the player's interactions with NPCs, quest outcomes, and dice rolls.
@@ -294,7 +294,7 @@ Dynamic `World Events` could be triggered similarly to how encounters occur in c
 
 ### Artistic Pillars
 
-> These pillars define PySeas' artistic identity, focusing on the visual style and how it complements gameplay and storytelling.
+> These pillars define PyCeas' artistic identity, focusing on the visual style and how it complements gameplay and storytelling.
 
 1. **Dynamic Color Shifts:**
    Gameplay elements influence the environment, altering color tones to reflect changes in mood, state, or reactions. For instance:
@@ -310,7 +310,7 @@ Dynamic `World Events` could be triggered similarly to how encounters occur in c
 
 ### Design
 
-> PySeas’ design philosophy prioritizes flexibility, collaboration, and usability. Its open-source foundation invites contributors to leave their mark on the project, ensuring a game shaped by creativity and community.
+> PyCeas’ design philosophy prioritizes flexibility, collaboration, and usability. Its open-source foundation invites contributors to leave their mark on the project, ensuring a game shaped by creativity and community.
 
 1. **Minimalism with Purpose:**
 Visuals and mechanics are kept simple to enhance usability while still delivering a rich, immersive experience.
@@ -336,7 +336,7 @@ Tiled, providing a foundational layout for exploration and gameplay. As developm
 
 ### Dynamic Soundtrack
 
-> Help make the seas sing! PySeas needs an adaptive soundtrack that mirrors the journey of a pirate. Composers and sound designers can craft melodies for every mood, from calm exploration to thrilling naval battles. Imagine the possibilities:
+> Help make the seas sing! PyCeas needs an adaptive soundtrack that mirrors the journey of a pirate. Composers and sound designers can craft melodies for every mood, from calm exploration to thrilling naval battles. Imagine the possibilities:
 >
 > - A haunting theme for cursed areas
 > - Uplifting tones for discoveries and victories.
@@ -391,19 +391,19 @@ The development will follow a phased roadmap:
 
 ## Community Philosophy
 
-> At PySeas, we know that the best pirate crews come from all walks of life. Whether you’re a coder, artist, storyteller, or someone with a passion for testing and feedback, your skills are welcome here! This project thrives on collaboration, and every crewmember has a part to play in shaping our shared vision.
+> At PyCeas, we know that the best pirate crews come from all walks of life. Whether you’re a coder, artist, storyteller, or someone with a passion for testing and feedback, your skills are welcome here! This project thrives on collaboration, and every crewmember has a part to play in shaping our shared vision.
 
 **Core Principles:**
 
 - **Modularity:**
   Features are built incrementally, allowing contributors to focus on specific aspects (e.g., a new curse, ship upgrades).
 - **Inclusivity:**
-  PySeas is open to contributors of all skill levels, from beginners learning Python or game design to seasoned developers, artists, or storytellers.
+  PyCeas is open to contributors of all skill levels, from beginners learning Python or game design to seasoned developers, artists, or storytellers.
 - **Transparency:**
   All development progress is tracked on GitHub, with contributors credited for their work. Every contributor is credited, fostering a sense of ownership and regognition.
 
 **Community Goals:**
-PySeas is designed to evolve with community input, adding features like:
+PyCeas is designed to evolve with community input, adding features like:
 
 - **Multiplayer modes:** cooperative and competitive.
 - **New curses** & **status effects**.
