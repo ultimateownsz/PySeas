@@ -157,6 +157,7 @@ class GameRunning(BaseState):
         switch to the next player
         """
         self.current_player_index = (self.current_player_index + 1) % len(self.players)
+        self.dice_rolls = None  # reset dice rolls when switching players
     
     def update(self, events) -> None:
         """
