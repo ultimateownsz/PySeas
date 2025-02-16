@@ -28,7 +28,7 @@ class GameStateManager:
         # init pygame
         pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-        pygame.display.set_caption("PySeas")
+        pygame.display.set_caption("PyCeas")
 
         self.clock = pygame.Clock()
         self.running = True
