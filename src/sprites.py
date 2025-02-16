@@ -43,10 +43,11 @@ class Player(pygame.sprite.Sprite):
 
     rect: FRect
 
-    def __init__(self, pos, groups):
+    def __init__(self, name, pos, groups):
         super().__init__(groups)
         # TODO: replace with actual images
 
+        self.name = name
         self.image = pygame.Surface((TILE_SIZE, TILE_SIZE))
         self.image.fill("red")
         self.rect = self.image.get_frect(center=pos)
