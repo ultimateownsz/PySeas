@@ -105,11 +105,6 @@ class GameRunning(BaseState):
             self.dice_rolls.items(), key=lambda player: player[1], reverse=True
         )
 
-        # for player_name, roll in dice_rolls.items(): # Debugging
-        #     print(f"{player_name} rolled a {roll}")
-
-        # print(f"{self.players[0].name} goes first!")
-
         # display the dice rolls using placeholders
         self.display_dice(screen, self.dice_rolls)
 
