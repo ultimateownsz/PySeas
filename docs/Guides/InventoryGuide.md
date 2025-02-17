@@ -3,7 +3,7 @@
 ### Description of the Inventory GUI
 The Inventory GUI serves as a user-friendly interface for managing in-game items. It allows players to view, interact with, and organize their inventory. 
 
-[![pyseas-inventory.png](https://i.postimg.cc/G3ZXHdnK/pyseas-inventory.png)](https://postimg.cc/14rGdxtV)
+[![PyCeas-inventory.png](https://i.postimg.cc/G3ZXHdnK/PyCeas-inventory.png)](https://postimg.cc/14rGdxtV)
 
 ### Key Features
 - **Visual Display**: Items are displayed as icon, also providing name and quantity.
