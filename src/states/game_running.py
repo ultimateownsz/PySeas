@@ -118,9 +118,7 @@ class GameRunning(BaseState):
         """draw sprites to the canvas"""
         screen.fill("#000000")
         self.all_sprites.draw(
-            self.player.rect.center,
-            self.player.player_preview,
-            self.player.player_preview_rect,
+            self.player.rect.center
         )
 
         pygame.display.update()

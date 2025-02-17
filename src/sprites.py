@@ -50,7 +50,7 @@ class AllSprites(pygame.sprite.Group):
         self.offset = pygame.math.Vector2()
         self.scale = 2.0
 
-    def draw(self, player_center, player_preview, player_preview_rect):
+    def draw(self, player_center):
         self.offset.x = -(player_center[0] * self.scale - SCREEN_WIDTH / 2)
         self.offset.y = -(player_center[1] * self.scale - SCREEN_HEIGHT / 2)
 
@@ -67,12 +67,13 @@ class AllSprites(pygame.sprite.Group):
 
                 self.display_surface.blit(scaled_image, scaled_rect.topleft)
 
-            scaled_preview = pygame.transform.scale(player_preview, 
-                            (int(player_preview_rect.width * self.scale), int(player_preview_rect.height * self.scale)))
-            scaled_preview_rect = scaled_preview.get_rect(center=(player_preview_rect.center[0] * self.scale, player_preview_rect.center[1] * self.scale))
-            scaled_preview_rect.topleft += self.offset
+            # scaling of the ghost preview
+            # scaled_preview = pygame.transform.scale(player_preview, 
+            #                 (int(player_preview_rect.width * self.scale), int(player_preview_rect.height * self.scale)))
+            # scaled_preview_rect = scaled_preview.get_rect(center=(player_preview_rect.center[0] * self.scale, player_preview_rect.center[1] * self.scale))
+            # scaled_preview_rect.topleft += self.offset
 
-            self.display_surface.blit(scaled_preview, scaled_preview_rect.topleft)
+            # self.display_surface.blit(scaled_preview, scaled_preview_rect.topleft)
 
     # method for zooming (might be usefull later?)
     # def set_scale(self, scale):
@@ -112,28 +113,28 @@ class Player(Entity):
         delta_y = abs(self.rect.centery - mouse_pos[1])
 
         # #  move the gost on the x axis
-        self.player_preview_rect = self.rect.copy()
-        if delta_x > delta_y:
-            if delta_x < (TILE_SIZE / 2):
-                # don't move the gost if the mouse is on the player hitbox
-                self.player_preview_rect.x = self.rect.x
-            elif mouse_pos[0] > self.rect.centerx:
-                # go right
-                self.player_preview_rect.x = self.rect.x + TILE_SIZE
-            else:
-                # go left
-                self.player_preview_rect.x = self.rect.x - TILE_SIZE
-        # move the gost on the y axis
-        else:
-            if delta_y < (TILE_SIZE / 2):
-                # don't move if the mouse is on the player hitbox
-                self.player_preview_rect.y = self.rect.y
-            elif mouse_pos[1] > self.rect.centery:
-                # go down
-                self.player_preview_rect.y = self.rect.y + TILE_SIZE
-            else:
-                # go up
-                self.player_preview_rect.y = self.rect.y - TILE_SIZE
+        # self.player_preview_rect = self.rect.copy()
+        # if delta_x > delta_y:
+        #     if delta_x < (TILE_SIZE / 2):
+        #         # don't move the gost if the mouse is on the player hitbox
+        #         self.player_preview_rect.x = self.rect.x
+        #     elif mouse_pos[0] > self.rect.centerx:
+        #         # go right
+        #         self.player_preview_rect.x = self.rect.x + TILE_SIZE
+        #     else:
+        #         # go left
+        #         self.player_preview_rect.x = self.rect.x - TILE_SIZE
+        # # move the gost on the y axis
+        # else:
+        #     if delta_y < (TILE_SIZE / 2):
+        #         # don't move if the mouse is on the player hitbox
+        #         self.player_preview_rect.y = self.rect.y
+        #     elif mouse_pos[1] > self.rect.centery:
+        #         # go down
+        #         self.player_preview_rect.y = self.rect.y + TILE_SIZE
+        #     else:
+        #         # go up
+        #         self.player_preview_rect.y = self.rect.y - TILE_SIZE
 
         # move the player
         if not pygame.mouse.get_pressed()[0]:
