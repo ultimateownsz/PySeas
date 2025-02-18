@@ -50,7 +50,7 @@ class GameRunning(BaseState):
         }
 
         self.world_frames = {
-            "water": import_folder(".", "images", "tilesets", "water"),
+            "water": import_folder(".", "images", "tilesets", "temporary_water"),
             "coast": coast_importer(6, 6, ".", "images", "tilesets", "coast"),
             "ships": all_character_import(".", "images", "tilesets", "ships")
         }
