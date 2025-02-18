@@ -20,12 +20,14 @@ class Entity(pygame.sprite.Sprite):
         # self.speed = 250
 
         # sprite setup
-        self.image = self.frames[self.get_state()][self.frame_index]
+        self.image = pygame.Surface((TILE_SIZE, TILE_SIZE))
+        self.image.fill("red")
+        # self.image = self.frames[self.get_state()][self.frame_index]
         self.rect = self.image.get_frect(center = pos)
 
     def animate(self, dt):
         self.frame_index += ANIMATION_SPEED * dt
-        self.image = self.frames[self.get_state()][int(self.frame_index % len(self.frames[self.get_state()]))]
+        # self.image = self.frames[self.get_state()][int(self.frame_index % len(self.frames[self.get_state()]))]
 
     def get_state(self):
         moving = bool(self.direction)
