@@ -2,7 +2,7 @@
 
 [![Discord](https://discord.com/api/guilds/1272287320934056066/widget.png)](https://discord.gg/s2P9fZbeZs)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://www.freecodecamp.org/news/how-to-make-your-first-pull-request-on-github-3/)
-[![License](https://img.shields.io/github/license/ultimateownsz/PyCeas)](https://github.com/PyCeas/Pyceas/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/PyCeas/PyCeas)](https://github.com/PyCeas/Pyceas/blob/main/LICENSE)
 
 ## Table of Contents
 - [PyCeas - Open Source Pirate (Adventure) Board Game](#pyceas---open-source-pirate-adventure-board-game)
@@ -37,11 +37,7 @@ Every game needs thorough documentation, and you can find our Game Design Docume
 - **Create something enjoyable**: Contributing to a project that results in a game you and others can enjoy.
 - **Join our community on [Discord](https://discord.gg/MZ5MHqDnGW)**: Whether you want to help with ideas, give feedback, or simply enjoy the game, everyone is welcome!
 
-## Getting Started
-
-No need to worry if you are new to programming. This guide will walk you through the setup step by step. by the end, you'll have everything ready to run the PyCeas project.
-
-> [!IMPORTANT]
+> [!NOTE]
 >
 > This project was previously known as **PySeas** and has been renamed to **PyCeas**.
 > If you have already cloned the repository under the old name, update your local repository’s remote URL:
@@ -49,6 +45,10 @@ No need to worry if you are new to programming. This guide will walk you through
 > ```
 > git remote set-url origin https://github.com/PyCeas/Pyceas.git
 > ```
+
+## Getting Started
+
+No need to worry if you are new to programming. This guide will walk you through the setup step by step. by the end, you'll have everything ready to run the PyCeas project.
 
 
 1. **Clone the Repository:**
